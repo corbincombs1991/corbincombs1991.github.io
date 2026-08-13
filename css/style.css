@@ -234,8 +234,9 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
   padding: 16px 20px;
   color: var(--paper) !important;
+  text-align: justify;
+  text-align-last: left;
 }
-.about-actions { margin-top: 14px; }
 .about-fact-label {
   color: var(--accent);
   font-weight: 600;
