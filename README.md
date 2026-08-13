@@ -24,7 +24,7 @@ Drop images into `assets/img/` and point the `<img>` tags at them:
 
 | Section | Current placeholder | Suggested file |
 |---|---|---|
-| About portrait | `assets/img/rip-wade-boggs-thumb.jpg` | `assets/img/corbin.jpg` |
+| About portrait | `assets/img/corbin-portrait.jpg` | real photo (LinkedIn pic) |
 | Studio shots (×2) | `assets/img/photo-1.jpg`, `assets/img/photo-2.jpg` | real photos |
 | DIY project cards | CSS gradients | `assets/img/project1.jpg` … |
 
