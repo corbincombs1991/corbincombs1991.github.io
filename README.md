@@ -4,7 +4,7 @@ Personal site for Corbin Combs — data scientist, musician (Brenderlin), produc
 
 ## Live URL
 
-https://corbincombs1991.github.io
+https://corbincombs.com (custom domain via CNAME; also reachable at https://corbincombs1991.github.io)
 
 ## Run locally
 
