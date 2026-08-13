@@ -9,8 +9,8 @@
   --ink-3: #101a13;
   --paper: #eef0f4;
   --muted: #93a298;
-  --accent: #8fa97a;
-  --accent-2: #3fd0a0;
+  --accent: #52ff93;
+  --accent-2: #26e6c4;
   --accent-3: #d4a24e;
   --line: rgba(255, 255, 255, 0.08);
   --radius: 16px;
@@ -87,8 +87,8 @@ img { max-width: 100%; display: block; }
   inset: -12% 0;
   background-image:
     linear-gradient(180deg, rgba(4, 8, 6, 0.55) 0%, rgba(4, 8, 6, 0.72) 55%, rgba(4, 8, 6, 0.92) 100%),
-    radial-gradient(ellipse 70% 55% at 18% 22%, rgba(143, 169, 122, 0.16), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 82% 70%, rgba(63, 208, 160, 0.10), transparent 60%),
+    radial-gradient(ellipse 70% 55% at 18% 22%, rgba(82, 255, 147, 0.16), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 82% 70%, rgba(38, 230, 196, 0.10), transparent 60%),
     url("../assets/img/hero-band.jpg");
   background-size: cover, auto, auto, cover;
   background-position: center;
@@ -99,7 +99,7 @@ img { max-width: 100%; display: block; }
   width: 640px;
   height: 640px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(143, 169, 122, 0.22), transparent 65%);
+  background: radial-gradient(circle, rgba(82, 255, 147, 0.22), transparent 65%);
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -154,9 +154,9 @@ img { max-width: 100%; display: block; }
 .btn-primary {
   background: linear-gradient(120deg, var(--accent), var(--accent-2));
   color: #060a08;
-  box-shadow: 0 8px 30px rgba(143, 169, 122, 0.35);
+  box-shadow: 0 8px 30px rgba(82, 255, 147, 0.35);
 }
-.btn-primary:hover { box-shadow: 0 12px 40px rgba(143, 169, 122, 0.5); }
+.btn-primary:hover { box-shadow: 0 12px 40px rgba(82, 255, 147, 0.5); }
 .btn-ghost {
   border: 1px solid var(--line);
   color: var(--paper);
@@ -229,8 +229,8 @@ img { max-width: 100%; display: block; }
 }
 .about-text p { color: var(--muted); margin-bottom: 18px; }
 .about-fact {
-  background: rgba(143, 169, 122, 0.08);
-  border: 1px solid rgba(143, 169, 122, 0.25);
+  background: rgba(82, 255, 147, 0.08);
+  border: 1px solid rgba(82, 255, 147, 0.25);
   border-radius: var(--radius);
   padding: 16px 20px;
   color: var(--paper) !important;
@@ -317,7 +317,7 @@ img { max-width: 100%; display: block; }
 .link-card:hover {
   border-color: var(--accent);
   transform: translateY(-3px);
-  background: rgba(143, 169, 122, 0.08);
+  background: rgba(82, 255, 147, 0.08);
   text-decoration: none;
 }
 .link-card-icon { color: var(--accent); }
@@ -405,7 +405,7 @@ img { max-width: 100%; display: block; }
   gap: 10px;
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
-.band-card:hover { transform: translateY(-5px); border-color: rgba(143, 169, 122, 0.45); }
+.band-card:hover { transform: translateY(-5px); border-color: rgba(82, 255, 147, 0.45); }
 .band-name {
   font-family: var(--font-head);
   font-size: 1.25rem;
@@ -437,7 +437,7 @@ img { max-width: 100%; display: block; }
 .band-links a:hover {
   border-color: var(--accent-2);
   color: var(--accent-2);
-  background: rgba(63, 208, 160, 0.07);
+  background: rgba(38, 230, 196, 0.07);
   text-decoration: none;
 }
 
@@ -480,7 +480,7 @@ img { max-width: 100%; display: block; }
   border-radius: 50%;
   background: var(--ink);
   border: 3px solid var(--accent);
-  box-shadow: 0 0 0 4px rgba(143, 169, 122, 0.15);
+  box-shadow: 0 0 0 4px rgba(82, 255, 147, 0.15);
 }
 .tl-card {
   background: rgba(255, 255, 255, 0.03);
@@ -489,7 +489,7 @@ img { max-width: 100%; display: block; }
   padding: 22px 26px;
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
-.tl-card:hover { transform: translateX(6px); border-color: rgba(143, 169, 122, 0.4); }
+.tl-card:hover { transform: translateX(6px); border-color: rgba(82, 255, 147, 0.4); }
 .tl-card h3 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 600; }
 .tl-company { color: var(--accent); font-weight: 500; }
 .tl-meta {
@@ -534,7 +534,7 @@ img { max-width: 100%; display: block; }
   background: rgba(255, 255, 255, 0.03);
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
-.diy-card:hover { transform: translateY(-6px); border-color: rgba(143, 169, 122, 0.4); }
+.diy-card:hover { transform: translateY(-6px); border-color: rgba(82, 255, 147, 0.4); }
 .diy-photo { height: 170px; }
 .diy-card h3 { font-family: var(--font-head); font-size: 1rem; padding: 18px 20px 4px; }
 .diy-card p { color: var(--muted); font-size: 0.88rem; padding: 0 20px 22px; }

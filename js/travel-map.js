@@ -29,7 +29,7 @@
   var PIN_RADIUS = 8;
 
   T.places.forEach(function (p) {
-    var color = isIntl(p) ? "#22d3ee" : "#7c5cff";
+    var color = isIntl(p) ? "#26e6c4" : "#52ff93";
     L.circleMarker([p.lat, p.lon], {
       radius: PIN_RADIUS,
       color: color,
@@ -44,9 +44,9 @@
   var home = T.home;
   L.circleMarker([home.lat, home.lon], {
     radius: PIN_RADIUS,
-    color: "#ff5c8a",
+    color: "#d4a24e",
     weight: 1.4,
-    fillColor: "#ff5c8a",
+    fillColor: "#d4a24e",
     fillOpacity: 0.5
   }).addTo(map).bindPopup(popupHTML(home, true));
   bounds.push([home.lat, home.lon]);
