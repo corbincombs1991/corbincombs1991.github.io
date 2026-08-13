@@ -1,6 +1,6 @@
 /* ============================================================
    CORBIN COMBS — travel map (Leaflet + CARTO dark tiles)
-   Data in travel-data.js, generated from the Photos library.
+   Data in travel-data.js.
    ============================================================ */
 (function () {
   "use strict";
@@ -21,7 +21,7 @@
     var yrs = p.first === p.last ? String(p.first) : (p.first + "–" + p.last);
     var extra = home ? " · home base" : "";
     return "<div class='travel-pop'><strong>" + p.name + "</strong><span>" +
-      p.region + extra + " · " + p.n.toLocaleString() + " photos · " + yrs +
+      p.region + extra + " · " + yrs +
       "</span></div>";
   }
 
@@ -59,7 +59,6 @@
       var el = document.getElementById(id);
       if (el) el.textContent = v;
     };
-    set("stat-photos", T.stats.photos.toLocaleString());
     set("stat-countries", T.stats.countries.length);
     set("stat-states", T.stats.usStates.length);
     set("stat-years", T.stats.firstYear + "–" + T.stats.lastYear);
