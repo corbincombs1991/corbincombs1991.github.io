@@ -1,6 +1,6 @@
 # corbincombs1991.github.io
 
-Personal site for Corbin Combs — data scientist, musician (Brenderlin), home studio tinkerer, DIY homeowner. Hosted on GitHub Pages.
+Personal site for Corbin Combs — data scientist, musician (Brenderlin), producer/engineer (Idiotic Oddity, Kantankerous), home studio tinkerer, DIY homeowner. Hosted on GitHub Pages.
 
 ## Live URL
 
@@ -16,7 +16,7 @@ python3 -m http.server 8000
 ## Editing content
 
 All content lives in `index.html` — just edit the text between the tags and commit/push.
-Sections marked with a pencil (✎) and HTML comments like `EDIT:` are placeholders waiting on real info (past bands, DIY projects, studio gear).
+Sections marked with a pencil (✎) and HTML comments like `EDIT:` are placeholders waiting on real info (DIY projects, studio gear details, photos).
 
 ## Adding photos
 
@@ -31,8 +31,8 @@ Drop images into `assets/img/` and point the `<img>` tags at them:
 ## Structure
 
 ```
-index.html      — all content (hero, about, music, studio, career, DIY)
-css/style.css   — dark theme, parallax layers, timeline, responsive
+index.html      — all content (hero, about, music, studio, projects, career, DIY)
+css/style.css   — dark theme, parallax layers, timeline, band cards, responsive
 js/main.js      — parallax, nav state, scroll-reveal
 assets/img/     — photos
 ```
@@ -43,4 +43,4 @@ assets/img/     — photos
 git add -A && git commit -m "update" && git push
 ```
 
-Pages is enabled on the `main` branch via the GitHub UI / Actions-less deployment.
+Pages is enabled on the `main` branch.

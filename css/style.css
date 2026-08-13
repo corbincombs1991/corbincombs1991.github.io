@@ -361,6 +361,72 @@ img { max-width: 100%; display: block; }
   background: rgba(255, 255, 255, 0.02);
 }
 
+/* ---------- PROJECTS / PAST BANDS ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+  margin-bottom: 48px;
+}
+.band-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 24px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.band-card:hover { transform: translateY(-5px); border-color: rgba(124, 92, 255, 0.45); }
+.band-name {
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.band-name::after { content: ""; display: block; width: 34px; height: 3px; border-radius: 2px; margin-top: 8px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.band-role { color: var(--paper); font-size: 0.9rem; }
+.band-role em { color: var(--accent-2); font-style: normal; }
+.band-extra { color: var(--muted); font-size: 0.85rem; }
+.band-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 6px;
+}
+.band-links a {
+  font-family: var(--font-head);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.band-links a:hover {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+  background: rgba(34, 211, 238, 0.07);
+  text-decoration: none;
+}
+
+.live-block {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 28px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.live-block .sub-title { margin: 0 0 12px; }
+.live-text p { color: var(--muted); font-size: 0.95rem; }
+
 /* ---------- TIMELINE ---------- */
 .timeline {
   position: relative;
@@ -477,7 +543,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 860px) {
-  .about-grid, .studio-grid, .music-grid { grid-template-columns: 1fr; }
+  .about-grid, .studio-grid, .music-grid, .live-block { grid-template-columns: 1fr; }
   .nav-links { gap: 16px; font-size: 0.8rem; }
   .section { padding: 80px 5vw; }
   .hero-name { font-size: clamp(2.6rem, 13vw, 4rem); }
