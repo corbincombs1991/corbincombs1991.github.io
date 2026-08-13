@@ -14,11 +14,11 @@
     maxZoom: 19
   }).addTo(map);
 
-  var INT = ["Iceland", "Ireland", "UK (NI)"];
+  var INT = ["Iceland", "Ireland", "UK (NI)", "Ontario"];
   function isIntl(p) { return INT.indexOf(p.region) !== -1; }
 
   function popupHTML(p, home) {
-    var yrs = p.first === p.last ? String(p.first) : (p.first + "–" + p.last);
+    var yrs = home ? "1991–2026" : (p.first === p.last ? String(p.first) : (p.first + "–" + p.last));
     var extra = home ? " · home base" : "";
     return "<div class='travel-pop'><strong>" + p.name + "</strong><span>" +
       p.region + extra + " · " + yrs +
@@ -44,25 +44,14 @@
   var home = T.home;
   L.circleMarker([home.lat, home.lon], {
     radius: PIN_RADIUS,
-    color: "#d4a24e",
+    color: "#ff5c8a",
     weight: 1.4,
-    fillColor: "#d4a24e",
+    fillColor: "#ff5c8a",
     fillOpacity: 0.5
   }).addTo(map).bindPopup(popupHTML(home, true));
   bounds.push([home.lat, home.lon]);
 
   map.fitBounds(L.latLngBounds(bounds).pad(0.15));
-
-  // stats
-  if (T.stats) {
-    var set = function (id, v) {
-      var el = document.getElementById(id);
-      if (el) el.textContent = v;
-    };
-    set("stat-countries", T.stats.countries.length);
-    set("stat-states", T.stats.usStates.length);
-    set("stat-years", T.stats.firstYear + "–" + T.stats.lastYear);
-  }
 
   window.addEventListener("resize", function () { map.invalidateSize(); });
   setTimeout(function () { map.invalidateSize(); }, 400);
