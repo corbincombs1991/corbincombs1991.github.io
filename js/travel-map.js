@@ -14,7 +14,7 @@
     maxZoom: 19
   }).addTo(map);
 
-  var INT = ["Iceland", "Ireland", "UK (NI)", "Ontario"];
+  var INT = ["Iceland", "Ireland", "UK (NI)", "Ontario", "Dominican Republic"];
   function isIntl(p) { return INT.indexOf(p.region) !== -1; }
 
   function popupHTML(p, home) {
