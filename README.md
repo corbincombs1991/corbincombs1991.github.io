@@ -1,6 +1,6 @@
 # corbincombs1991.github.io
 
-Personal site for Corbin Combs — data scientist, musician (Brenderlin), producer/engineer (Idiotic Oddity, Kantankerous), home studio tinkerer, DIY homeowner. Hosted on GitHub Pages.
+Personal site for Corbin Combs — AI scientist, musician (Brenderlin), producer/engineer (Idiotic Oddity, Kantankerous), home studio tinkerer, and DIY homeowner. Hosted on GitHub Pages.
 
 ## Live URL
 
@@ -32,11 +32,18 @@ Drop images into `assets/img/` and point the `<img>` tags at them:
 ## Structure
 
 ```
-index.html      — all content (hero, about, music, studio, projects, travel, career)
+index.html      — all content (hero, about, music, studio, projects, travel, career, contact)
 css/style.css   — dark theme, parallax layers, timeline, band cards, responsive
-js/main.js      — parallax, nav state, scroll-reveal
+js/main.js      — parallax, accessible mobile nav, click-to-load media, scroll-reveal
 js/travel-map.js, travel-data.js — Leaflet travel map
-assets/img/     — photos
+assets/img/     — photos plus generated WebP derivatives
+assets/fonts/   — self-hosted fonts and licenses
+assets/icons/   — favicon and app icons
+robots.txt, sitemap.xml — search-engine discovery
+site.webmanifest — installable-site metadata
+404.html       — custom not-found page
+vendor/leaflet/ — pinned, self-hosted map library
+tools/          — repeatable data, icon, and image-generation helpers
 archive/        — removed sections kept for later (diy-section.html)
 ```
 

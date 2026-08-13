@@ -3,16 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Corbin Combs — Data Scientist · Musician · Builder</title>
-<meta name="description" content="Corbin Combs — Associate AI Scientist at Zylo, producer and engineer, musician in Brenderlin and past bands Stiltz, 123 Not It!, Breezeblocks and Trash Biscuit, home studio tinkerer, and DIY homeowner in Indianapolis.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23060a08'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='50' fill='%23eef0f4'>CC<tspan fill='%2352ff93' dx='-2'>.</tspan></text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<title>Corbin Combs — AI Scientist · Musician · Builder</title>
+<meta name="description" content="Corbin Combs is an Associate AI Scientist at Zylo and an Indianapolis musician, producer, engineer, and builder working across data, automation, and music.">
+<meta name="author" content="Corbin Combs">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#060a08">
+<link rel="canonical" href="https://corbincombs.com/">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Corbin Combs">
+<meta property="og:title" content="Corbin Combs — AI Scientist · Musician · Builder">
+<meta property="og:description" content="Associate AI Scientist, musician, producer, engineer, and builder in Indianapolis.">
+<meta property="og:url" content="https://corbincombs.com/">
+<meta property="og:image" content="https://corbincombs.com/assets/img/hero-band.jpg">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Corbin Combs performing with a guitar on stage">
+<meta property="profile:first_name" content="Corbin">
+<meta property="profile:last_name" content="Combs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Corbin Combs — AI Scientist · Musician · Builder">
+<meta name="twitter:description" content="Associate AI Scientist, musician, producer, engineer, and builder in Indianapolis.">
+<meta name="twitter:image" content="https://corbincombs.com/assets/img/hero-band.jpg">
+<meta name="twitter:image:alt" content="Corbin Combs performing with a guitar on stage">
+
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="assets/img/hero-band.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Corbin Combs",
+  "url": "https://corbincombs.com/",
+  "image": "https://corbincombs.com/assets/img/corbin-portrait.jpg",
+  "jobTitle": "Associate AI Scientist",
+  "homeLocation": {
+    "@type": "Place",
+    "name": "Indianapolis, Indiana"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/corbin-combs-a20870103",
+    "https://github.com/corbincombs1991",
+    "https://www.youtube.com/@corbincombs",
+    "https://www.instagram.com/corbincombs/"
+  ]
+}
+</script>
 </head>
 <body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- ============================================================
      CORBIN COMBS — PERSONAL SITE (GitHub Pages)
@@ -22,9 +68,13 @@
      ============================================================ -->
 
 <!-- NAV -->
-<nav id="nav" class="nav">
-  <a class="nav-brand" href="#top">CC<span class="nav-brand-dot">.</span></a>
-  <div class="nav-links">
+<nav id="nav" class="nav" aria-label="Primary navigation">
+  <a class="nav-brand" href="#top" aria-label="CC. — Corbin Combs home">CC<span class="nav-brand-dot">.</span></a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+    <span class="sr-only">Open navigation</span>
+    <span class="nav-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+  <div id="nav-links" class="nav-links">
     <a href="#about">About</a>
     <a href="#music">Music</a>
     <a href="#studio">Studio</a>
@@ -32,29 +82,31 @@
     <a href="#travel">Travel</a>
     <a href="#decks">Decks</a>
     <a href="#career">Career</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- HERO (parallax) -->
 <header id="top" class="hero">
-  <div class="hero-bg" data-parallax="0.35"></div>
-  <div class="hero-glow" data-parallax="0.55"></div>
+  <div class="hero-bg" data-parallax="0.35" aria-hidden="true"></div>
+  <div class="hero-glow" data-parallax="0.55" aria-hidden="true"></div>
   <div class="hero-content" data-parallax="0.75">
     <p class="hero-eyebrow">Indianapolis, Indiana</p>
     <h1 class="hero-name">Corbin Combs</h1>
     <p class="hero-tagline">
-      Associate AI Scientist by day<span class="accent">·</span>producer, engineer &amp; guitarist by night<span class="accent">·</span>
+      Associate AI Scientist by day <span class="accent">·</span> producer, engineer &amp; guitarist by night <span class="accent">·</span>
       builder of studios, decks, and everything in between.
     </p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#music">▶ Hear the band</a>
       <a class="btn btn-ghost" href="#career">View my career</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
     </div>
-    <div class="hero-scroll">scroll <span class="hero-scroll-line"></span></div>
+    <div class="hero-scroll" aria-hidden="true">scroll <span class="hero-scroll-line"></span></div>
   </div>
 </header>
 
-<main>
+<main id="main-content">
 
 <!-- ABOUT -->
 <section id="about" class="section">
@@ -84,7 +136,10 @@
         </p>
       </div>
       <div class="about-photo">
-        <img src="assets/img/corbin-portrait.jpg" alt="Corbin Combs">
+        <picture>
+          <source srcset="assets/img/corbin-portrait.webp" type="image/webp">
+          <img src="assets/img/corbin-portrait.jpg" alt="Corbin Combs" width="360" height="530" loading="lazy" decoding="async">
+        </picture>
       </div>
     </div>
   </div>
@@ -103,21 +158,29 @@
     <div class="music-grid">
       <!-- Official music video -->
       <div class="music-video">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/kWKYv-gEUXY" title="Brenderlin — RIP Wade Boggs (Official Music Video)"
-                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen loading="lazy"></iframe>
+        <div class="video-wrap embed-facade" data-embed-src="https://www.youtube-nocookie.com/embed/kWKYv-gEUXY?autoplay=1" data-embed-title="Brenderlin — RIP Wade Boggs (Official Music Video)" data-embed-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture">
+          <button class="embed-load embed-load--image" type="button" aria-label="Play Brenderlin — RIP Wade Boggs official music video">
+            <picture>
+              <source srcset="assets/img/rip-wade-boggs-thumb-640.webp" type="image/webp">
+              <img src="assets/img/rip-wade-boggs-thumb.jpg" alt="" width="640" height="360" loading="lazy" decoding="async">
+            </picture>
+            <span class="embed-play" aria-hidden="true">▶</span>
+            <span class="embed-label">Play video</span>
+          </button>
+          <noscript><a href="https://www.youtube.com/watch?v=kWKYv-gEUXY">Watch RIP Wade Boggs on YouTube</a></noscript>
         </div>
         <p class="music-video-caption">RIP Wade Boggs — official music video</p>
       </div>
 
       <!-- Spotify embed -->
       <div class="music-spotify">
-        <div class="spotify-wrap">
-          <iframe style="border-radius:12px"
-                  src="https://open.spotify.com/embed/artist/5zF7RMFmLzPszrRjkSuzUt?utm_source=generator&theme=0"
-                  width="100%" height="352" frameBorder="0" allowfullscreen="" loading="lazy"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <div class="spotify-wrap embed-facade embed-facade--spotify" data-embed-src="https://open.spotify.com/embed/artist/5zF7RMFmLzPszrRjkSuzUt?utm_source=generator&amp;theme=0" data-embed-title="Brenderlin on Spotify" data-embed-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" data-embed-height="352">
+          <button class="embed-load embed-load--spotify" type="button" aria-label="Load the Brenderlin Spotify player">
+            <span class="spotify-mark" aria-hidden="true">♪</span>
+            <span><strong>Brenderlin on Spotify</strong><small>Load the music player</small></span>
+            <span class="embed-play" aria-hidden="true">▶</span>
+          </button>
+          <noscript><a href="https://open.spotify.com/artist/5zF7RMFmLzPszrRjkSuzUt">Listen to Brenderlin on Spotify</a></noscript>
         </div>
         <p class="music-video-caption">Stream Brenderlin on Spotify</p>
       </div>
@@ -178,8 +241,14 @@
       </div>
       <!-- PHOTO: add more studio shots to assets/img/ and reference them here -->
       <div class="studio-photo">
-        <img src="assets/img/photo-1.jpg" alt="Billiam Records studio">
-        <img src="assets/img/photo-2.jpg" alt="Billiam Records studio">
+        <picture>
+          <source srcset="assets/img/photo-1.webp" type="image/webp">
+          <img src="assets/img/photo-1.jpg" alt="Billiam Records control room with guitars, desk, monitors, and acoustic treatment" width="480" height="360" loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source srcset="assets/img/photo-2.webp" type="image/webp">
+          <img src="assets/img/photo-2.jpg" alt="Billiam Records live room set up with drums, microphones, and acoustic panels" width="360" height="480" loading="lazy" decoding="async">
+        </picture>
       </div>
     </div>
   </div>
@@ -295,10 +364,12 @@
     <!-- Live video -->
     <div class="live-block">
       <div class="live-video">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/Xw7cBMWc6LY" title="Stiltz — Family History (Live at the Hoosier Dome)"
-                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen loading="lazy"></iframe>
+        <div class="video-wrap embed-facade embed-facade--text" data-embed-src="https://www.youtube-nocookie.com/embed/Xw7cBMWc6LY?autoplay=1" data-embed-title="Stiltz — Family History (Live at the Hoosier Dome)" data-embed-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture">
+          <button class="embed-load" type="button" aria-label="Play Stiltz — Family History live at the Hoosier Dome">
+            <span class="embed-play" aria-hidden="true">▶</span>
+            <span><strong>Stiltz — Family History</strong><small>Live at the Hoosier Dome</small></span>
+          </button>
+          <noscript><a href="https://www.youtube.com/watch?v=Xw7cBMWc6LY">Watch Stiltz live on YouTube</a></noscript>
         </div>
       </div>
       <div class="live-text">
@@ -317,13 +388,15 @@
     <p class="section-lead">
       Every dot is a place I've been.
     </p>
-    <div id="travel-map" aria-label="Map of everywhere I've been"></div>
+    <div id="travel-map" role="region" aria-label="Interactive map of everywhere I've been" aria-describedby="travel-instructions" aria-busy="true">
+      <span class="map-loading">Interactive map loading…</span>
+    </div>
     <div class="travel-legend">
       <span><span class="dot" style="background:#ff5c8a"></span>Home base — Indianapolis</span>
       <span><span class="dot" style="background:#52ff93"></span>United States</span>
       <span><span class="dot" style="background:#26e6c4"></span>International</span>
     </div>
-    <p class="travel-note">Scroll to zoom · click a dot for details</p>
+    <p id="travel-instructions" class="travel-note">Use the map controls or pinch to zoom · select a dot for details</p>
   </div>
 </section>
 
@@ -462,10 +535,10 @@
     </p>
     <div class="decks-grid">
       <a class="deck-card" href="https://archidekt.com/decks/14844919" target="_blank" rel="noopener">
-        <div class="deck-photo" style="background-image:url('assets/img/decks/14844919.jpg')"></div>
+        <img class="deck-photo" src="assets/img/decks/14844919.jpg" alt="" width="250" height="183" loading="lazy" decoding="async">
         <div class="deck-body">
           <h3>Ultra-Budget Salt</h3>
-          <p class="deck-commander">Braid's, Conjurer Adept</p>
+          <p class="deck-commander">Braids, Conjurer Adept</p>
           <div class="deck-meta">
             <span class="pips"><span class="pip pip-u">U</span></span>
             <span class="deck-format">Commander</span>
@@ -473,7 +546,7 @@
         </div>
       </a>
       <a class="deck-card" href="https://archidekt.com/decks/14844710" target="_blank" rel="noopener">
-        <div class="deck-photo" style="background-image:url('assets/img/decks/14844710.jpg')"></div>
+        <img class="deck-photo" src="assets/img/decks/14844710.jpg" alt="" width="250" height="183" loading="lazy" decoding="async">
         <div class="deck-body">
           <h3>Deadpool</h3>
           <div class="deck-meta">
@@ -483,7 +556,7 @@
         </div>
       </a>
       <a class="deck-card" href="https://archidekt.com/decks/14844381" target="_blank" rel="noopener">
-        <div class="deck-photo" style="background-image:url('assets/img/decks/14844381.jpg')"></div>
+        <img class="deck-photo" src="assets/img/decks/14844381.jpg" alt="" width="250" height="183" loading="lazy" decoding="async">
         <div class="deck-body">
           <h3>Jasmine</h3>
           <div class="deck-meta">
@@ -493,7 +566,7 @@
         </div>
       </a>
       <a class="deck-card" href="https://archidekt.com/decks/14844132" target="_blank" rel="noopener">
-        <div class="deck-photo" style="background-image:url('assets/img/decks/14844132.jpg')"></div>
+        <img class="deck-photo" src="assets/img/decks/14844132.jpg" alt="" width="250" height="183" loading="lazy" decoding="async">
         <div class="deck-body">
           <h3>Pako</h3>
           <div class="deck-meta">
@@ -503,7 +576,7 @@
         </div>
       </a>
       <a class="deck-card" href="https://archidekt.com/decks/14843764" target="_blank" rel="noopener">
-        <div class="deck-photo" style="background-image:url('assets/img/decks/14843764.jpg')"></div>
+        <img class="deck-photo" src="assets/img/decks/14843764.jpg" alt="" width="250" height="183" loading="lazy" decoding="async">
         <div class="deck-body">
           <h3>Arabella</h3>
           <div class="deck-meta">
@@ -524,9 +597,11 @@
 </main>
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer id="contact" class="footer">
   <div class="container">
-    <p class="footer-name">Corbin Combs</p>
+    <h2 class="footer-name">Let’s make something interesting.</h2>
+    <p class="footer-contact">AI, data, music, recording, or a project somewhere in between—get in touch.</p>
+    <a class="btn btn-primary footer-cta" href="https://www.linkedin.com/in/corbin-combs-a20870103" target="_blank" rel="noopener">Get in touch on LinkedIn <span aria-hidden="true">↗</span></a>
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/corbin-combs-a20870103" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/corbincombs1991" target="_blank" rel="noopener">GitHub</a>
@@ -540,9 +615,6 @@
   </div>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="js/travel-data.js"></script>
-<script src="js/travel-map.js"></script>
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
