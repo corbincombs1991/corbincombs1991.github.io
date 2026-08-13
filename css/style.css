@@ -344,6 +344,11 @@ img { max-width: 100%; display: block; }
 }
 .studio-list strong { color: var(--paper); }
 .studio-links { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+.studio-photo {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
 .studio-photo img {
   border-radius: var(--radius);
   border: 1px solid var(--line);
@@ -351,6 +356,7 @@ img { max-width: 100%; display: block; }
   transform: rotate(-1.5deg);
   transition: transform 0.3s ease;
 }
+.studio-photo img + img { transform: rotate(1.5deg); }
 .studio-photo img:hover { transform: rotate(0deg) scale(1.01); }
 
 .past-bands {
