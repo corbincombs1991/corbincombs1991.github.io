@@ -295,12 +295,15 @@ img { max-width: 100%; display: block; }
 .track-src { color: var(--muted); font-size: 0.8rem; white-space: nowrap; }
 
 .link-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
   margin-top: 24px;
 }
 .link-card {
+  flex: 1 1 150px;
+  max-width: 200px;
   display: flex;
   align-items: center;
   gap: 10px;
