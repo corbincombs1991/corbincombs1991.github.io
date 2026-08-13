@@ -558,6 +558,88 @@ img { max-width: 100%; display: block; }
 .footer-links a:hover { color: var(--accent-2); }
 .footer-note { color: var(--muted); font-size: 0.76rem; opacity: 0.7; }
 
+/* ---------- TRAVEL MAP ---------- */
+.travel-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 26px 0 18px;
+}
+.travel-stat {
+  flex: 1 1 140px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 14px 16px;
+}
+.travel-stat b {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--paper);
+  line-height: 1.2;
+}
+.travel-stat span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+#travel-map {
+  height: 520px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: #0d1017;
+  z-index: 1;
+}
+.travel-legend {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.travel-legend .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 7px;
+  vertical-align: -1px;
+}
+.travel-note {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-top: 10px;
+  opacity: 0.75;
+}
+
+/* ---------- LEAFLET DARK OVERRIDES ---------- */
+.leaflet-container { font-family: var(--font-body); background: #0d1017; }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: var(--ink-3);
+  color: var(--paper);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+.leaflet-popup-content { margin: 12px 14px; line-height: 1.5; }
+.travel-pop strong { display: block; font-family: var(--font-head); color: var(--paper); }
+.travel-pop span { color: var(--muted); font-size: 0.82rem; }
+.leaflet-container a.leaflet-popup-close-button { color: var(--muted); }
+.leaflet-bar a {
+  background: var(--ink-3);
+  color: var(--paper);
+  border-bottom-color: var(--line);
+}
+.leaflet-bar a:hover { background: var(--ink-2); color: var(--paper); }
+.leaflet-control-attribution {
+  background: rgba(11, 13, 18, 0.7) !important;
+  color: var(--muted) !important;
+  font-size: 10px;
+}
+.leaflet-control-attribution a { color: var(--accent-2) !important; }
+
 /* ---------- REVEAL ON SCROLL ---------- */
 .reveal {
   opacity: 0;
@@ -572,6 +654,7 @@ img { max-width: 100%; display: block; }
   .nav-links { gap: 16px; font-size: 0.8rem; }
   .section { padding: 80px 5vw; }
   .hero-name { font-size: clamp(2.6rem, 13vw, 4rem); }
+  #travel-map { height: 400px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

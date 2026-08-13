@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -29,6 +30,7 @@
     <a href="#studio">Studio</a>
     <a href="#projects">Projects</a>
     <a href="#career">Career</a>
+    <a href="#travel">Travel</a>
     <a href="#diy">DIY</a>
   </div>
 </nav>
@@ -431,6 +433,31 @@
   </div>
 </section>
 
+<!-- TRAVEL MAP -->
+<section id="travel" class="section">
+  <div class="container">
+    <p class="kicker">Travel</p>
+    <h2 class="section-title">Where the camera <span class="accent">went</span>.</h2>
+    <p class="section-lead">
+      Every dot is a real place I've shot from — pulled straight from the geotagged
+      macOS Photos library, sized by how many photos I took there.
+    </p>
+    <div class="travel-stats">
+      <div class="travel-stat"><b id="stat-photos">—</b><span>Travel photos</span></div>
+      <div class="travel-stat"><b id="stat-countries">—</b><span>Countries</span></div>
+      <div class="travel-stat"><b id="stat-states">—</b><span>US states</span></div>
+      <div class="travel-stat"><b id="stat-years">—</b><span>Years shooting</span></div>
+    </div>
+    <div id="travel-map" aria-label="Map of everywhere photographed"></div>
+    <div class="travel-legend">
+      <span><span class="dot" style="background:#ff5c8a"></span>Home base — Indianapolis</span>
+      <span><span class="dot" style="background:#7c5cff"></span>United States</span>
+      <span><span class="dot" style="background:#22d3ee"></span>International</span>
+    </div>
+    <p class="travel-note">Dots sized by photo count · click a dot for details · data from the Photos library</p>
+  </div>
+</section>
+
 <!-- DIY -->
 <section id="diy" class="section section-dark">
   <div class="container">
@@ -485,6 +512,9 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/travel-data.js"></script>
+<script src="js/travel-map.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
