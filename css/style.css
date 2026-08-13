@@ -390,12 +390,15 @@ img { max-width: 100%; display: block; }
 
 /* ---------- PROJECTS / PAST BANDS ---------- */
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 18px;
   margin-bottom: 48px;
 }
 .band-card {
+  flex: 1 1 300px;
+  max-width: 420px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.03);
