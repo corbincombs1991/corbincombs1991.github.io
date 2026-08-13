@@ -660,6 +660,8 @@ img { max-width: 100%; display: block; }
   .section { padding: 80px 5vw; }
   .hero-name { font-size: clamp(2.6rem, 13vw, 4rem); }
   #travel-map { height: 400px; }
+  /* hero photo: keep the guitarist/singer (right side of the frame) centered */
+  .hero-bg { background-position: center, center, center, 72% center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
