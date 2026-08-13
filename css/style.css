@@ -235,6 +235,7 @@ img { max-width: 100%; display: block; }
   padding: 16px 20px;
   color: var(--paper) !important;
 }
+.about-actions { margin-top: 14px; }
 .about-fact-label {
   color: var(--accent);
   font-weight: 600;
