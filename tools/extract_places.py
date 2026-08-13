@@ -123,7 +123,8 @@ for c in clusters:
     lat = sum(c['lats']) / n
     lon = sum(c['lons']) / n
     years = sorted(set(c['years']))
-    strings = [w for w, cnt in c['strings'].most_common(12)]
+    # deterministic order: count desc, then name asc (set iteration is hash-randomized)
+    strings = [w for w, cnt in sorted(c['strings'].items(), key=lambda kv: (-kv[1], kv[0]))[:12]]
     labels = label_from_strings(strings)
     places.append({
         'lat': round(lat, 5), 'lon': round(lon, 5),
