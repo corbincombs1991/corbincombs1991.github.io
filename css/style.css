@@ -302,7 +302,7 @@ img { max-width: 100%; display: block; }
   margin-top: 24px;
 }
 .link-card {
-  flex: 1 1 150px;
+  flex: 0 1 150px;
   max-width: 200px;
   display: flex;
   align-items: center;
