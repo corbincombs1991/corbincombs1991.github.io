@@ -343,6 +343,25 @@ img { max-width: 100%; display: block; }
   color: var(--accent);
 }
 .studio-list strong { color: var(--paper); }
+.gear { display: flex; flex-direction: column; gap: 9px; margin: 22px 0; }
+.gear-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.gear-cat {
+  font-family: var(--font-head);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  flex: 0 0 84px;
+}
+.gear-item {
+  font-size: 0.84rem;
+  color: var(--paper);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.gear-item:hover { border-color: var(--accent); }
 .studio-links { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
 .studio-photo {
   display: flex;

@@ -16,7 +16,7 @@ python3 -m http.server 8000
 ## Editing content
 
 All content lives in `index.html` — just edit the text between the tags and commit/push.
-Sections marked with a pencil (✎) and HTML comments like `EDIT:` are placeholders waiting on real info (DIY projects, studio gear details, photos).
+Sections marked with a pencil (✎) and HTML comments like `EDIT:` are placeholders waiting on real info (DIY house projects, your portrait photo).
 
 ## Adding photos
 
