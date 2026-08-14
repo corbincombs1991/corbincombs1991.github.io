@@ -261,14 +261,14 @@ function renderChart(items) {
     svg += `<line class="grid-line${v === 0 ? " zero-line" : ""}" x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}"/>`;
     svg += `<text x="${PL - 8}" y="${y(v) + fs / 3}" text-anchor="end" font-size="${fs}">${label}</text>`;
   }
-  // month labels on x-axis
+  // month labels on x-axis (e.g. "Jun '26" — unambiguous year, not a day)
   const seenMonths = {};
   chrono.forEach((c, i) => {
     const d = new Date(c.date);
     const key = `${d.getFullYear()}-${d.getMonth()}`;
     if (!seenMonths[key]) {
       seenMonths[key] = true;
-      svg += `<text x="${x(i)}" y="${H - 10}" text-anchor="middle" font-size="${fs}">${MONTHS[d.getMonth()]} ${String(d.getFullYear()).slice(2)}</text>`;
+      svg += `<text x="${x(i)}" y="${H - 10}" text-anchor="middle" font-size="${fs}">${MONTHS[d.getMonth()]} '${String(d.getFullYear()).slice(2)}</text>`;
     }
   });
 
