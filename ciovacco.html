@@ -18,7 +18,9 @@
     --muted: #93a298;
     --accent: #52ff93;
     --bull: #52ff93;
+    --bull-soft: #9fe8bd;
     --bear: #ff6b6b;
+    --bear-soft: #f0a28e;
     --neut: #ffd166;
     --line: rgba(255, 255, 255, 0.08);
     --radius: 16px;
@@ -60,20 +62,6 @@
   .lead { color: var(--muted); max-width: 640px; margin-bottom: 24px; }
   .lead a { color: var(--accent); }
 
-  /* Sentiment strip */
-  .strip {
-    display: flex; flex-wrap: wrap; gap: 16px;
-    background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 18px 20px; margin-bottom: 36px;
-  }
-  .strip-item { flex: 1; min-width: 120px; }
-  .strip-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 4px; }
-  .strip-value { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; }
-  .strip-value.bull { color: var(--bull); }
-  .strip-value.bear { color: var(--bear); }
-  .strip-value.neut { color: var(--neut); }
-  .strip-value.total { color: var(--paper); }
-
   /* Cards */
   .card {
     background: var(--ink-2);
@@ -98,13 +86,16 @@
     border: 1px solid;
   }
   .badge.bull { color: var(--bull); border-color: rgba(82,255,147,0.4); background: rgba(82,255,147,0.08); }
+  .badge.very-bull { color: var(--bull); border-color: rgba(82,255,147,0.6); background: rgba(82,255,147,0.18); }
   .badge.bear { color: var(--bear); border-color: rgba(255,107,107,0.4); background: rgba(255,107,107,0.08); }
+  .badge.very-bear { color: var(--bear); border-color: rgba(255,107,107,0.6); background: rgba(255,107,107,0.18); }
   .badge.neut { color: var(--neut); border-color: rgba(255,209,102,0.4); background: rgba(255,209,102,0.08); }
   .card-title { font-family: var(--font-head); font-weight: 600; font-size: 1.05rem; line-height: 1.35; }
   .card-title a { color: var(--paper); text-decoration: none; }
   .card-title a:hover { color: var(--accent); }
   .card-meta { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
-  .card-reason { color: var(--muted); font-size: 0.9rem; margin-top: 8px; }
+  .card-reason { color: var(--muted); font-size: 0.9rem; margin-top: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .card-body .card-reason-full { color: var(--paper); font-family: var(--font-head); font-size: 0.95rem; font-weight: 500; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
   .expand-hint { margin-left: auto; flex-shrink: 0; color: var(--muted); font-size: 0.85rem; transition: transform 0.2s; }
   details[open] .expand-hint { transform: rotate(180deg); color: var(--accent); }
   .card-body {
@@ -136,8 +127,10 @@
   #sentiment-chart .zero-line { stroke: rgba(255,255,255,0.18); }
   #sentiment-chart .trend { stroke: var(--accent); stroke-width: 2.5; fill: none; stroke-linejoin: round; stroke-linecap: round; }
   #sentiment-chart .dot { stroke: var(--ink); stroke-width: 1.5; }
-  #sentiment-chart .dot.bull { fill: var(--bull); }
-  #sentiment-chart .dot.bear { fill: var(--bear); }
+  #sentiment-chart .dot.bull { fill: var(--bull-soft); }
+  #sentiment-chart .dot.very-bull { fill: var(--bull); }
+  #sentiment-chart .dot.bear { fill: var(--bear-soft); }
+  #sentiment-chart .dot.very-bear { fill: var(--bear); }
   #sentiment-chart .dot.neut { fill: var(--neut); }
   .chart-legend { display: flex; gap: 18px; margin-top: 12px; color: var(--muted); font-size: 0.78rem; flex-wrap: wrap; }
   .chart-legend span { display: inline-flex; align-items: center; gap: 6px; }
@@ -164,21 +157,16 @@
     </p>
   </header>
 
-  <div id="strip" class="strip" hidden>
-    <div class="strip-item"><div class="strip-label">Total</div><div class="strip-value total" id="stat-total">—</div></div>
-    <div class="strip-item"><div class="strip-label">Bullish</div><div class="strip-value bull" id="stat-bull">—</div></div>
-    <div class="strip-item"><div class="strip-label">Neutral</div><div class="strip-value neut" id="stat-neut">—</div></div>
-    <div class="strip-item"><div class="strip-label">Bearish</div><div class="strip-value bear" id="stat-bear">—</div></div>
-  </div>
-
   <div id="chart" class="chart-wrap" hidden>
     <h2>Sentiment <span class="accent">over time</span></h2>
     <div class="sub">Weekly market stance: bullish above the line, bearish below, neutral on it. The green line is a 4-week rolling average.</div>
     <svg id="sentiment-chart" viewBox="0 0 800 240" role="img" aria-label="Sentiment over time chart"></svg>
     <div class="chart-legend">
-      <span><i class="sw" style="background:var(--bull)"></i> Bullish</span>
+      <span><i class="sw" style="background:var(--bull)"></i> Very bullish</span>
+      <span><i class="sw" style="background:var(--bull-soft)"></i> Bullish</span>
       <span><i class="sw" style="background:var(--neut)"></i> Neutral</span>
-      <span><i class="sw" style="background:var(--bear)"></i> Bearish</span>
+      <span><i class="sw" style="background:var(--bear-soft)"></i> Bearish</span>
+      <span><i class="sw" style="background:var(--bear)"></i> Very bearish</span>
       <span><i class="sw" style="background:var(--accent);border-radius:2px;height:3px"></i> 4-week rolling average</span>
     </div>
   </div>
@@ -203,7 +191,29 @@ function fmtDate(iso) {
 
 function score(s) {
   const v = (s || "").toUpperCase();
-  return v === "BULLISH" ? 1 : v === "BEARISH" ? -1 : 0;
+  if (v === "VERY BULLISH") return 1;
+  if (v === "BULLISH") return 0.5;
+  if (v === "VERY BEARISH") return -1;
+  if (v === "BEARISH") return -0.5;
+  return 0;
+}
+
+function sentimentClass(s) {
+  const v = (s || "").toUpperCase();
+  if (v === "VERY BULLISH") return "very-bull";
+  if (v === "BULLISH") return "bull";
+  if (v === "VERY BEARISH") return "very-bear";
+  if (v === "BEARISH") return "bear";
+  return "neut";
+}
+
+function sentimentColor(s) {
+  const v = (s || "").toUpperCase();
+  if (v === "VERY BULLISH") return "var(--bull)";
+  if (v === "BULLISH") return "var(--bull-soft)";
+  if (v === "VERY BEARISH") return "var(--bear)";
+  if (v === "BEARISH") return "var(--bear-soft)";
+  return "var(--neut)";
 }
 
 function renderChart(items) {
@@ -233,10 +243,10 @@ function renderChart(items) {
   }
 
   let svg = "";
-  // grid lines at +1, 0, -1
-  for (const v of [1, 0, -1]) {
+  // grid lines at +1, +0.5, 0, -0.5, -1
+  const levels = [[1, "Very bullish"], [0.5, "Bullish"], [0, "Neutral"], [-0.5, "Bearish"], [-1, "Very bearish"]];
+  for (const [v, label] of levels) {
     svg += `<line class="grid-line${v === 0 ? " zero-line" : ""}" x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}"/>`;
-    const label = v === 1 ? "Bullish" : v === -1 ? "Bearish" : "Neutral";
     svg += `<text x="${PL - 6}" y="${y(v) + 4}" text-anchor="end">${label}</text>`;
   }
   // month labels on x-axis
@@ -254,10 +264,9 @@ function renderChart(items) {
   const barW = Math.max(6, Math.min(26, (iw / n) * 0.55));
   chrono.forEach((c, i) => {
     const s = score(c.sentiment);
-    const cls = s === 1 ? "bull" : s === -1 ? "bear" : "neut";
     const y0 = y(0), y1 = y(s);
     const cx = x(i);
-    svg += `<rect class="bar ${cls}" x="${cx - barW / 2}" y="${Math.min(y0, y1)}" width="${barW}" height="${Math.max(3, Math.abs(y1 - y0))}" rx="3" style="fill:${cls === 'bull' ? 'var(--bull)' : cls === 'bear' ? 'var(--bear)' : 'var(--neut)'};opacity:0.35">
+    svg += `<rect class="bar" x="${cx - barW / 2}" y="${Math.min(y0, y1)}" width="${barW}" height="${Math.max(3, Math.abs(y1 - y0))}" rx="3" style="fill:${sentimentColor(c.sentiment)};opacity:0.35">
       <title>${fmtDate(c.date)} — ${esc(c.title)}: ${(c.sentiment || "NEUTRAL").toUpperCase()}</title></rect>`;
   });
 
@@ -268,8 +277,7 @@ function renderChart(items) {
   // dots
   chrono.forEach((c, i) => {
     const s = score(c.sentiment);
-    const cls = s === 1 ? "bull" : s === -1 ? "bear" : "neut";
-    svg += `<circle class="dot ${cls}" cx="${x(i).toFixed(1)}" cy="${y(s).toFixed(1)}" r="5">
+    svg += `<circle class="dot ${sentimentClass(c.sentiment)}" cx="${x(i).toFixed(1)}" cy="${y(s).toFixed(1)}" r="5">
       <title>${fmtDate(c.date)} — ${esc(c.title)}: ${(c.sentiment || "NEUTRAL").toUpperCase()}</title></circle>`;
   });
 
@@ -299,23 +307,16 @@ async function load() {
     listEl.innerHTML = `<div class="empty">No summaries yet — the pipeline will add the first one after the next video drops.</div>`;
     return;
   }
-  const bull = items.filter(i => i.sentiment === "BULLISH").length;
-  const neut = items.filter(i => i.sentiment === "NEUTRAL").length;
-  const bear = items.filter(i => i.sentiment === "BEARISH").length;
-  document.getElementById("stat-total").textContent = items.length;
-  document.getElementById("stat-bull").textContent = bull;
-  document.getElementById("stat-neut").textContent = neut;
-  document.getElementById("stat-bear").textContent = bear;
-  document.getElementById("strip").hidden = false;
   renderChart(items);
 
-  listEl.innerHTML = items.map((item, i) => {
+  listEl.innerHTML = items.map((item) => {
     const s = (item.sentiment || "NEUTRAL").toUpperCase();
-    const cls = s === "BULLISH" ? "bull" : s === "BEARISH" ? "bear" : "neut";
+    const cls = sentimentClass(s);
     const reason = item.reason ? `<div class="card-reason">${esc(item.reason)}</div>` : "";
+    const reasonFull = item.reason ? `<div class="card-reason-full">${esc(item.reason)}</div>` : "";
     return `
     <div class="card">
-      <details ${i === 0 ? "open" : ""}>
+      <details>
         <summary>
           <div class="card-head">
             <span class="badge ${cls}">${s}</span>
@@ -327,7 +328,7 @@ async function load() {
             <span class="expand-hint">▾</span>
           </div>
         </summary>
-        <div class="card-body">${esc(item.summary)}</div>
+        <div class="card-body">${reasonFull}${esc(item.summary)}</div>
       </details>
     </div>`;
   }).join("");
