@@ -119,6 +119,29 @@
   .foot { margin-top: 48px; text-align: center; color: var(--muted); font-size: 0.8rem; }
   .foot a { color: var(--muted); }
   .foot a:hover { color: var(--accent); }
+
+  /* Sentiment chart */
+  .chart-wrap {
+    background: var(--ink-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 36px;
+  }
+  .chart-wrap h2 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
+  .chart-wrap .sub { color: var(--muted); font-size: 0.82rem; margin-bottom: 14px; }
+  #sentiment-chart { width: 100%; height: auto; display: block; }
+  #sentiment-chart text { font-family: var(--font-body); fill: var(--muted); font-size: 11px; }
+  #sentiment-chart .grid-line { stroke: var(--line); stroke-dasharray: 3 4; }
+  #sentiment-chart .zero-line { stroke: rgba(255,255,255,0.18); }
+  #sentiment-chart .trend { stroke: var(--accent); stroke-width: 2.5; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+  #sentiment-chart .dot { stroke: var(--ink); stroke-width: 1.5; }
+  #sentiment-chart .dot.bull { fill: var(--bull); }
+  #sentiment-chart .dot.bear { fill: var(--bear); }
+  #sentiment-chart .dot.neut { fill: var(--neut); }
+  .chart-legend { display: flex; gap: 18px; margin-top: 12px; color: var(--muted); font-size: 0.78rem; flex-wrap: wrap; }
+  .chart-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .chart-legend .sw { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
 </style>
 </head>
 <body>
@@ -148,6 +171,18 @@
     <div class="strip-item"><div class="strip-label">Bearish</div><div class="strip-value bear" id="stat-bear">—</div></div>
   </div>
 
+  <div id="chart" class="chart-wrap" hidden>
+    <h2>Sentiment <span class="accent">over time</span></h2>
+    <div class="sub">Weekly market stance: bullish above the line, bearish below, neutral on it. The green line is a 4-week rolling average.</div>
+    <svg id="sentiment-chart" viewBox="0 0 800 240" role="img" aria-label="Sentiment over time chart"></svg>
+    <div class="chart-legend">
+      <span><i class="sw" style="background:var(--bull)"></i> Bullish</span>
+      <span><i class="sw" style="background:var(--neut)"></i> Neutral</span>
+      <span><i class="sw" style="background:var(--bear)"></i> Bearish</span>
+      <span><i class="sw" style="background:var(--accent);border-radius:2px;height:3px"></i> 4-week rolling average</span>
+    </div>
+  </div>
+
   <div id="list"></div>
 
   <div class="foot">
@@ -164,6 +199,82 @@ function fmtDate(iso) {
   const d = new Date(iso);
   if (isNaN(d)) return iso;
   return `${MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+}
+
+function score(s) {
+  const v = (s || "").toUpperCase();
+  return v === "BULLISH" ? 1 : v === "BEARISH" ? -1 : 0;
+}
+
+function renderChart(items) {
+  const el = document.getElementById("sentiment-chart");
+  const wrap = document.getElementById("chart");
+  const W = 800, H = 240, PL = 48, PR = 16, PT = 14, PB = 34;
+  const iw = W - PL - PR, ih = H - PT - PB;
+
+  if (items.length < 2) {
+    el.innerHTML = `<text x="${W/2}" y="${H/2}" text-anchor="middle">Add more weekly videos to see the trend.</text>`;
+    wrap.hidden = false;
+    return;
+  }
+
+  // chronological order (oldest -> newest)
+  const chrono = items.slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+  const n = chrono.length;
+  const x = i => PL + (n === 1 ? iw / 2 : (i / (n - 1)) * iw);
+  const y = v => PT + ih / 2 - (v / 1.2) * (ih / 2); // -1..1 maps to bottom..top with headroom
+
+  // rolling average (window 4)
+  const avg = [];
+  for (let i = 0; i < n; i++) {
+    const start = Math.max(0, i - 3);
+    const window = chrono.slice(start, i + 1).map(c => score(c.sentiment));
+    avg.push(window.reduce((a, b) => a + b, 0) / window.length);
+  }
+
+  let svg = "";
+  // grid lines at +1, 0, -1
+  for (const v of [1, 0, -1]) {
+    svg += `<line class="grid-line${v === 0 ? " zero-line" : ""}" x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}"/>`;
+    const label = v === 1 ? "Bullish" : v === -1 ? "Bearish" : "Neutral";
+    svg += `<text x="${PL - 6}" y="${y(v) + 4}" text-anchor="end">${label}</text>`;
+  }
+  // month labels on x-axis
+  const seenMonths = {};
+  chrono.forEach((c, i) => {
+    const d = new Date(c.date);
+    const key = `${d.getFullYear()}-${d.getMonth()}`;
+    if (!seenMonths[key]) {
+      seenMonths[key] = true;
+      svg += `<text x="${x(i)}" y="${H - 10}" text-anchor="middle">${MONTHS[d.getMonth()]} ${String(d.getFullYear()).slice(2)}</text>`;
+    }
+  });
+
+  // bars (colored, width ~ min gap)
+  const barW = Math.max(6, Math.min(26, (iw / n) * 0.55));
+  chrono.forEach((c, i) => {
+    const s = score(c.sentiment);
+    const cls = s === 1 ? "bull" : s === -1 ? "bear" : "neut";
+    const y0 = y(0), y1 = y(s);
+    const cx = x(i);
+    svg += `<rect class="bar ${cls}" x="${cx - barW / 2}" y="${Math.min(y0, y1)}" width="${barW}" height="${Math.max(3, Math.abs(y1 - y0))}" rx="3" style="fill:${cls === 'bull' ? 'var(--bull)' : cls === 'bear' ? 'var(--bear)' : 'var(--neut)'};opacity:0.35">
+      <title>${fmtDate(c.date)} — ${esc(c.title)}: ${(c.sentiment || "NEUTRAL").toUpperCase()}</title></rect>`;
+  });
+
+  // trend line
+  let trend = avg.map((a, i) => `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(a).toFixed(1)}`).join(" ");
+  svg += `<path class="trend" d="${trend}"/>`;
+
+  // dots
+  chrono.forEach((c, i) => {
+    const s = score(c.sentiment);
+    const cls = s === 1 ? "bull" : s === -1 ? "bear" : "neut";
+    svg += `<circle class="dot ${cls}" cx="${x(i).toFixed(1)}" cy="${y(s).toFixed(1)}" r="5">
+      <title>${fmtDate(c.date)} — ${esc(c.title)}: ${(c.sentiment || "NEUTRAL").toUpperCase()}</title></circle>`;
+  });
+
+  el.innerHTML = svg;
+  wrap.hidden = false;
 }
 
 function esc(s) {
@@ -196,6 +307,7 @@ async function load() {
   document.getElementById("stat-neut").textContent = neut;
   document.getElementById("stat-bear").textContent = bear;
   document.getElementById("strip").hidden = false;
+  renderChart(items);
 
   listEl.innerHTML = items.map((item, i) => {
     const s = (item.sentiment || "NEUTRAL").toUpperCase();
