@@ -75,11 +75,12 @@
   details > summary { list-style: none; cursor: pointer; }
   details > summary::-webkit-details-marker { display: none; }
   .card-head {
-    display: flex; align-items: flex-start; gap: 14px;
+    display: flex; align-items: flex-start; gap: 12px;
     padding: 18px 20px;
   }
+  .card-main { flex: 1; min-width: 0; }
   .badge {
-    flex-shrink: 0; margin-top: 3px;
+    display: inline-block; margin-top: 10px;
     font-family: var(--font-head); font-size: 0.68rem; font-weight: 600;
     letter-spacing: 0.08em; text-transform: uppercase;
     padding: 4px 10px; border-radius: 999px;
@@ -94,14 +95,12 @@
   .card-title a { color: var(--paper); text-decoration: none; }
   .card-title a:hover { color: var(--accent); }
   .card-meta { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
-  .card-reason { color: var(--muted); font-size: 0.9rem; margin-top: 8px; }
-  .card-body .card-reason-full { color: var(--paper); font-family: var(--font-head); font-size: 0.95rem; font-weight: 500; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .card-reason { color: var(--muted); font-size: 0.9rem; margin-top: 10px; }
+  .card-body .card-reason-full { display: none; }
   .list-heading { font-family: var(--font-head); font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; }
   .list-heading .accent { color: var(--accent); }
-  .expand-hint { margin-left: auto; flex-shrink: 0; color: var(--muted); font-size: 0.85rem; transition: transform 0.2s; display: flex; align-items: center; gap: 6px; }
-  .expand-hint .hint-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
-  details[open] .expand-hint { color: var(--accent); }
-  details[open] .expand-hint .arrow { transform: rotate(180deg); display: inline-block; }
+  .expand-hint { flex-shrink: 0; color: var(--muted); font-size: 1.5rem; line-height: 1; padding-top: 2px; transition: transform 0.2s; }
+  details[open] .expand-hint { color: var(--accent); transform: rotate(180deg); }
   .card-body {
     border-top: 1px solid var(--line);
     padding: 20px;
@@ -326,22 +325,21 @@ async function load() {
     const s = (item.sentiment || "NEUTRAL").toUpperCase();
     const cls = sentimentClass(s);
     const reason = item.reason ? `<div class="card-reason">${esc(item.reason)}</div>` : "";
-    const reasonFull = item.reason ? `<div class="card-reason-full">${esc(item.reason)}</div>` : "";
     return `
     <div class="card">
       <details>
         <summary>
           <div class="card-head">
-            <span class="badge ${cls}">${s}</span>
-            <div>
+            <div class="card-main">
               <div class="card-title"><a href="${esc(item.url || "#")}" target="_blank" rel="noopener">${esc(item.title)}</a></div>
               <div class="card-meta">${fmtDate(item.date)}</div>
+              <span class="badge ${cls}">${s}</span>
               ${reason}
             </div>
-            <span class="expand-hint"><span class="hint-label">Summary</span><span class="arrow">▾</span></span>
+            <span class="expand-hint">▾</span>
           </div>
         </summary>
-        <div class="card-body">${reasonFull}${esc(item.summary)}</div>
+        <div class="card-body">${esc(item.summary)}</div>
       </details>
     </div>`;
   }).join("");
