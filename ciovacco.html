@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ciovacco Capital — Weekly Market Summaries | Corbin Combs</title>
+<meta name="description" content="Auto-generated weekly summaries of Ciovacco Capital YouTube videos, with bullish/bearish sentiment tracked over time.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23060a08'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='50' fill='%23eef0f4'>CC<tspan fill='%2352ff93' dx='-2'>.</tspan></text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #060a08;
+    --ink-2: #0b110e;
+    --ink-3: #101713;
+    --paper: #eef0f4;
+    --muted: #93a298;
+    --accent: #52ff93;
+    --bull: #52ff93;
+    --bear: #ff6b6b;
+    --neut: #ffd166;
+    --line: rgba(255, 255, 255, 0.08);
+    --radius: 16px;
+    --font-head: "Space Grotesk", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .bg-glow {
+    position: fixed; inset: 0; pointer-events: none; z-index: -1;
+    background: radial-gradient(circle at 50% 0%, rgba(82, 255, 147, 0.10), transparent 60%);
+  }
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(6, 10, 8, 0.82);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 880px; margin: 0 auto; padding: 14px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand { font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; color: var(--paper); text-decoration: none; }
+  .nav-brand .dot { color: var(--accent); }
+  .nav-back { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+  .nav-back:hover { color: var(--accent); }
+
+  main { max-width: 880px; margin: 0 auto; padding: 48px 20px 80px; }
+  header.hero { margin-bottom: 40px; }
+  .kicker { color: var(--accent); font-family: var(--font-head); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
+  h1 { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; line-height: 1.15; margin-bottom: 12px; }
+  h1 .accent { color: var(--accent); }
+  .lead { color: var(--muted); max-width: 640px; margin-bottom: 24px; }
+  .lead a { color: var(--accent); }
+
+  /* Sentiment strip */
+  .strip {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 18px 20px; margin-bottom: 36px;
+  }
+  .strip-item { flex: 1; min-width: 120px; }
+  .strip-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 4px; }
+  .strip-value { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; }
+  .strip-value.bull { color: var(--bull); }
+  .strip-value.bear { color: var(--bear); }
+  .strip-value.neut { color: var(--neut); }
+  .strip-value.total { color: var(--paper); }
+
+  /* Cards */
+  .card {
+    background: var(--ink-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: rgba(82, 255, 147, 0.35); }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  .card-head {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 18px 20px;
+  }
+  .badge {
+    flex-shrink: 0; margin-top: 3px;
+    font-family: var(--font-head); font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px;
+    border: 1px solid;
+  }
+  .badge.bull { color: var(--bull); border-color: rgba(82,255,147,0.4); background: rgba(82,255,147,0.08); }
+  .badge.bear { color: var(--bear); border-color: rgba(255,107,107,0.4); background: rgba(255,107,107,0.08); }
+  .badge.neut { color: var(--neut); border-color: rgba(255,209,102,0.4); background: rgba(255,209,102,0.08); }
+  .card-title { font-family: var(--font-head); font-weight: 600; font-size: 1.05rem; line-height: 1.35; }
+  .card-title a { color: var(--paper); text-decoration: none; }
+  .card-title a:hover { color: var(--accent); }
+  .card-meta { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
+  .card-reason { color: var(--muted); font-size: 0.9rem; margin-top: 8px; }
+  .expand-hint { margin-left: auto; flex-shrink: 0; color: var(--muted); font-size: 0.85rem; transition: transform 0.2s; }
+  details[open] .expand-hint { transform: rotate(180deg); color: var(--accent); }
+  .card-body {
+    border-top: 1px solid var(--line);
+    padding: 20px;
+    color: #d5dde0;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+  }
+
+  .empty { color: var(--muted); text-align: center; padding: 60px 20px; border: 1px dashed var(--line); border-radius: var(--radius); }
+  .foot { margin-top: 48px; text-align: center; color: var(--muted); font-size: 0.8rem; }
+  .foot a { color: var(--muted); }
+  .foot a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/">CC<span class="dot">.</span></a>
+    <a class="nav-back" href="/">← corbincombs.com</a>
+  </div>
+</nav>
+
+<main>
+  <header class="hero">
+    <p class="kicker">Weekly video summaries · auto-generated</p>
+    <h1>Ciovacco Capital <span class="accent">market notes</span></h1>
+    <p class="lead">
+      Every week, the latest <a href="https://www.youtube.com/@ciovaccocapital" target="_blank" rel="noopener">Ciovacco Capital</a>
+      video gets summarized and classified bullish / neutral / bearish. Click any entry to read the full summary.
+    </p>
+  </header>
+
+  <div id="strip" class="strip" hidden>
+    <div class="strip-item"><div class="strip-label">Total</div><div class="strip-value total" id="stat-total">—</div></div>
+    <div class="strip-item"><div class="strip-label">Bullish</div><div class="strip-value bull" id="stat-bull">—</div></div>
+    <div class="strip-item"><div class="strip-label">Neutral</div><div class="strip-value neut" id="stat-neut">—</div></div>
+    <div class="strip-item"><div class="strip-label">Bearish</div><div class="strip-value bear" id="stat-bear">—</div></div>
+  </div>
+
+  <div id="list"></div>
+
+  <div class="foot">
+    Summaries generated by a Hermes Agent cron job (RSS → transcript → LLM summary, all free).
+    Not investment advice.
+  </div>
+</main>
+
+<script>
+const DATA_URL = "ciovacco-summaries.json";
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function fmtDate(iso) {
+  const d = new Date(iso);
+  if (isNaN(d)) return iso;
+  return `${MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+}
+
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  })[c]);
+}
+
+async function load() {
+  const listEl = document.getElementById("list");
+  let data;
+  try {
+    const res = await fetch(DATA_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    data = await res.json();
+  } catch (e) {
+    listEl.innerHTML = `<div class="empty">Couldn't load summaries (${esc(e.message)}). Try again in a moment.</div>`;
+    return;
+  }
+  const items = (data.summaries || []).slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+  if (!items.length) {
+    listEl.innerHTML = `<div class="empty">No summaries yet — the pipeline will add the first one after the next video drops.</div>`;
+    return;
+  }
+  const bull = items.filter(i => i.sentiment === "BULLISH").length;
+  const neut = items.filter(i => i.sentiment === "NEUTRAL").length;
+  const bear = items.filter(i => i.sentiment === "BEARISH").length;
+  document.getElementById("stat-total").textContent = items.length;
+  document.getElementById("stat-bull").textContent = bull;
+  document.getElementById("stat-neut").textContent = neut;
+  document.getElementById("stat-bear").textContent = bear;
+  document.getElementById("strip").hidden = false;
+
+  listEl.innerHTML = items.map((item, i) => {
+    const s = (item.sentiment || "NEUTRAL").toUpperCase();
+    const cls = s === "BULLISH" ? "bull" : s === "BEARISH" ? "bear" : "neut";
+    const reason = item.reason ? `<div class="card-reason">${esc(item.reason)}</div>` : "";
+    return `
+    <div class="card">
+      <details ${i === 0 ? "open" : ""}>
+        <summary>
+          <div class="card-head">
+            <span class="badge ${cls}">${s}</span>
+            <div>
+              <div class="card-title"><a href="${esc(item.url || "#")}" target="_blank" rel="noopener">${esc(item.title)}</a></div>
+              <div class="card-meta">${fmtDate(item.date)}</div>
+              ${reason}
+            </div>
+            <span class="expand-hint">▾</span>
+          </div>
+        </summary>
+        <div class="card-body">${esc(item.summary)}</div>
+      </details>
+    </div>`;
+  }).join("");
+}
+
+load();
+</script>
+</body>
+</html>
