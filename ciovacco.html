@@ -261,19 +261,21 @@ function renderChart(items) {
     svg += `<line class="grid-line${v === 0 ? " zero-line" : ""}" x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}"/>`;
     svg += `<text x="${PL - 8}" y="${y(v) + fs / 3}" text-anchor="end" font-size="${fs}">${label}</text>`;
   }
-  // month labels on x-axis (e.g. "Jun '26") — skip months that would overlap
-  const labelGap = fs * 5.2; // min px between labels (~width of "Sep '26" + padding)
-  let lastLabelX = -Infinity;
-  const seenMonths = {};
-  chrono.forEach((c, i) => {
+  // x-axis labels at REGULAR index intervals (equally spread, never overlapping).
+  // Pick a target count from the available width, then label every `step`th point.
+  const targetLabels = Math.max(4, Math.min(8, Math.floor(iw / (fs * 7))));
+  const step = Math.max(1, Math.ceil((n - 1) / (targetLabels - 1)));
+  const labelIdx = [];
+  for (let i = 0; i < n; i += step) labelIdx.push(i);
+  if (labelIdx[labelIdx.length - 1] !== n - 1) labelIdx.push(n - 1);
+  let lastLabelText = "";
+  labelIdx.forEach(i => {
+    const c = chrono[i];
     const d = new Date(c.date);
-    const key = `${d.getFullYear()}-${d.getMonth()}`;
-    if (seenMonths[key]) return;
-    seenMonths[key] = true;
-    const lx = x(i);
-    if (lx - lastLabelX < labelGap) return;
-    lastLabelX = lx;
-    svg += `<text x="${lx}" y="${H - 10}" text-anchor="middle" font-size="${fs}">${MONTHS[d.getMonth()]} '${String(d.getFullYear()).slice(2)}</text>`;
+    const txt = `${MONTHS[d.getMonth()]} '${String(d.getFullYear()).slice(2)}`;
+    if (txt === lastLabelText) return; // skip duplicate month labels
+    lastLabelText = txt;
+    svg += `<text x="${x(i)}" y="${H - 10}" text-anchor="middle" font-size="${fs}">${txt}</text>`;
   });
 
   // bars (colored, width ~ min gap)
