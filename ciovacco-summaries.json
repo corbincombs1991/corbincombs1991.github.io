@@ -1,11 +1,20 @@
 {
-  "generated": "2026-08-15T20:15:39-04:00",
-  "count": 53,
+  "generated": "2026-08-22T09:00:51-04:00",
+  "count": 54,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
+    {
+      "date": "2026-08-22",
+      "video_id": "0F1YDPu2dis",
+      "title": "Rising Rates: Bad For Stocks? Not So Fast",
+      "url": "https://www.youtube.com/watch?v=0F1YDPu2dis",
+      "sentiment": "BULLISH",
+      "reason": "Multiple time-frame charts for growth stocks vs. S&P 500 are batting 5 for 5 bullish across weekly, monthly, and secular charts. Secular volatility model scores 100/100 in bullish territory. Historical precedent shows stocks can thrive alongside rising rates.",
+      "summary": "• The S&P 500 made a new all-time high recently; the current chart shows a healthy W-formation breakout with multiple support reference points (5.7%-9.2% drawdowns), all well within normal pullback ranges.\n• Historical precedent: during 1962-1968, the 10-year yield rose from ~3.8% to 6.2%, yet the S&P 500 gained ~65% on price and ~99% total return — corporate earnings overpowered the rate headwind.\n• The key distinction is 'showstopper' vs. 'concern' — the market can worry about rates without it being a crisis. In 2022, the growth-vs-S&P ratio turned 0-for-5 on cloud charts, signaling deterioration well before the S&P peaked.\n• Today's growth-vs-S&P ratio is 5-for-5 bullish on weekly, 2-week, 3-week, and monthly cloud charts — a stark contrast to early 2022's deteriorating signals.\n• The secular volatility model scores 100 for bullish territory with zero bearish readings, indicating any pullback would be a normal drawdown within an existing bull trend, not a secular reversal.\n• Broadening participation is evident — unlike 2016-2020 where only tech/growth dominated, now multiple ETFs show strength, with SPYG ranking 20th out of 390 ETFs.\n• Rising rates remain a legitimate concern to monitor, but current evidence does not support a showstopper scenario. The base case is a bullish resolution or normal drawdown.\n• Key risk: if charts morph into the 2022 pattern of deterioration, scores will mathematically degrade significantly — the team emphasizes staying flexible, unbiased, and not overreacting or under-reacting."
+    },
     {
       "date": "2026-08-15",
       "video_id": "QuAm0YIbwpM",
@@ -464,15 +473,6 @@
       "sentiment": "VERY BULLISH",
       "reason": "All key indicators align bullishly: sentiment survey has more bears than bulls (contrarian positive), a rare 90/90 breadth day, a 25-year SPY/XLP breakout, and no inflation-concern setups like January 2022.",
       "summary": "• AI sentiment survey shows 39.4% bears vs 34.6% bulls — a bearish tilt that historically does not appear at major market peaks.\n• T-bills vs SPY and inflation-related ratios (XLE/SPY, tech/energy) look nothing like the pre-peak January 2022 inflation-concern setups.\n• SPY vs defensive staples XLP is breaking out of a 25-year consolidation box dating to 2000, echoing prior secular bull trends.\n• The Aug 22 '90/90 day' (90%+ of NYSE issues and volume advancing) is rare since 1982: S&P 500 higher a year later in 91.7% of cases, average gain +23.2%.\n• A September Fed rate cut is 85.2% priced in; Fed officials have declined to talk it down, so data would have to shift to change that.\n• Pre-mapped reference points show a 2.65% to 12.18% pullback would still be normal retracement within the existing uptrend.\n• Historical secular-bull drawdowns (avg 11.5%, median 9.6%) align with the current support band — volatility is expected, not a red flag.\n• Base case: secular bull market that could last until 2034-2035; the charts align with the optimists, so stay prudently patient."
-    },
-    {
-      "date": "2025-08-23",
-      "video_id": "kBlbeBTsfoQ",
-      "title": "Did The Fed Just Open The Door To A Strong Finish To 2025?",
-      "url": "https://www.youtube.com/watch?v=kBlbeBTsfoQ",
-      "sentiment": "VERY BULLISH",
-      "reason": "All-signals-green tape: record-high close with unprecedented 90%+ NYSE breadth, Powell opened the door to a September cut (odds jumped 72% to 89%), 20/20 historical win rate for cuts near all-time highs, and no reference points violated — the host stays hedged with his \"no idea what happens next\" mantra but the evidence points to a strong finish.",
-      "summary": "• Post-Jackson Hole rally: S&P 500 closed at a record high with more than 90% of NYSE issues advancing — a first; the only two comparable 85%+ breadth days (1982, late 2012–Q1 2013) kicked off multi-year secular bull runs.\n• Powell opened the door to a September rate cut; market-implied odds jumped from 72% to 89% during his speech, with defensive staples the only red sector — the market clearly read him as dovish.\n• Carson Research history: when the Fed resumes cutting after a 5–12 month pause, the S&P was higher a year later 10 of 11 times (median +14.5%); cutting within 2% of an all-time high finished higher 20 of 20 times (avg +13.9%).\n• Nasdaq composite reference points set in July (prior highs, anchored VWAPs, slope direction) remain unviolated as of Friday's close — no evidence the April/June uptrend is on the ropes.\n• Small caps had a great week on rate-cut hopes, but the IWM/IWY ratio is still in a counter-trend move within a downtrend; open mind to adding them if the relative downtrend breaks.\n• Large-cap growth vs. S&P (IWY/SPY) and semis (SMH/SPY) ratios remain constructive; equal-weight S&P 500 closed at a new all-time high above all key moving averages.\n• Bond market calm: 2-year Treasury yield and BSV show none of the January-2022-style inflation panic; LQD made its desired higher high — no showstopping inflation, recession, or earnings concerns priced in.\n• Risk-on proxy ARKF closed above its 20-day and rising 250-day MAs; daily/weekly clouds across indices are still checking all the bullish boxes.\n• Conclusion: trade the chart in front of you — the weight of the evidence aligns with the base case of a healthy, intact secular bull, so stay invested and treat volatility as noise until reference points break.\n• Caveats: \"you have no idea what's going to happen next,\" and significant, fear-inducing drawdowns are 100% normal; reassess if the weight of evidence shifts."
     }
   ]
 }
