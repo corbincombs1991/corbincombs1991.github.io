@@ -1,0 +1,1 @@
+{"schema_version":1,"generation_timestamp":"2026-09-02T00:00:00Z","source_as_of":"2026-09-01","report_count":1,"reports":[{"report_id":"synthetic-query-2024-01-01","query_date":"2024-01-01T10:00:00Z","model":"shape","k":3,"source_as_of":"2026-09-01","asset":"reports/synthetic-query-2024-01-01.json","content_hash":"synthetic-fixture"}]}
