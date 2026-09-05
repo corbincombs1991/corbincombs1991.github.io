@@ -1,11 +1,20 @@
 {
-  "generated": "2026-08-29T09:15:43-04:00",
-  "count": 53,
+  "generated": "2026-09-05T09:01:19-04:00",
+  "count": 54,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
+    {
+      "date": "2026-09-05",
+      "video_id": "Lac9qELzEpM",
+      "title": "Is The Market Starting To Question The AI Spending Boom?",
+      "url": "https://www.youtube.com/watch?v=Lac9qELzEpM",
+      "sentiment": "BULLISH",
+      "reason": "Charts show bullish set-ups across tech‑vs‑treasuries, tech‑vs‑S&P 500, defensive staples and financials; earnings are strong and no deflationary signals are present.",
+      "summary": "• The NASDAQ lost 78% during the dot‑com bust, serving as a historical benchmark for the current AI‑spending cycle.\n• A monthly cloud of tech‑stocks‑versus‑long‑term‑treasuries is batting five for five bullish, with price above both the blue and red spans and a rising green cloud.\n• The tech‑to‑S&P 500 weekly ratio shows no visible deterioration; it remains well above a green cloud, unlike the 2000‑peak pattern.\n• Defensive‑staples (XLP) are underperforming tech (XLK) for the week, indicating investors are not seeking safety—a bullish signal.\n• Financials (XLF) are also above the cloud, signalling strength rather than the bearish divergence seen before the 2007‑2008 crash.\n• The 10‑year Treasury yield is flat‑lined near the 2023‑2026 range, not the skyrocketing narrative, and remains below the ~5.5% concern level.\n• Earnings remain strong and the economy is booming, supporting the case that any pullbacks would be corrections within an uptrend.\n• The secular volatility model scores and trend‑strength indicators align with a strong, long‑term bull market; the market is not showing early‑warning signs similar to 2000."
+    },
     {
       "date": "2026-08-29",
       "video_id": "OIsKr8dRQ20",
@@ -464,15 +473,6 @@
       "sentiment": "VERY BULLISH",
       "reason": "Six extremely rare sentiment/breadth signals all fired near September 2025, and every historical case has been followed by strong multi-year gains (averages as high as +18% one year out and +93% five years out). The video concludes the signals align perfectly with the secular bull thesis.",
       "summary": "• Six rare sentiment/breadth signals fired near September 2025; the video tests whether they align with or contradict the secular bull thesis.\n• AAII bulls-minus-bears 3-week MA hit an extreme last seen only in 1990 and 2009; after similar 1991/2009 round trips the market was higher 1, 3, 5, and 10 years later (avg gains 11%, 33%, 84%, 220%+).\n• NASDAQ new-highs-minus-new-lows round trip has occurred only twice since 2009; forward average gains were 20% (1yr), 33% (3yr), 81% (5yr), 96% (7yr), 172% (10yr).\n• A related breadth signal has fired only five prior times (2009, 2012, 2016, 2019, 2020), with median gains of 13% (1yr), 37% (3yr), 86% (5yr).\n• Rapid breadth thrusts (S&P stocks above 200-day EMA in under 185 days) occurred only in 1991, 1995, 2012, 2016; the S&P was higher 1-5 years later in every case, averaging 17% to 100%+.\n• NASDAQ stocks above the 50-day EMA made a similar round trip to 2009, 2011, 2016, 2019, and 2020; all five cases higher 1/3/5 years out, median 5-year gain 93%.\n• One similar sentiment move has fired only six times (1975, 1982, 1999, 2009, 2020, 2025); S&P higher a year later in every case, average +18.2%.\n• The setup resembles March 1991/October 1958; from March 1991 to March 2000 the S&P gained 310%, so all signals align with the long-term bull thesis.\n• Small caps vs S&P 500 remain in a downtrend, so current allocations stay unchanged; a 25bp Fed cut on Sept 17 is near-certain, and cuts during expansions historically yield +16.5% average 12-month S&P gains."
-    },
-    {
-      "date": "2025-09-06",
-      "video_id": "mCza7hS24hw",
-      "title": "Is It Time To Dump Stocks And Buy Bonds?",
-      "url": "https://www.youtube.com/watch?v=mCza7hS24hw",
-      "sentiment": "BULLISH",
-      "reason": "The video answers 'no' firmly: the bonds-vs-stocks ratio and S&P weekly charts show no 2000-style deterioration, and historical stats (91% uptrend continuation, strong VIX patterns) support staying in stocks — but the tone stays hedged and open-minded about subtle shifts, so not maximal conviction.",
-      "summary": "Central question — dump stocks for bonds after a weak September labor report — gets a 'no': the S&P 500 uptrend is firmly intact.\n• IEF (intermediate Treasuries) is trying to break out of its box, but the bonds-vs-stocks ratio remains in a clear downtrend, nothing like the late-2000 setup before the dot-com bust.\n• AWAP-line analysis of intermediate Treasuries vs. S&P 500 shows no trend flip resembling September 27, 2000, when the S&P began to roll over.\n• S&P 500 closed near an all-time high and finished the week up 0.33%; the Nasdaq rose over 1% and large-cap growth beat value by 1.34% — not recession-like tape.\n• VIX was calm and rate-cut expectations are elevated — 'don't fight the Fed' — with the uptrend intact.\n• The weekly chart (50-110 week MAs) still shows the strong-uptrend look: fastest MA on top, upward slopes, price above — unlike the 2000-2001 deterioration.\n• History: after a run like April-to-now, the uptrend continued 91% of the time (+13% average 1-year gain); VIX falling four straight months led to +10.34% average gain a year later, 82% positive.\n• Conclusion: the present-day chart 'is firmly in the no camp' — stay with stocks and monitor the bond/stock ratio for subtle shifts."
     }
   ]
 }
