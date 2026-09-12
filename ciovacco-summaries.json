@@ -1,11 +1,20 @@
 {
-  "generated": "2026-09-05T09:01:19-04:00",
-  "count": 54,
+  "generated": "2026-09-12T09:02:47-04:00",
+  "count": 55,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
+    {
+      "date": "2026-09-12",
+      "video_id": "8xU_5C5FXvo",
+      "title": "Could Debt Problems Derail The Bull Market?",
+      "url": "https://www.youtube.com/watch?v=8xU_5C5FXvo",
+      "sentiment": "BULLISH",
+      "reason": "The video maintains that the secular bull market remains intact. While acknowledging legitimate concerns about debt, inflation, the yen carry trade, Fed rate hikes, recession risk, and earnings disappointments, the speaker emphasizes that current S&P 500 charts and model scores show no meaningful deterioration — price remains above all key moving averages with strong trend strength, suggesting these macro worries have not yet been confirmed by the market.",
+      "summary": "• The video argues that concerns about debt, inflation, the yen carry trade, Fed rate hikes, recession risk, and earnings disappointments only matter if they show up in market data — the \"weight of the evidence\" approach.\n• Using the S&P 500's 1999-2000 topping process as a template, the speaker shows what genuine deterioration looks like: price breaking below the 50-week moving average, then the 75-week cluster, with moving averages rolling over and bearish conviction building.\n• That historical example culminated in the dot-com bear market, where the S&P 500 fell nearly 50% from March 2000 to October 2002, driven largely by tech earnings that collapsed 42% in 2001 versus Wall Street's expectation of 11% growth.\n• By contrast, the current September 2026 S&P 500 chart shows a \"full bore bullish\" setup — price above all moving averages (50, 75, and 110-week), with healthy white space between them and a strengthening trend.\n• The 2025 tariff sell-off was quickly retraced, and 2026 volatility has not even breached the primary moving average cluster, signaling the market is not pricing in a severe threat.\n• The Secular Volatility Model (489 questions across 136 charts) and Trend Strength Model both remain strong as of September 11, 2026, consistent with an ongoing bull market.\n• The base case remains that even a 6-10% pullback (roughly 9% to the rising trend lines) would be followed by higher highs, as happened in both 2025 and early 2026.\n• Overall conclusion: there is no evidence in hand today that debt problems or other macro concerns are derailing the secular bull market — stay patient with the long-term trend, but remain flexible and unbiased as new data arrives."
+    },
     {
       "date": "2026-09-05",
       "video_id": "Lac9qELzEpM",
@@ -464,15 +473,6 @@
       "sentiment": "VERY BULLISH",
       "reason": "A cascade of rare breadth thrusts with strong historical 1/3/5-year returns, plus a Fed cutting within 1% of all-time highs (16 for 16 higher a year later), argues for much better-than-expected long-term outcomes; only minor overbought noise tempers the near term.",
       "summary": "• Fed cut 25bp on Sept 17 and signaled more cuts; in all 16 historical cases of cuts near an all-time high the S&P 500 was higher a year later (avg +15%).\n• Reference points show a 3% to 14% pullback would do little damage to the uptrend off the April low — classified as volatility to ignore.\n• Rare Dow breadth thrust (below 10% to above 85% of stocks above their 150-day MA): 1-year median gain 16.2%, 3-year ~40%, 5-year ~76-82%.\n• Similar Nasdaq breadth thrusts show 1-year median gains ~18%; the Nasdaq >200-day MA move was followed by gains in every case, 5-year median ~80%.\n• Midcap breadth also flashed rare bullish signals even though midcaps still lag large caps on the weekly chart — breadth is broadening.\n• RSI stayed above 45 for 102 straight days; the market was lower two weeks later on average (~2%) — short-term noise, not a reason to sell.\n• Bank of America independently dates the secular bull to 2029-2033, close to CCM's 2034-2035 base case.\n• Conclusion: multiple rare signals argue for keeping an open mind about much better-than-expected 1-5 year outcomes; remain patient and fully invested."
-    },
-    {
-      "date": "2025-09-13",
-      "video_id": "0bFQEhECygY",
-      "title": "Nasdaq Signal Has Only Been Triggered 4 Previous Times In The Last 23 Years",
-      "url": "https://www.youtube.com/watch?v=0bFQEhECygY",
-      "sentiment": "VERY BULLISH",
-      "reason": "Six extremely rare sentiment/breadth signals all fired near September 2025, and every historical case has been followed by strong multi-year gains (averages as high as +18% one year out and +93% five years out). The video concludes the signals align perfectly with the secular bull thesis.",
-      "summary": "• Six rare sentiment/breadth signals fired near September 2025; the video tests whether they align with or contradict the secular bull thesis.\n• AAII bulls-minus-bears 3-week MA hit an extreme last seen only in 1990 and 2009; after similar 1991/2009 round trips the market was higher 1, 3, 5, and 10 years later (avg gains 11%, 33%, 84%, 220%+).\n• NASDAQ new-highs-minus-new-lows round trip has occurred only twice since 2009; forward average gains were 20% (1yr), 33% (3yr), 81% (5yr), 96% (7yr), 172% (10yr).\n• A related breadth signal has fired only five prior times (2009, 2012, 2016, 2019, 2020), with median gains of 13% (1yr), 37% (3yr), 86% (5yr).\n• Rapid breadth thrusts (S&P stocks above 200-day EMA in under 185 days) occurred only in 1991, 1995, 2012, 2016; the S&P was higher 1-5 years later in every case, averaging 17% to 100%+.\n• NASDAQ stocks above the 50-day EMA made a similar round trip to 2009, 2011, 2016, 2019, and 2020; all five cases higher 1/3/5 years out, median 5-year gain 93%.\n• One similar sentiment move has fired only six times (1975, 1982, 1999, 2009, 2020, 2025); S&P higher a year later in every case, average +18.2%.\n• The setup resembles March 1991/October 1958; from March 1991 to March 2000 the S&P gained 310%, so all signals align with the long-term bull thesis.\n• Small caps vs S&P 500 remain in a downtrend, so current allocations stay unchanged; a 25bp Fed cut on Sept 17 is near-certain, and cuts during expansions historically yield +16.5% average 12-month S&P gains."
     }
   ]
 }
