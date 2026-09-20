@@ -1,6 +1,6 @@
 /* ============================================================
    CORBIN COMBS — PERSONAL SITE
-   Dark theme + parallax. Colors: ink / paper / electric violet.
+   Dark theme + parallax. Colors: ink / paper / electric green.
    ============================================================ */
 
 @font-face {
@@ -36,7 +36,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; overflow-x: clip; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; overflow-x: clip; }
 
 body {
   font-family: var(--font-body);
@@ -112,14 +112,32 @@ img { max-width: 100%; display: block; }
   color: var(--paper);
 }
 .nav-brand-dot { color: var(--accent); }
-.nav-links { display: flex; gap: 28px; }
-.nav-links a {
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a, .nav-explore summary {
   color: var(--muted);
   font-size: 0.9rem;
   letter-spacing: 0.02em;
   transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--paper); text-decoration: none; }
+.nav-links a:hover, .nav-explore summary:hover { color: var(--paper); text-decoration: none; }
+.nav-explore { position: relative; }
+.nav-explore summary { display: flex; align-items: center; gap: 8px; cursor: pointer; list-style: none; }
+.nav-explore summary::-webkit-details-marker { display: none; }
+.nav-chevron { width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px); }
+.nav-explore[open] .nav-chevron { transform: rotate(225deg) translate(-1px, -1px); }
+.nav-submenu {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: -18px;
+  width: 200px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--ink-2);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+.nav-submenu a { display: block; padding: 10px 12px; border-radius: 6px; }
+.nav-submenu a:hover { background: rgba(82, 255, 147, 0.08); }
 .nav-toggle {
   display: none;
   width: 48px;
@@ -149,6 +167,7 @@ img { max-width: 100%; display: block; }
 .hero {
   position: relative;
   min-height: 100vh;
+  padding: 128px 0 56px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -292,6 +311,8 @@ img { max-width: 100%; display: block; }
   margin-bottom: 18px;
 }
 .section-lead { color: var(--muted); max-width: 720px; margin-bottom: 44px; }
+.section-links { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 26px; font-size: 0.9rem; }
+.section-links a { padding-block: 8px; }
 .sub-title {
   font-family: var(--font-head);
   font-size: 1.3rem;
@@ -341,7 +362,28 @@ img { max-width: 100%; display: block; }
   opacity: 0.7;
 }
 
+/* ---------- SELECTED BUILDS ---------- */
+.builds-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.build-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(82, 255, 147, 0.06), transparent 70%), var(--ink-3);
+}
+.build-type { color: var(--accent-2); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+.build-card h3 { font-family: var(--font-head); font-size: 1.45rem; margin-bottom: 12px; }
+.build-card > p:not(.build-type) { color: var(--muted); font-size: 0.92rem; }
+.build-flow { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 24px 0; font-family: var(--font-head); font-size: 0.8rem; }
+.build-flow li { display: flex; align-items: center; gap: 8px; }
+.build-flow li + li::before { content: "→"; color: var(--accent); }
+.build-detail { margin-bottom: 24px; }
+.build-card .btn { margin-top: auto; }
+
 /* ---------- MUSIC ---------- */
+.music-section-links { margin-top: -24px; margin-bottom: 32px; }
 .music-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -851,6 +893,8 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 .map-unavailable { display: grid; place-items: center; padding: 24px; color: var(--muted); }
+.travel-map-tile { filter: grayscale(1) invert(1) contrast(.85) brightness(.85); }
+.map-status { color: var(--muted); font-size: .85rem; margin-top: 12px; }
 .travel-legend {
   display: flex;
   gap: 22px;
@@ -912,7 +956,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 860px) {
-  .about-grid, .studio-grid, .music-grid, .live-block { grid-template-columns: 1fr; }
+  .about-grid, .studio-grid, .music-grid, .live-block, .builds-grid { grid-template-columns: 1fr; }
   .nav { padding: 10px 5vw; background: rgba(6, 10, 8, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
   .nav.scrolled { padding: 8px 5vw; }
   .nav-toggle { display: inline-flex; }
@@ -922,8 +966,13 @@ img { max-width: 100%; display: block; }
     left: 0;
     right: 0;
     display: grid;
+    align-items: stretch;
     gap: 2px;
     padding: 12px 5vw 20px;
+    max-height: calc(100vh - 70px);
+    max-height: calc(100dvh - 70px - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
     background: rgba(6, 10, 8, 0.98);
     border-bottom: 1px solid var(--line);
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
@@ -934,7 +983,7 @@ img { max-width: 100%; display: block; }
     transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
   }
   .nav-links.is-open { transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto; }
-  .nav-links a {
+  .nav-links a, .nav-explore summary {
     display: flex;
     align-items: center;
     min-height: 48px;
@@ -943,7 +992,10 @@ img { max-width: 100%; display: block; }
     color: var(--paper);
     font-size: 1rem;
   }
-  .nav-links a:hover { background: rgba(82, 255, 147, 0.08); }
+  .nav-links a:hover, .nav-explore summary:hover { background: rgba(82, 255, 147, 0.08); }
+  .nav-submenu { position: static; width: auto; margin: 0 10px 8px; padding: 0 0 0 10px; border: 0; border-left: 1px solid var(--line); border-radius: 0; background: transparent; box-shadow: none; }
+  .nav-submenu a { color: var(--muted); font-size: 0.9rem; }
+  .build-card { padding: 24px; }
   .section { padding: 80px 5vw; }
   .hero-name { font-size: clamp(2.6rem, 13vw, 4rem); }
   #travel-map { height: 400px; }

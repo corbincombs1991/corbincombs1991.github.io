@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ciovacco Capital — Weekly Market Summaries | Corbin Combs</title>
 <meta name="description" content="Auto-generated weekly summaries of Ciovacco Capital YouTube videos, with bullish/bearish sentiment tracked over time.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23060a08'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='50' fill='%23eef0f4'>CC<tspan fill='%2352ff93' dx='-2'>.</tspan></text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://corbincombs.com/ciovacco">
+<meta name="theme-color" content="#060a08">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
 <style>
+  @font-face { font-family: "Space Grotesk"; src: url("/assets/fonts/space-grotesk-latin.woff2") format("woff2"); font-style: normal; font-weight: 400 700; font-display: swap; }
+  @font-face { font-family: "Inter"; src: url("/assets/fonts/inter-latin.woff2") format("woff2"); font-style: normal; font-weight: 400 600; font-display: swap; }
   :root {
     --ink: #060a08;
     --ink-2: #0b110e;
@@ -28,6 +29,7 @@
     --font-body: "Inter", system-ui, sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  [hidden] { display: none !important; }
   body {
     background: var(--ink);
     color: var(--paper);
@@ -61,6 +63,17 @@
   h1 .accent { color: var(--accent); }
   .lead { color: var(--muted); max-width: 640px; margin-bottom: 24px; }
   .lead a { color: var(--accent); }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+  .feed-status { color: var(--muted); font-size: 0.85rem; }
+  .how-it-works { margin-top: 18px; color: var(--muted); font-size: 0.88rem; }
+  .how-it-works > summary { display: list-item; width: fit-content; color: var(--paper); }
+  .how-it-works p { max-width: 680px; margin-top: 10px; }
+  .how-it-works a, .source-link { color: var(--accent); }
+  .filters { display: grid; grid-template-columns: minmax(180px, 1fr) auto auto; gap: 12px; margin-bottom: 12px; }
+  .filters label { display: grid; gap: 6px; color: var(--muted); font-size: 0.82rem; }
+  .filters input, .filters select { width: 100%; min-width: 0; min-height: 44px; border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; background: var(--ink-2); color: var(--paper); font: inherit; font-size: 0.95rem; }
+  .filter-status { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 20px; color: var(--muted); font-size: 0.85rem; }
+  .reset-filters { min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--accent); font: inherit; cursor: pointer; }
 
   /* Cards */
   .card {
@@ -70,6 +83,7 @@
     margin-bottom: 16px;
     overflow: hidden;
     transition: border-color 0.2s;
+    scroll-margin-top: 80px;
   }
   .card:hover { border-color: rgba(82, 255, 147, 0.35); }
   details > summary { list-style: none; cursor: pointer; }
@@ -106,8 +120,9 @@
     padding: 20px;
     color: #d5dde0;
     font-size: 0.95rem;
-    white-space: pre-wrap;
   }
+  .summary-text { white-space: pre-wrap; }
+  .source-link { display: inline-block; margin-top: 16px; }
 
   .empty { color: var(--muted); text-align: center; padding: 60px 20px; border: 1px dashed var(--line); border-radius: var(--radius); }
   .foot { margin-top: 48px; text-align: center; color: var(--muted); font-size: 0.8rem; }
@@ -124,7 +139,8 @@
   }
   .chart-wrap h2 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; }
   .chart-wrap .sub { color: var(--muted); font-size: 0.82rem; margin-bottom: 14px; }
-  #sentiment-chart { width: 100%; height: auto; display: block; }
+  .chart-scroll { overflow-x: auto; padding: 4px; }
+  #sentiment-chart { width: 100%; min-width: 640px; height: auto; display: block; }
   #sentiment-chart text { font-family: var(--font-body); fill: var(--muted); font-size: 11px; }
   #sentiment-chart .grid-line { stroke: var(--line); stroke-dasharray: 3 4; }
   #sentiment-chart .zero-line { stroke: rgba(255,255,255,0.18); }
@@ -135,15 +151,27 @@
   #sentiment-chart .dot.bear { fill: var(--bear-soft); }
   #sentiment-chart .dot.very-bear { fill: var(--bear); }
   #sentiment-chart .dot.neut { fill: var(--neut); }
+  #sentiment-chart .chart-point { cursor: pointer; }
+  #sentiment-chart .chart-point:focus { outline: none; }
+  #sentiment-chart .chart-point:focus .dot { stroke: var(--paper); stroke-width: 3; }
+  #sentiment-chart .chart-point:hover .dot { stroke: var(--paper); }
+  .chart-mobile-hint { display: none; }
   .chart-legend { display: flex; gap: 18px; margin-top: 12px; color: var(--muted); font-size: 0.78rem; flex-wrap: wrap; }
   .chart-legend span { display: inline-flex; align-items: center; gap: 6px; }
   .chart-legend .sw { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+  @media (max-width: 600px) {
+    .filters { grid-template-columns: 1fr 1fr; }
+    .filters label:first-child { grid-column: 1 / -1; }
+    .chart-wrap { padding: 16px; }
+    .chart-mobile-hint { display: block; margin-top: 10px; color: var(--muted); font-size: 0.78rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .card, .expand-hint { transition: none; } }
 </style>
 </head>
 <body>
 <div class="bg-glow"></div>
 
-<nav>
+<nav aria-label="Market Notes navigation">
   <div class="nav-inner">
     <a class="nav-brand" href="/">CC<span class="dot">.</span></a>
     <a class="nav-back" href="/">← corbincombs.com</a>
@@ -159,199 +187,52 @@
       video is summarized and its market stance classified on a five-point sentiment scale, from very bullish to very bearish.
       Click any entry to read the full summary.
     </p>
+    <p id="feed-status" class="feed-status" role="status">Loading the latest published notes…</p>
+    <details class="how-it-works">
+      <summary>How these notes are made</summary>
+      <p>A scheduled Hermes Agent workflow follows the channel’s RSS feed, retrieves a video transcript, and uses a language model to summarize it and classify its market stance. This page reads the published summaries and links each one to its original video. The labels describe the video’s stance, not a prediction of future returns.</p>
+      <p>Summaries can miss context. Watch the source video for the full discussion. <a href="/ciovacco-summaries.json">View the published data</a>.</p>
+    </details>
   </header>
 
   <div id="chart" class="chart-wrap" hidden>
     <h2>Sentiment <span class="accent">over time</span></h2>
-    <div class="sub">Weekly market stance: bullish above the line, bearish below, neutral on it. The green line is a 4-week rolling average.</div>
-    <svg id="sentiment-chart" viewBox="0 0 800 240" role="img" aria-label="Sentiment over time chart"></svg>
+    <p id="chart-description" class="sub">The full published history, with bullish stances above the line and bearish below. The green line averages the latest four entries. Select a point to read its summary; use arrow keys to move between points. Filters below apply to the summary list.</p>
+    <div class="chart-scroll">
+      <svg id="sentiment-chart" viewBox="0 0 800 260" role="group" aria-label="Sentiment over time" aria-describedby="chart-description"></svg>
+    </div>
+    <p class="chart-mobile-hint">Scroll across the chart to explore the full timeline.</p>
     <div class="chart-legend">
       <span><i class="sw" style="background:var(--bull)"></i> Very bullish</span>
       <span><i class="sw" style="background:var(--bull-soft)"></i> Bullish</span>
       <span><i class="sw" style="background:var(--neut)"></i> Neutral</span>
       <span><i class="sw" style="background:var(--bear-soft)"></i> Bearish</span>
       <span><i class="sw" style="background:var(--bear)"></i> Very bearish</span>
-      <span><i class="sw" style="background:var(--accent);border-radius:2px;height:3px"></i> 4-week rolling average</span>
+      <span><i class="sw" style="background:var(--accent);border-radius:2px;height:3px"></i> 4-entry rolling average</span>
     </div>
   </div>
 
   <div id="list-wrap">
     <h2 class="list-heading">Summaries</h2>
-    <div id="list"></div>
+    <div id="filters" class="filters" hidden>
+      <label for="summary-search">Search notes<input id="summary-search" type="search" placeholder="Title, topic, or keyword" autocomplete="off"></label>
+      <label for="summary-year">Year<select id="summary-year"><option value="">All years</option></select></label>
+      <label for="summary-sentiment">Market stance<select id="summary-sentiment">
+        <option value="">All stances</option>
+        <option value="VERY BULLISH">Very bullish</option><option value="BULLISH">Bullish</option>
+        <option value="NEUTRAL">Neutral</option><option value="BEARISH">Bearish</option><option value="VERY BEARISH">Very bearish</option>
+      </select></label>
+    </div>
+    <div class="filter-status"><p id="result-count" role="status" aria-live="polite"></p><button id="reset-filters" class="reset-filters" type="button" hidden>Clear filters</button></div>
+    <div id="list"><p class="empty">Loading summaries…</p></div>
+    <noscript><p class="empty">Enable JavaScript to explore the notes, or <a href="/ciovacco-summaries.json">read the published data</a>.</p></noscript>
   </div>
 
   <div class="foot">
-    Summaries generated by a Hermes Agent cron job (RSS → transcript → LLM summary, all free).
-    Not investment advice.
+    Auto-generated summaries of Ciovacco Capital videos. Not investment advice.
   </div>
 </main>
 
-<script>
-const DATA_URL = "ciovacco-summaries.json";
-const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-
-function fmtDate(iso) {
-  const d = new Date(iso);
-  if (isNaN(d)) return iso;
-  return `${MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
-}
-
-function score(s) {
-  const v = (s || "").toUpperCase();
-  if (v === "VERY BULLISH") return 1;
-  if (v === "BULLISH") return 0.5;
-  if (v === "VERY BEARISH") return -1;
-  if (v === "BEARISH") return -0.5;
-  return 0;
-}
-
-function sentimentClass(s) {
-  const v = (s || "").toUpperCase();
-  if (v === "VERY BULLISH") return "very-bull";
-  if (v === "BULLISH") return "bull";
-  if (v === "VERY BEARISH") return "very-bear";
-  if (v === "BEARISH") return "bear";
-  return "neut";
-}
-
-function sentimentColor(s) {
-  const v = (s || "").toUpperCase();
-  if (v === "VERY BULLISH") return "var(--bull)";
-  if (v === "BULLISH") return "var(--bull-soft)";
-  if (v === "VERY BEARISH") return "var(--bear)";
-  if (v === "BEARISH") return "var(--bear-soft)";
-  return "var(--neut)";
-}
-
-function renderChart(items) {
-  const el = document.getElementById("sentiment-chart");
-  const wrap = document.getElementById("chart");
-  const containerW = Math.max(320, Math.min(900, wrap.clientWidth || 800));
-  const W = containerW, H = Math.round(containerW * 0.30);
-  const PL = Math.max(72, Math.round(containerW * 0.12));
-  const PR = 16, PT = 14, PB = 34;
-  const iw = W - PL - PR, ih = H - PT - PB;
-  const fs = Math.max(9, Math.round(containerW / 72)); // ~11px at 800px width
-  el.setAttribute("viewBox", `0 0 ${W} ${H}`);
-
-  if (items.length < 2) {
-    el.innerHTML = `<text x="${W/2}" y="${H/2}" text-anchor="middle" font-size="${fs}">Add more weekly videos to see the trend.</text>`;
-    wrap.hidden = false;
-    return;
-  }
-
-  // chronological order (oldest -> newest)
-  const chrono = items.slice().sort((a, b) => new Date(a.date) - new Date(b.date));
-  const n = chrono.length;
-  const x = i => PL + (n === 1 ? iw / 2 : (i / (n - 1)) * iw);
-  const y = v => PT + ih / 2 - (v / 1.2) * (ih / 2); // -1..1 maps to bottom..top with headroom
-
-  // rolling average (window 4)
-  const avg = [];
-  for (let i = 0; i < n; i++) {
-    const start = Math.max(0, i - 3);
-    const window = chrono.slice(start, i + 1).map(c => score(c.sentiment));
-    avg.push(window.reduce((a, b) => a + b, 0) / window.length);
-  }
-
-  let svg = "";
-  // grid lines at +1, +0.5, 0, -0.5, -1
-  const levels = [[1, "Very bullish"], [0.5, "Bullish"], [0, "Neutral"], [-0.5, "Bearish"], [-1, "Very bearish"]];
-  for (const [v, label] of levels) {
-    svg += `<line class="grid-line${v === 0 ? " zero-line" : ""}" x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}"/>`;
-    svg += `<text x="${PL - 8}" y="${y(v) + fs / 3}" text-anchor="end" font-size="${fs}">${label}</text>`;
-  }
-  // x-axis labels at REGULAR index intervals (equally spread, never overlapping).
-  // Pick a target count from the available width, then label every `step`th point.
-  const targetLabels = Math.max(4, Math.min(8, Math.floor(iw / (fs * 7))));
-  const step = Math.max(1, Math.ceil((n - 1) / (targetLabels - 1)));
-  const labelIdx = [];
-  for (let i = 0; i < n; i += step) labelIdx.push(i);
-  if (labelIdx[labelIdx.length - 1] !== n - 1) labelIdx.push(n - 1);
-  let lastLabelText = "";
-  labelIdx.forEach(i => {
-    const c = chrono[i];
-    const d = new Date(c.date);
-    const txt = `${MONTHS[d.getMonth()]} '${String(d.getFullYear()).slice(2)}`;
-    if (txt === lastLabelText) return; // skip duplicate month labels
-    lastLabelText = txt;
-    svg += `<text x="${x(i)}" y="${H - 10}" text-anchor="middle" font-size="${fs}">${txt}</text>`;
-  });
-
-  // bars (colored, width ~ min gap)
-  const barW = Math.max(6, Math.min(26, (iw / n) * 0.55));
-  chrono.forEach((c, i) => {
-    const s = score(c.sentiment);
-    const y0 = y(0), y1 = y(s);
-    const cx = x(i);
-    svg += `<rect class="bar" x="${cx - barW / 2}" y="${Math.min(y0, y1)}" width="${barW}" height="${Math.max(3, Math.abs(y1 - y0))}" rx="3" style="fill:${sentimentColor(c.sentiment)};opacity:0.35">
-      <title>${fmtDate(c.date)} — ${esc(c.title)}: ${(c.sentiment || "NEUTRAL").toUpperCase()}</title></rect>`;
-  });
-
-  // trend line
-  let trend = avg.map((a, i) => `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${y(a).toFixed(1)}`).join(" ");
-  svg += `<path class="trend" d="${trend}"/>`;
-
-  // dots
-  chrono.forEach((c, i) => {
-    const s = score(c.sentiment);
-    svg += `<circle class="dot ${sentimentClass(c.sentiment)}" cx="${x(i).toFixed(1)}" cy="${y(s).toFixed(1)}" r="5">
-      <title>${fmtDate(c.date)} — ${esc(c.title)}: ${(c.sentiment || "NEUTRAL").toUpperCase()}</title></circle>`;
-  });
-
-  el.innerHTML = svg;
-  wrap.hidden = false;
-}
-
-function esc(s) {
-  return String(s ?? "").replace(/[&<>"']/g, c => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-  })[c]);
-}
-
-async function load() {
-  const listEl = document.getElementById("list");
-  let data;
-  try {
-    const res = await fetch(DATA_URL, { cache: "no-store" });
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    data = await res.json();
-  } catch (e) {
-    listEl.innerHTML = `<div class="empty">Couldn't load summaries (${esc(e.message)}). Try again in a moment.</div>`;
-    return;
-  }
-  const items = (data.summaries || []).slice().sort((a, b) => new Date(b.date) - new Date(a.date));
-  if (!items.length) {
-    listEl.innerHTML = `<div class="empty">No summaries yet — the pipeline will add the first one after the next video drops.</div>`;
-    return;
-  }
-  renderChart(items);
-
-  listEl.innerHTML = items.map((item) => {
-    const s = (item.sentiment || "NEUTRAL").toUpperCase();
-    const cls = sentimentClass(s);
-    const reason = item.reason ? `<div class="card-reason">${esc(item.reason)}</div>` : "";
-    return `
-    <div class="card">
-      <details>
-        <summary>
-          <div class="card-head">
-            <div class="card-main">
-              <div class="card-title"><a href="${esc(item.url || "#")}" target="_blank" rel="noopener">${esc(item.title)}</a></div>
-              <div class="card-meta">${fmtDate(item.date)}</div>
-              <span class="badge ${cls}">${s}</span>
-              ${reason}
-            </div>
-            <span class="expand-hint">▾</span>
-          </div>
-        </summary>
-        <div class="card-body">${esc(item.summary)}</div>
-      </details>
-    </div>`;
-  }).join("");
-}
-
-load();
-</script>
+<script src="/js/ciovacco.js" defer></script>
 </body>
 </html>

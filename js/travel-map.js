@@ -1,5 +1,5 @@
 /* ============================================================
-   CORBIN COMBS — travel map (Leaflet + CARTO dark tiles)
+   CORBIN COMBS — travel map (Leaflet + OpenStreetMap tiles)
    Data in travel-data.js.
    ============================================================ */
 (function () {
@@ -8,10 +8,32 @@
   var T = window.TRAVEL;
 
   var map = L.map("travel-map", { zoomControl: true, scrollWheelZoom: false });
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: "abcd",
-    maxZoom: 19
+  var mapElement = document.getElementById("travel-map");
+  var mapStatus = document.createElement("p");
+  mapStatus.className = "map-status";
+  mapStatus.setAttribute("role", "status");
+  mapStatus.hidden = true;
+  mapElement.insertAdjacentElement("afterend", mapStatus);
+
+  // Standard OSM tiles need no account or key. Keep browser caching and
+  // referrers intact; only request tiles for the interactive viewport.
+  var failedTiles = 0;
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+    className: "travel-map-tile",
+    maxZoom: 19,
+    referrerPolicy: "strict-origin-when-cross-origin"
+  }).on("loading", function () {
+    failedTiles = 0;
+  }).on("tileerror", function () {
+    failedTiles += 1;
+    mapStatus.textContent = "Some map background tiles could not load. You can still select a location for details.";
+    mapStatus.hidden = false;
+  }).on("load", function () {
+    if (!failedTiles) {
+      mapStatus.textContent = "";
+      mapStatus.hidden = true;
+    }
   }).addTo(map);
 
   var INT = ["Iceland", "Ireland", "UK (NI)", "Ontario", "Dominican Republic"];

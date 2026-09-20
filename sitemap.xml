@@ -2,8 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://corbincombs.com/</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://corbincombs.com/ciovacco</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://corbincombs.com/market-insights/</loc>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>

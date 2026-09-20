@@ -76,15 +76,18 @@
   </button>
   <div id="nav-links" class="nav-links">
     <a href="#about">About</a>
+    <a href="#work">Work</a>
     <a href="#music">Music</a>
-    <a href="#studio">Studio</a>
-    <a href="#projects">Projects</a>
-    <a href="#travel">Travel</a>
-    <a href="#decks">Decks</a>
-    <a href="#career">Career</a>
+    <details class="nav-explore">
+      <summary>Explore <span class="nav-chevron" aria-hidden="true"></span></summary>
+      <div class="nav-submenu">
+        <a href="#travel">Travel map</a>
+        <a href="#decks">Magic decks</a>
+        <a href="/ciovacco">Market Notes</a>
+        <a href="/market-insights/">Market Insights</a>
+      </div>
+    </details>
     <a href="#contact">Contact</a>
-    <a href="/ciovacco">Market Notes</a>
-    <a href="/market-insights/">Market Insights</a>
   </div>
 </nav>
 
@@ -147,6 +150,46 @@
   </div>
 </section>
 
+<!-- SELECTED BUILDS -->
+<section id="work" class="section section-dark">
+  <div class="container">
+    <p class="kicker">Selected builds</p>
+    <h2 class="section-title">From data to <span class="accent">something useful</span>.</h2>
+    <p class="section-lead">Personal projects in automation and data visualization. Open a build to see it in action.</p>
+
+    <div class="builds-grid">
+      <article class="build-card">
+        <p class="build-type">Automation</p>
+        <h3>Market Notes</h3>
+        <p>Turn weekly Ciovacco Capital videos into a readable archive of summaries and market sentiment, with links back to the original videos.</p>
+        <ol class="build-flow" aria-label="Market Notes workflow">
+          <li>Video</li>
+          <li>Transcript</li>
+          <li>AI summary</li>
+        </ol>
+        <p class="build-detail">A sentiment timeline makes changes in the source commentary easy to follow from week to week.</p>
+        <a class="btn btn-ghost btn-sm" href="/ciovacco">Read Market Notes <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="build-card">
+        <p class="build-type">Research prototype · synthetic data</p>
+        <h3>Market Insights</h3>
+        <p>A chart-pattern research viewer that compares a query curve with precomputed matches, making the report's patterns and sample counts easier to inspect.</p>
+        <ol class="build-flow" aria-label="Market Insights workflow">
+          <li>Query</li>
+          <li>Matches</li>
+          <li>Compare</li>
+        </ol>
+        <p class="build-detail">An interface experiment using synthetic fixtures. No live market data or trading predictions.</p>
+        <a class="btn btn-ghost btn-sm" href="/market-insights/">Explore the prototype <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+    <div class="section-links" aria-label="More about my work">
+      <a href="#career">Career &amp; experience <span aria-hidden="true">↓</span></a>
+      <a href="https://github.com/corbincombs1991" target="_blank" rel="noopener">More on GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- MUSIC / BRENDERLIN -->
 <section id="music" class="section section-dark">
   <div class="container">
@@ -156,6 +199,10 @@
       A pretty alright band from Indianapolis, IN. Written and recorded at our own studio, Billiam
       Records, then unleashed on every streaming platform. "RIP Wade Boggs" — out now everywhere.
     </p>
+    <div class="section-links music-section-links" aria-label="More music and recording">
+      <a href="#studio">Inside the studio <span aria-hidden="true">↓</span></a>
+      <a href="#projects">Music credits &amp; past bands <span aria-hidden="true">↓</span></a>
+    </div>
 
     <div class="music-grid">
       <!-- Official music video -->
@@ -256,10 +303,10 @@
   </div>
 </section>
 
-<!-- PROJECTS & PAST BANDS -->
+<!-- MUSIC CREDITS & PAST BANDS (keep #projects for existing links) -->
 <section id="projects" class="section section-dark">
   <div class="container">
-    <p class="kicker">Production &amp; past bands</p>
+    <p class="kicker">Music credits &amp; past bands</p>
     <h2 class="section-title">Beyond <span class="accent">Brenderlin</span>.</h2>
     <p class="section-lead">
       A decade of bands, beats, and behind-the-scenes work. Everything below is on streaming
