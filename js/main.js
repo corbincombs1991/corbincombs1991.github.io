@@ -11,11 +11,13 @@
   var nav = document.getElementById("nav");
   var navToggle = document.querySelector(".nav-toggle");
   var navLinks = document.getElementById("nav-links");
+  var exploreMenu = document.querySelector(".nav-explore");
 
   function setMenu(open) {
     if (!navToggle || !navLinks) return;
     navToggle.setAttribute("aria-expanded", String(open));
     navLinks.classList.toggle("is-open", open);
+    if (!open && exploreMenu) exploreMenu.open = false;
     var label = navToggle.querySelector(".sr-only");
     if (label) label.textContent = open ? "Close navigation" : "Open navigation";
   }
@@ -30,10 +32,24 @@
     });
 
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") {
+      if (event.key !== "Escape") return;
+      if (exploreMenu && exploreMenu.open) {
+        exploreMenu.open = false;
+        exploreMenu.querySelector("summary").focus();
+      } else if (navToggle.getAttribute("aria-expanded") === "true") {
         setMenu(false);
         navToggle.focus();
       }
+    });
+
+    document.addEventListener("click", function (event) {
+      if (nav && !nav.contains(event.target)) setMenu(false);
+      else if (exploreMenu && !exploreMenu.contains(event.target)) exploreMenu.open = false;
+    });
+
+    if (nav) nav.addEventListener("focusout", function (event) {
+      if (event.relatedTarget && !nav.contains(event.relatedTarget)) setMenu(false);
+      else if (exploreMenu && event.relatedTarget && !exploreMenu.contains(event.relatedTarget)) exploreMenu.open = false;
     });
 
     window.addEventListener("resize", function () {
