@@ -1,20 +1,11 @@
 {
-  "generated": "2026-09-19T09:01:23-04:00",
-  "count": 56,
+  "generated": "2026-09-26T09:02:56-04:00",
+  "count": 55,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
-    {
-      "date": "2026-09-19",
-      "video_id": "zpLzNJFlgLI",
-      "title": "Time To Focus On The Bullish Forest Or The Bearish Trees?",
-      "url": "https://www.youtube.com/watch?v=zpLzNJFlgLI",
-      "sentiment": "BULLISH",
-      "reason": "Every bearish comparison is systematically answered no: the VIX is not in its 2022 range, credit (JNK/BKLN) shows full-bore bullish MA stacks far stronger than January 2022, monthly Bollinger Bands show no secular stagnation look, and CCM secular volatility model scores check zero of the 2000-2002 pullback boxes. Tech leadership (XLK vs XLP) is batting 5 for 5. The evidence points to a strong secular bull, though the host stresses staying flexible and open-minded.",
-      "summary": "• The video opens by asking whether to focus on the \"bullish forest\" or \"bearish trees,\" then systematically works through five questions comparing current charts to the January 2022 bear-market setup.\n• VIX expectations are not 2022-like: the VIX finished the week down ~6.4%, sitting far outside the 19-33 range of early 2022, and its 200-week MA slopes upward rather than rolling over.\n• Credit markets show no imminent crisis: JNK (junk bonds) has a healthy MA stack with white space between averages, and BKLN (leveraged loans) is in a full-bore bullish trend - both significantly stronger than the tight-cluster rollover of January 2022.\n• The S&P 500's monthly Bollinger Bands show a strong bullish trend with no resemblance to the 1969-1979 secular stagnation period.\n• CCM secular volatility model scores as of Sept 18, 2026 look nothing like the Oct 2002 scores - they check zero of the 0-5% pullback boxes, signaling a strong trend within a secular bull.\n• Market leadership confirms the bullish read: XLK (tech) vs XLP (staples) is batting 5 for 5 and gained 1.72% on the week, the exact opposite of the 0-for-5 deterioration in January 2022.\n• The third year of the presidential cycle (2027) historically offers a seasonal tailwind, and while debt levels are a concern, 3% growth would materially ease the problem.\n• The conclusion is a disciplined bullish stance: all evidence says secular bull, but the team stresses staying flexible and unbiased - concerns would only rise if charts morph into 2022-like looks."
-    },
     {
       "date": "2026-09-12",
       "video_id": "8xU_5C5FXvo",
@@ -473,6 +464,15 @@
       "sentiment": "VERY BULLISH",
       "reason": "Every key chart checks the bullish boxes — NDX/SPX, Dow, and breadth breakouts, no January-2022-style divergences (ARKF, 2-year yield, commodities, XLY/XLP), and historical drawdown studies showing higher highs after givebacks, with the key support reference (S&P 6300) far below current levels. The secular bull market appears alive and well, so the odds favor normal pullbacks within an ongoing uptrend.",
       "summary": "• Friday's PCE inflation report was favorable and the Fed is still expected to cut rates in October; the FTEC/XLE ratio shows inflation fear has receded since the October 2022 low.\n• Magnificent 7 earnings continue to lead with no signs of excessive valuation; Nifty-50 analysis shows we are nowhere near late-1990s/early-1970s valuation extremes.\n• Government shutdowns are historically a wash, and after five-month S&P winning streaks the market was higher a year later 28 of 30 times (avg +12.6%).\n• S&P 500 daily: the pullback is tagging an upward-sloping 20-day MA within an existing uptrend; weekly charts, daily cloud, and True Strength Index all still check the bullish boxes.\n• NDX vs SPX shows a bullish breakout after 20+ years of consolidation; the NYSE advance-decline volume line holds a breakout that looks nothing like the 2000 or 2008 bearish crosses.\n• Dow and Dow composite show bullish breakouts after multi-month consolidation, and none of the negative divergences that were present in January 2022 are showing up.\n• Key reference point: S&P ~6600; above 6300 it's easy to remain patient, with concerns only rising below 6150 and more below 6000.\n• Historical drawdowns at similar secular-bull stages averaged ~11.5% and were always followed by higher highs; a drop to 6300 would be a normal ~6% giveback.\n• Conclusion: the odds favor normal volatility and givebacks within an ongoing uptrend; the secular bull market appears alive and well with a favorable earnings outlook."
+    },
+    {
+      "date": "2025-09-19",
+      "video_id": "eFiLaRNw8XM",
+      "title": "What Do These Signals Say About Stock Market Potential Over Next Five Years?",
+      "url": "https://www.youtube.com/watch?v=eFiLaRNw8XM",
+      "sentiment": "VERY BULLISH",
+      "reason": "A cascade of rare breadth thrusts with strong historical 1/3/5-year returns, plus a Fed cutting within 1% of all-time highs (16 for 16 higher a year later), argues for much better-than-expected long-term outcomes; only minor overbought noise tempers the near term.",
+      "summary": "• Fed cut 25bp on Sept 17 and signaled more cuts; in all 16 historical cases of cuts near an all-time high the S&P 500 was higher a year later (avg +15%).\n• Reference points show a 3% to 14% pullback would do little damage to the uptrend off the April low — classified as volatility to ignore.\n• Rare Dow breadth thrust (below 10% to above 85% of stocks above their 150-day MA): 1-year median gain 16.2%, 3-year ~40%, 5-year ~76-82%.\n• Similar Nasdaq breadth thrusts show 1-year median gains ~18%; the Nasdaq >200-day MA move was followed by gains in every case, 5-year median ~80%.\n• Midcap breadth also flashed rare bullish signals even though midcaps still lag large caps on the weekly chart — breadth is broadening.\n• RSI stayed above 45 for 102 straight days; the market was lower two weeks later on average (~2%) — short-term noise, not a reason to sell.\n• Bank of America independently dates the secular bull to 2029-2033, close to CCM's 2034-2035 base case.\n• Conclusion: multiple rare signals argue for keeping an open mind about much better-than-expected 1-5 year outcomes; remain patient and fully invested."
     }
   ]
 }
