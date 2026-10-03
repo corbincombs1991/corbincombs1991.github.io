@@ -1,11 +1,20 @@
 {
-  "generated": "2026-09-27T12:10:35-04:00",
-  "count": 57,
+  "generated": "2026-10-03T09:02:55-04:00",
+  "count": 58,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
+    {
+      "date": "2026-10-03",
+      "video_id": "ze2sc9MKpF8",
+      "title": "Are Today’s Biggest Market Fears Starting To Show Up In The Charts?",
+      "url": "https://www.youtube.com/watch?v=ze2sc9MKpF8",
+      "sentiment": "BULLISH",
+      "reason": "Across equities and sector-relative charts, leadership and trend measures remain broadly bullish and do not resemble prior bear-market setups. Rising Treasury yields and energy/inflation risks are important watchpoints, but the evidence has not yet deteriorated enough to make those concerns showstoppers.",
+      "summary": "• U.S. equity weakness is framed as a normal pullback: the Dow retraced into logical support, while the Nasdaq, S&P 1500, and S&P 500 remain near highs with additional support below.\n• Treasury yields have broken higher, and oil could add to inflation concerns; bulls would want yields and crude to settle, with further moves into highlighted resistance zones raising risk.\n• Intermediate Treasury and high-yield bond charts are at potential support, but breakdowns into lower zones would be concerning; neither has confirmed a broad risk-off turn.\n• Leadership still favors technology and growth: Nasdaq/large-cap growth ratios, semiconductors, Nvidia, and tech versus energy or equal-weight stocks look constructive, unlike early 2022.\n• Defensive and low-volatility stocks are not showing the relative-strength surges seen near past major market peaks; weekly and monthly trend signals favor growth.\n• The broad S&P 500 and tech charts have recovered from ordinary retracements, with moving averages, clouds, and relative-strength measures generally bullish.\n• The channel’s 136-chart, 489-question secular-volatility model remains strong. Overall, fears around rates, inflation, AI, and earnings are legitimate, but current evidence does not make them market showstoppers; maintain a flexible, evidence-led stance."
+    },
     {
       "date": "2026-09-26",
       "video_id": "Uhdxa2Ajuuc",
@@ -464,15 +473,6 @@
       "sentiment": "BULLISH",
       "reason": "Nearly every ratio and breadth chart contradicts a topping process — defensive ratios, inflation charts, and growth/tech breakouts all look nothing like 2007 or Q1-2022 — but the fresh geopolitical shock and possible escalation warrant a hedged, stay-with-the-trend stance.",
       "summary": "• China-tension headlines hit Friday Oct 10, but no reference points (retracement lines, anchored VWAPs) were violated; a 6.9% to 11% pullback would still be a normal secular-bull correction.\n• Carson Research: new highs in Aug-Sept-Oct preceded a positive Q4 in every historical case (avg +6.8%); a rare Oct 6 NASDAQ signal was followed by a higher S&P 500 a year later in every case (avg >15%).\n• The VIX spiked but stayed within ranges seen in 2013 and 2019, after which the market performed well; the trend profile has little damage.\n• Defensive ratios (staples/tech, staples/SPY, low-vol/SPY) show no migration to defensives — nothing like the 2007-2008 or Q1-2022 peaking setups.\n• Tech vs energy, growth vs value, and tech vs S&P ratios are breaking out of 2020-era consolidation boxes with full-bore bullish clouds — possibly early in a long tech trend.\n• Inflation-concern charts (XLE/SPY, 2-year yield) remain tame vs 2022; the Fed could keep rates lower for longer.\n• IPO ETF is now 'batting five for five' vs 0-for-5 in Q1 2022 — a healthy risk-on backdrop.\n• Conclusion: the next pullback should be a normal correction, not the start of a bear market; stay with the trend and trade the chart in front of you."
-    },
-    {
-      "date": "2025-10-04",
-      "video_id": "PXjs4XbYk0Q",
-      "title": "Market Trends: Tech Vs. Gold, Small Caps, And Foreign Stocks",
-      "url": "https://www.youtube.com/watch?v=PXjs4XbYk0Q",
-      "sentiment": "BULLISH",
-      "reason": "The secular bull market view is intact with US tech/growth leading, but foreign stocks, small caps, value, and energy remain in relative downtrends and gold is a hold-not-add — a hedged, relative-strength-based stance rather than all-signals-green.",
-      "summary": "• Opportunity-cost review of 388 ETFs comparing tech, gold, small caps, foreign stocks, and value vs. the S&P 500.\n• Foreign stocks (ACWX, EFA vs SPY) remain in long-term relative downtrends (0-for-5 on monthly cloud checklists); early-2025 strength faded after April, and tech is only ~8% of EFA.\n• China (FXI vs SPY) is a bit better but has not flipped its downtrend anchored to the 2021 peak.\n• US tech is the standout: AIQ, FTEC, XLK, IYW, and IXN all show improving or emerging bullish relative charts, with IYW printing a new high above its 2024 peak.\n• Growth vs value (SCG) is 5-for-5 bullish with all spans above a green cloud, while value (IVE) and equal-weight RSP are 0-for-5 — a tech-heavy cap-weighted market is leading.\n• Semis (SMH vs SPY) show all spans above a green cloud and a higher high; former resistance now acts as support.\n• Gold (GLD vs SPY) is constructive but measured: positive 50-month MA slope and blue span above red, but still rangebound below 2011 highs — they own gold but won't add until a breakout into white space; GDX relative to SPY remains a long-term range.\n• Small caps (IWM/JJR/SPSM vs SPY) remain in downtrends and just made a new low; energy (XLE) looks like it is resuming a long-term downtrend; software (IGV) still feels heavy to the downside.\n• Only 7% of Russell 3000 stocks produced the index's gains and ~90% of return variance comes from asset-class buckets, so broad ETFs capture most of the battle.\n• Conclusion: the evidence says secular bull market; stay allocated, take what the market gives, and avoid over-concentration."
     }
   ]
 }
