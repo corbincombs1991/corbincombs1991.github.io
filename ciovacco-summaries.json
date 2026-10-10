@@ -1,11 +1,20 @@
 {
-  "generated": "2026-10-03T09:02:55-04:00",
-  "count": 58,
+  "generated": "2026-10-10T09:00:51-04:00",
+  "count": 59,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
+    {
+      "date": "2026-10-10",
+      "video_id": "lAfKGcf2K7s",
+      "title": "Stock Market Breadth Broadening Out Or Tech Rolling Over?",
+      "url": "https://www.youtube.com/watch?v=lAfKGcf2K7s",
+      "sentiment": "BULLISH",
+      "reason": "The speaker sees broadening participation and a still-intact secular uptrend; breadth is weak and warrants attention, but volatility, credit spreads, and trend measures do not resemble major bear-market regimes.",
+      "summary": "• The S&P 500 reached a new all-time closing high, while equal-weight RSP gained 1.58% for the week and tech ETF XLK eased 0.52%, suggesting early rotation and healthier market breadth rather than clear tech breakdown.\n• XLK remains technically strong: daily cloud signals are bullish, and the Nasdaq weekly cloud is also 5-for-5 bullish; the VIX fell and has not shown the kind of fear spike seen in major declines.\n• Breadth indicators are genuinely weak, so the host cautions against complacency, but most remain within ranges seen during the ongoing bull market and have not entered the more concerning zones associated with 2022.\n• Historical readings of the Zweig breadth momentum oscillator were followed by higher S&P 500 levels in every cited case at nine months and one year, though normal pullbacks can occur first.\n• Credit spreads remain tame versus past crises, defensive-sector leadership does not resemble prior breakdowns, and secular-volatility and trend-strength models remain strong.\n• Overall, the host views the current action as consolidation and possible broadening—not evidence that tech has rolled over—while stressing that deterioration could change the outlook and that investors should stay flexible and monitor the charts.\n• The main conclusion: respect weak breadth, but do not mistake it for a confirmed bear-market shift while the major trend remains intact."
+    },
     {
       "date": "2026-10-03",
       "video_id": "ze2sc9MKpF8",
@@ -464,15 +473,6 @@
       "sentiment": "BULLISH",
       "reason": "Every comparison to the 2021-2022 peaking process comes up empty — junk bonds, risk-on ratios, and defensive flows all still look bullish, and Ciovacco has nothing in hand that puts the secular bull in doubt — though he stays disciplined about deploying new cash until charts clear white space.",
       "summary": "• After a regional-bank-driven volatile week, the S&P 500 finished +1.7% and XLK +2.38%; VIX fell ~18% Friday; the rally off the April low remains intact.\n• The S&P made a stand near a rising 50-day MA with reference points below; XLK hasn't even retraced to its rising 50-day — both short-term trends stay strong.\n• Junk bonds (JNK) still show a full-bore bullish MA stack, the polar opposite of the tight-cluster rollover look that confirmed the January 2022 peak.\n• XLY/XLP (risk-on vs. defensive) just printed a new all-time high, unlike early 2022; the defensive low-vol/high-beta ratio sits at a 52-week low instead of rising as it did pre-2022.\n• Regional banks (KRE) remain healthy in isolation but keep a downtrend vs. the S&P — not a place to own; foreign stocks (ACWX) and small caps (IWM) vs. tech remain long-term downtrends.\n• Gold vs. SPY is improving but nearly parabolic and overdue for a breather; silver similar — extended, but long-term uptrends intact.\n• The 2021-2022 peak process (S&P topped Jan 3, 2022) provides the warning signs to monitor; none are present as of Oct 17, 2025.\n• Bottom line: nothing in hand puts the secular bull market in doubt; fundamentals look good and a healthy digestion of gains could extend the uptrend."
-    },
-    {
-      "date": "2025-10-11",
-      "video_id": "8EFzB9PdI-M",
-      "title": "Will Renewed Tensions With China Bring The Bull Market To A Painful End?",
-      "url": "https://www.youtube.com/watch?v=8EFzB9PdI-M",
-      "sentiment": "BULLISH",
-      "reason": "Nearly every ratio and breadth chart contradicts a topping process — defensive ratios, inflation charts, and growth/tech breakouts all look nothing like 2007 or Q1-2022 — but the fresh geopolitical shock and possible escalation warrant a hedged, stay-with-the-trend stance.",
-      "summary": "• China-tension headlines hit Friday Oct 10, but no reference points (retracement lines, anchored VWAPs) were violated; a 6.9% to 11% pullback would still be a normal secular-bull correction.\n• Carson Research: new highs in Aug-Sept-Oct preceded a positive Q4 in every historical case (avg +6.8%); a rare Oct 6 NASDAQ signal was followed by a higher S&P 500 a year later in every case (avg >15%).\n• The VIX spiked but stayed within ranges seen in 2013 and 2019, after which the market performed well; the trend profile has little damage.\n• Defensive ratios (staples/tech, staples/SPY, low-vol/SPY) show no migration to defensives — nothing like the 2007-2008 or Q1-2022 peaking setups.\n• Tech vs energy, growth vs value, and tech vs S&P ratios are breaking out of 2020-era consolidation boxes with full-bore bullish clouds — possibly early in a long tech trend.\n• Inflation-concern charts (XLE/SPY, 2-year yield) remain tame vs 2022; the Fed could keep rates lower for longer.\n• IPO ETF is now 'batting five for five' vs 0-for-5 in Q1 2022 — a healthy risk-on backdrop.\n• Conclusion: the next pullback should be a normal correction, not the start of a bear market; stay with the trend and trade the chart in front of you."
     }
   ]
 }
