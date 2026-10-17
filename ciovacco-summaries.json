@@ -1,11 +1,20 @@
 {
-  "generated": "2026-10-10T09:00:51-04:00",
-  "count": 59,
+  "generated": "2026-10-17T09:00:30-04:00",
+  "count": 60,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
+    {
+      "date": "2026-10-16",
+      "video_id": "vCez_UgeiCg",
+      "title": "Stocks: The Good, The Bad, And The Ugly",
+      "url": "https://www.youtube.com/watch?v=vCez_UgeiCg",
+      "sentiment": "NEUTRAL",
+      "reason": "The long-term trend remains exceptionally strong, but volatility, weak breadth, rising oil, and deterioration in several relative-strength and credit indicators warrant caution. The presenter sees a broad range of outcomes and recommends staying flexible rather than assuming either a correction or a bear market.",
+      "summary": "• The S&P 500 ended about 2% below its record close, with trend and long-term momentum still strong; all six sectors were green Friday, hinting at potentially healthy rotation.\n• Crude oil near $110 is pressing a long-term range boundary, raising risks around inflation, the economy, and Fed policy if it breaks higher.\n• Anchored VWAP levels, moving averages, and cloud charts provide downside guideposts; semiconductors and AI/tech relative strength look more vulnerable, though key breakdowns have not broadly occurred.\n• Energy and industrials are showing relative improvement, but most sector-versus-tech ratios remain in downtrends; a decisive break above cloud resistance would signal a more meaningful leadership shift.\n• Breadth is fragile but not yet displaying the more serious deterioration seen in 2022 or 2008. Several major indexes remain above rising 200-day or longer-term averages.\n• VIX rose sharply, high-yield bonds fell below their 200-day average, and other risk gauges are yellow or red flags; corporate bonds and travel-related shares offer some counterevidence.\n• The presenter emphasizes that ordinary 7–8% pullbacks can occur in secular bull markets, and warns against overreacting or overtrading. A deeper reversal is possible, but the charts have not confirmed it; reassess as evidence changes."
+    },
     {
       "date": "2026-10-10",
       "video_id": "lAfKGcf2K7s",
@@ -464,15 +473,6 @@
       "sentiment": "BULLISH",
       "reason": "A systematic 'are we missing anything?' review finds present-day chart profiles look nothing like the 2000, 2007, or 2022 topping processes — trend, breadth, and credit are all constructive. Constructive but repeatedly hedged with open-mind caveats, so not all-signals-green.",
       "summary": "• Answers the title question with a systematic review: the present-day S&P 500 weekly profile (50-110 week MAs) looks significantly better than the December 2000 or Q4 2007/Q1 2008 peaking processes.\n• Price sits above all rising moving averages with clean white space; daily and monthly cloud charts still check most bullish boxes despite late-October volatility.\n• Stocks vs 10-year Treasury ratio looks like a bullish breakout above an upward-sloping 10-week MA — nothing like the Q1 2022 setup.\n• Credit is healthy: BKLN cleared anchored VWAP resistance and is turning up; the Dow corporate bond index printed new weekly closing highs; JNK shows no 2022-style 200-day break.\n• NASDAQ 100 advance/decline and tape indices resemble favorable periods (Feb 2013, Sep 2003, Jun 1995, Feb 1983), not late 2007.\n• Consumer services index is consolidating above former 2021 resistance; a sustained break below the rising 200-week MA would change the read.\n• NASDAQ 100 weekly cloud is 5-for-5 bullish; the NDX/SPX ratio consolidating above the 200-week MA argues tech outperformance can persist.\n• Growth vs value broke out after five years of consolidation with the cloud flipping green — a bullish tell for growth/tech.\n• Gold checks many bullish boxes but warrants a measured approach until it clears the quarterly cloud and the decades-old downtrend line; 2-year yield and BSV show no 2022-style inflation/Fed-hike profile.\n• Conclusion: nothing in hand aligns with a secular stagnation or bearish setup; keep a flexible, unbiased, open mind."
-    },
-    {
-      "date": "2025-10-18",
-      "video_id": "UUuBR2uAtE0",
-      "title": "Stock Market: 2021-2022 Major Peak vs. 2025",
-      "url": "https://www.youtube.com/watch?v=UUuBR2uAtE0",
-      "sentiment": "BULLISH",
-      "reason": "Every comparison to the 2021-2022 peaking process comes up empty — junk bonds, risk-on ratios, and defensive flows all still look bullish, and Ciovacco has nothing in hand that puts the secular bull in doubt — though he stays disciplined about deploying new cash until charts clear white space.",
-      "summary": "• After a regional-bank-driven volatile week, the S&P 500 finished +1.7% and XLK +2.38%; VIX fell ~18% Friday; the rally off the April low remains intact.\n• The S&P made a stand near a rising 50-day MA with reference points below; XLK hasn't even retraced to its rising 50-day — both short-term trends stay strong.\n• Junk bonds (JNK) still show a full-bore bullish MA stack, the polar opposite of the tight-cluster rollover look that confirmed the January 2022 peak.\n• XLY/XLP (risk-on vs. defensive) just printed a new all-time high, unlike early 2022; the defensive low-vol/high-beta ratio sits at a 52-week low instead of rising as it did pre-2022.\n• Regional banks (KRE) remain healthy in isolation but keep a downtrend vs. the S&P — not a place to own; foreign stocks (ACWX) and small caps (IWM) vs. tech remain long-term downtrends.\n• Gold vs. SPY is improving but nearly parabolic and overdue for a breather; silver similar — extended, but long-term uptrends intact.\n• The 2021-2022 peak process (S&P topped Jan 3, 2022) provides the warning signs to monitor; none are present as of Oct 17, 2025.\n• Bottom line: nothing in hand puts the secular bull market in doubt; fundamentals look good and a healthy digestion of gains could extend the uptrend."
     }
   ]
 }
