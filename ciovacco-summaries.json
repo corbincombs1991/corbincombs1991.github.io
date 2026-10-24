@@ -1,11 +1,20 @@
 {
-  "generated": "2026-10-17T09:00:30-04:00",
-  "count": 60,
+  "generated": "2026-10-24T09:00:34-04:00",
+  "count": 61,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
+    {
+      "date": "2026-10-24",
+      "video_id": "fdcRdPSMc7I",
+      "title": "Will The Midterms Break The Bullish Dam?",
+      "url": "https://www.youtube.com/watch?v=fdcRdPSMc7I",
+      "sentiment": "CAUTIONARY BULLISH",
+      "reason": "The presenter still treats the secular bull market as the base case: major indexes, leadership, and several credit measures remain above key support, and conditions look materially stronger than early 2022. However, breadth and several technical models have deteriorated, prompting small defensive steps and contingency planning.",
+      "summary": "• The S&P 500 is only 2.5% below its recent closing high, a routine-sized pullback, so the evidence is too early to distinguish a normal dip from a deeper correction or bear market.\n• The base case remains a secular bull market, but the team has entered an initial mitigation phase: taking incremental defensive steps while preparing for worse outcomes without assuming they will occur.\n• Index charts show several logical support zones still holding; a decline toward roughly 7,250 on the S&P 500 could remain consistent with an intact uptrend, while breaks and sustained weakness would raise risk.\n• Corporate and high-yield bonds mostly remain above key breakout/support levels, though flattening corporate-bond trends, some weakness in rate-sensitive assets, and a crude-oil breakout are watch points.\n• Growth leadership remains largely intact versus equal-weight stocks, and major long-term measures look stronger than in 2022, 2000, or 2007; nevertheless, tech breadth and some relative-strength charts have weakened.\n• Models and breadth indicators show modest but notable deterioration, including a more vulnerable Nasdaq daily-cloud picture and the first concerning pattern in a high/low breadth measure. Credit spreads have widened, but not yet to alarming levels.\n• The midterms and potential oil-price shocks could add volatility, but the presenter emphasizes waiting for confirmation: sustained breaks of support and worsening breadth would justify further defense.\n• Overall, the market is vulnerable, not yet decisively broken; maintain an unbiased, evidence-led stance and use contingency plans rather than either panicking or becoming complacent."
+    },
     {
       "date": "2026-10-16",
       "video_id": "vCez_UgeiCg",
@@ -464,15 +473,6 @@
       "sentiment": "BULLISH",
       "reason": "The Hindenburg omen scare is systematically debunked (significant declines followed it only 25% of the time) while credit markets and growth/tech ratios show bullish breakouts; the case rests on probability tables rather than unqualified confidence, so BULLISH fits.",
       "summary": "• The Oct 29 Hindenburg omen has a mixed record — WSJ found significant declines followed only 25% of the time; even the -6.38% average two-month outcome would only bring the S&P to ~6451, above a rising 100-day MA.\n• A longer-history version of the signal (back to 1905) shows positive average returns: +5% in 2 months, +6.7% in 6 months.\n• Fed cuts near an all-time high have occurred only four other times — S&P higher a year later every time, average +20%, worst case +15%.\n• Credit markets (2-year yield, short-term bonds, 7-10yr Treasuries, high-yield JNK) show none of the Q4-2021/Q1-2022 rollover that precedes trouble.\n• SPY vs staples XLP posted a monthly bullish breakout above a rising 50-month MA, clearing a 25-year box — stark contrast to 2007-2008.\n• Monthly clouds for tech/energy, AI-tech vs SPY, and growth vs value are flipping red-to-green with price above the cloud — early-stage trend signals.\n• Large-cap growth (IWF) broke above 2020/2021/2024 resistance; foreign stocks and small caps remain 0-for-5 — stay with US large-cap growth leadership.\n• Nvidia's CEO cites the 'beginning of a 10-year buildout' of AI — aligning with the 2034-2035 secular-bull base case."
-    },
-    {
-      "date": "2025-10-24",
-      "video_id": "Jg9adM1eces",
-      "title": "Are Bulls Whistling Past The Stock Market Graveyard?",
-      "url": "https://www.youtube.com/watch?v=Jg9adM1eces",
-      "sentiment": "BULLISH",
-      "reason": "A systematic 'are we missing anything?' review finds present-day chart profiles look nothing like the 2000, 2007, or 2022 topping processes — trend, breadth, and credit are all constructive. Constructive but repeatedly hedged with open-mind caveats, so not all-signals-green.",
-      "summary": "• Answers the title question with a systematic review: the present-day S&P 500 weekly profile (50-110 week MAs) looks significantly better than the December 2000 or Q4 2007/Q1 2008 peaking processes.\n• Price sits above all rising moving averages with clean white space; daily and monthly cloud charts still check most bullish boxes despite late-October volatility.\n• Stocks vs 10-year Treasury ratio looks like a bullish breakout above an upward-sloping 10-week MA — nothing like the Q1 2022 setup.\n• Credit is healthy: BKLN cleared anchored VWAP resistance and is turning up; the Dow corporate bond index printed new weekly closing highs; JNK shows no 2022-style 200-day break.\n• NASDAQ 100 advance/decline and tape indices resemble favorable periods (Feb 2013, Sep 2003, Jun 1995, Feb 1983), not late 2007.\n• Consumer services index is consolidating above former 2021 resistance; a sustained break below the rising 200-week MA would change the read.\n• NASDAQ 100 weekly cloud is 5-for-5 bullish; the NDX/SPX ratio consolidating above the 200-week MA argues tech outperformance can persist.\n• Growth vs value broke out after five years of consolidation with the cloud flipping green — a bullish tell for growth/tech.\n• Gold checks many bullish boxes but warrants a measured approach until it clears the quarterly cloud and the decades-old downtrend line; 2-year yield and BSV show no 2022-style inflation/Fed-hike profile.\n• Conclusion: nothing in hand aligns with a secular stagnation or bearish setup; keep a flexible, unbiased, open mind."
     }
   ]
 }
