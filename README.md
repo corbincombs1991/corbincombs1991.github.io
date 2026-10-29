@@ -16,13 +16,14 @@ python3 -m http.server 8000
 For Market Notes, open `http://localhost:8000/ciovacco.html` locally. GitHub
 Pages also serves it at the extensionless `/ciovacco` URL used in navigation.
 Market Insights is at `http://localhost:8000/market-insights/`.
+The photography gallery is at `http://localhost:8000/photography/`.
 
 ## Editing content
 
 The homepage content lives in `index.html`. Edit the text between the tags;
 the site requires no build step or package installation. The Work section
-features existing projects, and the Explore menu links to travel, decks, and
-the market pages. The music credits section keeps its original `#projects`
+features existing projects, and the Explore menu links to photography, travel,
+decks, and the market pages. The music credits section keeps its original `#projects`
 anchor so existing links continue to work.
 
 Market Notes uses `ciovacco.html` and `ciovacco-summaries.json`. The summary
@@ -52,6 +53,7 @@ js/travel-map.js, travel-data.js — Leaflet travel map
 assets/img/     — photos plus generated WebP derivatives
 assets/fonts/   — self-hosted fonts and licenses
 assets/icons/   — favicon and app icons
+photography/   — photography gallery and its supporting files
 robots.txt, sitemap.xml — search-engine discovery
 site.webmanifest — installable-site metadata
 404.html       — custom not-found page
@@ -77,7 +79,7 @@ Run the dependency-free regression checks with Node.js 22 or later:
 node --test tools/tests/*.test.cjs
 ```
 
-Before publishing, also check the homepage and both market pages in a browser,
+Before publishing, also check the homepage, photography gallery, and both market pages in a browser,
 including a narrow portrait viewport and a short landscape viewport. Confirm
 that the mobile menu scrolls, Escape closes menus, and the charts and map load.
 

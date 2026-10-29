@@ -7,6 +7,10 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://corbincombs.com/photography/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://corbincombs.com/ciovacco</loc>
     <changefreq>weekly</changefreq>
   </url>
