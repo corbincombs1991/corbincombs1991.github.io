@@ -18,7 +18,7 @@ jobs:
           node-version: 22
       - name: Check JavaScript syntax
         run: |
-          for file in js/*.js market-insights/*.js; do
+          for file in js/*.js market-insights/*.js photography/*.js; do
             if [ -f "$file" ]; then node --check "$file"; fi
           done
       - name: Check dates, filters, and report rendering
