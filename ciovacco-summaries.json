@@ -1,11 +1,20 @@
 {
-  "generated": "2026-10-24T09:00:34-04:00",
-  "count": 61,
+  "generated": "2026-10-31T09:00:49-04:00",
+  "count": 62,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
+    {
+      "date": "2026-10-31",
+      "video_id": "1o8Lih-mBQA",
+      "title": "Has the NASDAQ Already Peaked?",
+      "url": "https://www.youtube.com/watch?v=1o8Lih-mBQA",
+      "sentiment": "BEARISH",
+      "reason": "The presenter sees meaningful short-term deterioration and elevated risk of more downside, but says the evidence still does not confirm a major or secular market peak; the long-term uptrend remains intact and panic is unwarranted.",
+      "summary": "• Friday’s sharp selloff and weakening volatility scores have raised caution, and recent price action increases the odds of a test of the S&P 500’s rising 200-day average.\n• Several short-term measures are deteriorating: Nasdaq momentum and breadth are weaker, tech has formed a lower high, and high-yield bonds have been rejected below a key moving average.\n• Still, major indices remain above important rising long-term averages and support zones; the S&P 500’s monthly trend, RSI, and cloud structure remain strong.\n• Nasdaq momentum indicators look vulnerable but have not reproduced the warning patterns seen before 2000, 2008, or 2022; the presenter says the current evidence does not establish that the Nasdaq has peaked.\n• Fibonacci retracements, volume-by-price areas, and rising averages offer potential support if the pullback deepens; a roughly 6.5% S&P 500 correction would be normal.\n• Relative-performance charts suggest tech leadership could pause while equal-weight stocks and other sectors improve, which could be a healthy rotation rather than a lasting trend change.\n• Seasonal history is favorable entering November, but forced selling and leverage-related deleveraging may prolong volatility.\n• The stance is cautious and incremental: take measured risk-reduction steps, avoid panic, and reassess if price breaks key support and indicators begin to resemble prior major tops."
+    },
     {
       "date": "2026-10-24",
       "video_id": "fdcRdPSMc7I",
@@ -464,15 +473,6 @@
       "sentiment": "VERY BULLISH",
       "reason": "Dual-100 trend-strength model scores, an 'extremely strong trend' on the charts, no data suggesting the secular trend is on the ropes, and demographics plus AI pointing to a secular bull through 2034-35 — the video is confident bubble talk won't be a useful timing tool, though it flags normal short-term volatility.",
       "summary": "Bubble question after a volatile Friday (S&P down 88 points intraday, finished up 8): the video argues bubble talk is not a useful timing tool.\n• History: 21 public bubble warnings from 1985-1998 (Business Week, NYT, Fed testimony, etc.); the S&P gained 282% on average and rallied 7.2 more years after each warning.\n• Examples: +735% after the 1985 'casino' cover and +571% after October 1987; the Nasdaq averaged ~750% gains across the 21 instances.\n• AI cycle: the data-center buildout is just the start — 10-15 years of innovation ahead across energy, robotics, factories, biotech and education.\n• Demographics plus AI suggest the secular bull market could extend into 2034-2035.\n• Model scores: trend-strength model still posts dual 100s, far from the concerning 24%/15%/20%/10% levels; the secular volatility model is also strong.\n• The S&P held its upward-sloping 50-day MA intraday Friday and reversed higher; nothing concerning was violated on the daily chart.\n• The weekly chart looks like 'an extremely strong trend' — not the 2000 or 2007-08 rollovers; the current pullback hasn't exceeded the ~7% median drawdown of strong-trend windows.\n• After strong Nasdaq runs, givebacks are normal but the trend was higher a year later in every case (+26.84% avg); ~70% odds of a December Fed cut are a tailwind for tech and cyclicals.\n• Conclusion: 'big picture, things still look good' — no data says the secular trend is on the ropes, though the market still has short-term work to do."
-    },
-    {
-      "date": "2025-11-01",
-      "video_id": "hAeRFCG3xOY",
-      "title": "Stocks: Happy Halloween or Ominous Omen?",
-      "url": "https://www.youtube.com/watch?v=hAeRFCG3xOY",
-      "sentiment": "BULLISH",
-      "reason": "The Hindenburg omen scare is systematically debunked (significant declines followed it only 25% of the time) while credit markets and growth/tech ratios show bullish breakouts; the case rests on probability tables rather than unqualified confidence, so BULLISH fits.",
-      "summary": "• The Oct 29 Hindenburg omen has a mixed record — WSJ found significant declines followed only 25% of the time; even the -6.38% average two-month outcome would only bring the S&P to ~6451, above a rising 100-day MA.\n• A longer-history version of the signal (back to 1905) shows positive average returns: +5% in 2 months, +6.7% in 6 months.\n• Fed cuts near an all-time high have occurred only four other times — S&P higher a year later every time, average +20%, worst case +15%.\n• Credit markets (2-year yield, short-term bonds, 7-10yr Treasuries, high-yield JNK) show none of the Q4-2021/Q1-2022 rollover that precedes trouble.\n• SPY vs staples XLP posted a monthly bullish breakout above a rising 50-month MA, clearing a 25-year box — stark contrast to 2007-2008.\n• Monthly clouds for tech/energy, AI-tech vs SPY, and growth vs value are flipping red-to-green with price above the cloud — early-stage trend signals.\n• Large-cap growth (IWF) broke above 2020/2021/2024 resistance; foreign stocks and small caps remain 0-for-5 — stay with US large-cap growth leadership.\n• Nvidia's CEO cites the 'beginning of a 10-year buildout' of AI — aligning with the 2034-2035 secular-bull base case."
     }
   ]
 }
