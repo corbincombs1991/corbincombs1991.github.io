@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { url } from '../../lib/urls';
+import { shop } from '../../data/shop';
+const questions = [
+ ['How do I buy a piece?', 'Available pieces are sold through Depop. Open the shop profile, read the individual listing, and complete your purchase there. This site does not collect payments.'],
+ ['How do I know it will fit?', 'Vintage size labels can differ from current sizing. Compare the measurements in the listing with a similar garment you already own. If measurements are missing, ask the seller before purchasing.'],
+ ['What condition should I expect?', 'Previously worn clothing can show signs of wear. Use the photos and condition notes in each listing to decide whether a piece is right for you. Ask for a closer look at any detail you are unsure about.'],
+ ['What about shipping and returns?', 'Shipping costs, destinations, dispatch details, and any seller return terms are shown on Depop. Check the current listing and Depop policies before buying; this website does not set separate terms.'],
+ ['How do I care for vintage clothing?', 'Start with the garment’s care label. If it is missing or the fabric is delicate, ask a professional cleaner. Air pieces between wears, store them away from direct sunlight, and treat older seams and trims gently.'],
+ ['Are the editorial photos items for sale?', 'The editorial and lookbook images are created to illustrate the Afterglow style. They do not represent available inventory. Product photos, prices, and stock are provided in the actual Depop listings.'],
+];
+---
+<Layout title="Shopping & care" description="A little good-to-know before you shop Afterglow Vintage: buying on Depop, checking vintage sizing and condition, and caring for your pieces.">
+  <section class="page-intro section"><p class="eyebrow">A LITTLE GOOD TO KNOW</p><h1>Good questions.<br /><em>Useful answers.</em></h1></section>
+  <section class="section faq-list">{questions.map(([question, answer]) => <details><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</section>
+  <section class="section closing-note"><p>Still looking for something?</p><a class="button" href={shop.depopUrl || url('shop/')} target={shop.depopUrl ? '_blank' : undefined} rel={shop.depopUrl ? 'noopener noreferrer' : undefined}>{shop.depopUrl ? 'Message us on Depop' : 'Visit the shop'} ↗</a></section>
+</Layout>

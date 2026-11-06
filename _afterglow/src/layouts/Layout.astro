@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+import { url } from '../lib/urls';
+import { shop } from '../data/shop';
+interface Props { title: string; description: string; current?: string; }
+const { title, description, current = '' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const social = new URL(url('images/hero.webp'), Astro.site).href;
+const nav = [['Shop', 'shop/'], ['The edit', 'lookbook/'], ['Our story', 'about/']];
+const brandSchema = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Afterglow Vintage', url: new URL(url(), Astro.site).href, description, ...(shop.depopUrl ? { sameAs: [shop.depopUrl] } : {}) };
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3f0e7" />
+    <title>{title} | Afterglow Vintage</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Afterglow Vintage" />
+    <meta property="og:title" content={`${title} | Afterglow Vintage`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={social} />
+    <meta property="og:image:alt" content="Afterglow Vintage — a 90s-inspired fashion editorial" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
+    <link rel="preload" href={url('fonts/space-grotesk-latin.woff2')} as="font" type="font/woff2" crossorigin />
+    <script type="application/ld+json" set:html={JSON.stringify(brandSchema)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="announcement"><span>GOOD CLOTHES. SECOND CHANCES.</span><span class="announcement-right">1996 ATTITUDE. 2026 EXECUTION.</span></div>
+    <header class="site-header">
+      <a class="logo" href={url()} aria-label="Afterglow Vintage home">afterglow<span>VINTAGE</span><span class="logo-star" aria-hidden="true">✳</span></a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        {nav.map(([label, path]) => <a href={url(path)} aria-current={current === path ? 'page' : undefined}>{label}</a>)}
+      </nav>
+      <a class="header-shop" href={shop.depopUrl || url('shop/')} target={shop.depopUrl ? '_blank' : undefined} rel={shop.depopUrl ? 'noopener noreferrer' : undefined}>{shop.depopUrl ? 'Find us on Depop' : 'Explore the shop'} <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+      <nav id="mobile-menu" class="mobile-nav" aria-label="Mobile navigation" hidden>
+        {nav.map(([label, path]) => <a href={url(path)} aria-current={current === path ? 'page' : undefined}>{label}<span aria-hidden="true">↗</span></a>)}
+        <a href={url('faq/')}>Good to know <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div class="footer-top"><p>Old soul.<br /><em>New stories.</em></p><div class="footer-links"><a href={url('shop/')}>Shop the collection ↗</a><a href={url('about/')}>Our story</a><a href={url('faq/')}>Shopping & care</a><a href="https://www.instagram.com/afterglowvintageindy/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://linktr.ee/afterglowvintageindy" target="_blank" rel="noopener noreferrer">All our links ↗</a>{shop.depopUrl && <a href={shop.depopUrl} target="_blank" rel="noopener noreferrer">Depop ↗</a>}</div></div>
+      <a class="footer-wordmark" href={url()}>afterglow<span aria-hidden="true">✳</span></a>
+      <div class="footer-bottom"><span>© {new Date().getFullYear()} AFTERGLOW VINTAGE</span><span>A LITTLE NOSTALGIA. A LOT OF CHARACTER.</span><a href="#main">BACK TO TOP ↑</a></div>
+    </footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const menu = document.querySelector<HTMLElement>('#mobile-menu');
+      function closeMenu() { if (!toggle || !menu) return; toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Open navigation'); menu.hidden = true; }
+      toggle?.addEventListener('click', () => { if (!menu) return; const open = toggle.getAttribute('aria-expanded') !== 'true'; toggle.setAttribute('aria-expanded', String(open)); toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); menu.hidden = !open; });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') { closeMenu(); toggle.focus(); } });
+      document.addEventListener('click', (event) => { if (!(event.target as Element).closest('.site-header')) closeMenu(); });
+      matchMedia('(min-width: 801px)').addEventListener('change', (event) => { if (event.matches) closeMenu(); });
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduced && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => { for (const entry of entries) if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); } }, { threshold: 0.1 });
+        document.querySelectorAll('[data-reveal]').forEach((element) => { element.classList.add('reveal-ready'); observer.observe(element); });
+      }
+    </script>
+  </body>
+</html>
