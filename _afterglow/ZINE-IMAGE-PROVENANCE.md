@@ -1,10 +1,40 @@
 # Afterglow zine image provenance
 
-Created November 6, 2026 using the built-in `image_gen` tool (not the fallback CLI).
+## Instagram images in the current zine
+
+Retrieved November 6, 2026 from the public `@afterglowvintageindy` Instagram profile. The images were visually inspected and downloaded through the browser from the observed public profile grid. Both files retain their downloaded JPEG bytes; display cropping is applied with CSS. These images were not generated. Source attribution identifies the sharing account, not the photographer or copyright owner. No band member identities are inferred.
+
+### Live music at the vintage market
+
+- Public asset: `public/images/zine/afterglow-market-live.jpg`
+- Dimensions: 640 × 427
+- JPEG file size: 62,412 bytes
+- Source post: https://www.instagram.com/afterglowvintageindy/p/DeXkN_xkion/
+- Post date shown by Instagram: October 11, 2026
+- Observed content: musicians playing beside clothing racks and colorful outdoor market tents.
+- Display attribution: “From @afterglowvintageindy,” linked to the exact source post.
+- Used in the homepage cover and the first lookbook story. This replaces the generated skate image in this edition.
+
+### Novella music collage
+
+- Public asset: `public/images/zine/novella-music.jpg`
+- Dimensions: 494 × 640
+- JPEG file size: 60,459 bytes
+- Source post: https://www.instagram.com/afterglowvintageindy/p/Dd7QQI9Eu4M/
+- Post date shown by Instagram: September 30, 2026
+- Observed content: a guitarist above a crowd, with a visible “Novella” wordmark. The wordmark is described as visible text, without identifying the guitarist or crowd.
+- Display attribution: “From @afterglowvintageindy,” linked to the exact source post.
+- Used in the homepage polaroid and the second lookbook story. The original grunge collage remains in other editorial placements.
+
+## Historical generated artwork
+
+Created November 6, 2026 using the built-in `image_gen` tool (not the fallback CLI). The following record preserves the original prompts and encoding details.
 
 These original generated editorial visuals interpret the user's supplied 1990s fashion scrapbook and skate magazine references. They do not reproduce the referenced magazine photographs or portray actual Afterglow inventory. The reference images were inspected for visual direction; no reference image was sent as an edit target.
 
 ## Skate editorial
+
+Superseded in the zine homepage and lookbook by the market image above. This historical record does not change the independently retained skate asset in other editions.
 
 - Public asset: `public/images/zine/skate-editorial.webp`
 - Dimensions: 1536 × 1024
@@ -42,4 +72,3 @@ Composition: fill the portrait with layered objects, two principal fashion silho
 Texture: authentic flash photos and grain, xerox grain, photocopied halftone, torn irregular edges, wrinkles and aged paper fibers.
 Constraints: original people, no celebrities, no brands, no words, letters, headlines, logos, typography, captions, readable newspaper text, watermarks, or products for sale. Do not reproduce any existing magazine or reference layout.
 ```
-
