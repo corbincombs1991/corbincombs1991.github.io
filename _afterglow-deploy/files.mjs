@@ -3,10 +3,18 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
-export const source = path.join(root, '_afterglow/dist');
-export const destination = path.join(root, 'afterglowvintage');
+// Only these two sites may be synced. Never accept a caller-supplied output path.
+export const variants = Object.freeze({
+  current: Object.freeze({ sourceDirectory: '_afterglow', publishedDirectory: 'afterglowvintage' }),
+  original: Object.freeze({ sourceDirectory: '_afterglow-original', publishedDirectory: 'afterglowvintage-original' }),
+});
+export const variant = process.env.AFTERGLOW_VARIANT ?? 'current';
+if (!Object.hasOwn(variants, variant)) throw new Error(`Unknown AFTERGLOW_VARIANT: ${variant}. Use current or original.`);
+export const { sourceDirectory, publishedDirectory } = variants[variant];
+export const source = path.join(root, sourceDirectory, 'dist');
+export const destination = path.join(root, publishedDirectory);
 export const origin = 'https://corbincombs.com';
-export const base = '/afterglowvintage/';
+export const base = `/${publishedDirectory}/`;
 
 export async function files(directory, prefix = '') {
   const result = [];

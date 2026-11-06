@@ -4,12 +4,14 @@ on:
   pull_request:
     paths:
       - '_afterglow/**'
+      - '_afterglow-original/**'
       - '_afterglow-deploy/**'
       - '.github/workflows/afterglow-publish.yml'
   push:
     branches: [main]
     paths:
       - '_afterglow/**'
+      - '_afterglow-original/**'
       - '_afterglow-deploy/**'
       - '.github/workflows/afterglow-publish.yml'
   workflow_dispatch:
@@ -28,23 +30,35 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - variant: current
+            source: _afterglow
+          - variant: original
+            source: _afterglow-original
+    env:
+      AFTERGLOW_VARIANT: ${{ matrix.variant }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: _afterglow/package-lock.json
+          cache-dependency-path: ${{ matrix.source }}/package-lock.json
+      - name: Verify publishing preserves the other site
+        run: node --test _afterglow-deploy/sync.test.mjs
       - name: Install locked dependencies
-        run: npm ci --prefix _afterglow
+        run: npm ci --prefix '${{ matrix.source }}'
       - name: Build static subdirectory site
-        run: npm run build --prefix _afterglow
+        run: npm run build --prefix '${{ matrix.source }}'
       - name: Validate static routes, SEO, and assets
         run: node _afterglow-deploy/verify.mjs
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
-          name: afterglow-static
-          path: _afterglow/dist/
+          name: afterglow-static-${{ matrix.variant }}
+          path: ${{ matrix.source }}/dist/
           if-no-files-found: error
           retention-days: 1
 
@@ -70,7 +84,7 @@ jobs:
         env:
           BUILT_COMMIT: ${{ github.sha }}
         run: |
-          if git diff --quiet "$BUILT_COMMIT" HEAD -- _afterglow _afterglow-deploy .github/workflows/afterglow-publish.yml; then
+          if git diff --quiet "$BUILT_COMMIT" HEAD -- _afterglow _afterglow-original _afterglow-deploy .github/workflows/afterglow-publish.yml; then
             echo 'current=true' >> "$GITHUB_OUTPUT"
           else
             echo 'current=false' >> "$GITHUB_OUTPUT"
@@ -79,21 +93,27 @@ jobs:
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         if: steps.freshness.outputs.current == 'true'
         with:
-          name: afterglow-static
+          name: afterglow-static-current
           path: _afterglow/dist/
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        if: steps.freshness.outputs.current == 'true'
+        with:
+          name: afterglow-static-original
+          path: _afterglow-original/dist/
       - name: Confirm existing Pages settings
         if: steps.freshness.outputs.current == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: node _afterglow-deploy/pages.mjs
-      - name: Update only the Afterglow published directory
+      - name: Update only the two Afterglow published directories
         if: steps.freshness.outputs.current == 'true'
         run: |
           node _afterglow-deploy/sync.mjs
-          git diff --exit-code -- . ':!afterglowvintage'
-          git add --all -- afterglowvintage
+          AFTERGLOW_VARIANT=original node _afterglow-deploy/sync.mjs
+          git diff --exit-code -- . ':!afterglowvintage' ':!afterglowvintage-original'
+          git add --all -- afterglowvintage afterglowvintage-original
           if ! git diff --cached --quiet; then
-            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'build: publish Afterglow Vintage static site'
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'build: publish Afterglow Vintage static sites'
             git push origin HEAD:main
           fi
       - name: Rebuild existing Pages deployment and verify production

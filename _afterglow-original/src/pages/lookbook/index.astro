@@ -1,0 +1,10 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { url } from '../../lib/urls';
+---
+<Layout title="The edit — Still in rotation" description="The Afterglow editorial: worn leather, lived-in denim, and 90s-inspired styling. A little inspiration for your next favorite outfit." current="lookbook/">
+  <section class="page-intro section"><p class="eyebrow">VOL. 01 / THE AFTERGLOW EDIT</p><h1>Still in<br /><em>rotation.</em></h1><p class="lead">A mood, not a dress code. Take what feels like you.</p></section>
+  <section id="off-duty" class="lookbook-story section"><div class="lookbook-image"><img src={url('images/hero.webp')} width="1536" height="1024" alt="Oversized leather jacket paired with a cream tee and faded jeans" fetchpriority="high" /><span class="lookbook-number">01</span></div><div class="lookbook-copy" data-reveal><p class="eyebrow">THE OFF-DUTY UNIFORM</p><h2>A little oversized.<br /><em>A little undone.</em></h2><p>Start with denim that hangs just right. Add a simple tee, a jacket with some miles on it, and exactly zero overthinking.</p><p class="styling-note">THE FORMULA / FADED DENIM + WORN LEATHER + SOMETHING THAT'S YOURS</p></div></section>
+  <section id="in-the-details" class="lookbook-story section alternate"><div class="lookbook-image"><img src={url('images/editorial.webp')} width="1536" height="1024" alt="Vintage-inspired denim, leather, and chrome sunglasses styling details" loading="lazy" /><span class="lookbook-number">02</span></div><div class="lookbook-copy" data-reveal><p class="eyebrow">IT'S IN THE DETAILS</p><h2>Texture does<br /><em>the talking.</em></h2><p>Denim with a soft fade. Leather with a little patina. One unexpected accessory. The interesting part is how it all comes together.</p><p class="styling-note">THE FORMULA / A SOFT BASE + A ROUGH EDGE + ONE GOOD DETAIL</p></div></section>
+  <section class="section closing-note"><p>These editorial images set the mood; they aren't product listings.<br />For what’s available right now, head to the shop.</p><a class="button" href={url('shop/')}>Find your version ↗</a></section>
+</Layout>

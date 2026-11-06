@@ -6,7 +6,7 @@ import { root, source, destination, origin, base, routeFor, validate } from './f
 const production = process.argv.includes('--production');
 const directory = production ? destination : source;
 const { names, pages } = await validate(directory);
-console.log(`Validated ${pages.length} static routes, canonical URLs, metadata, and local asset/navigation targets.`);
+console.log(`Validated ${base}: ${pages.length} static routes, canonical URLs, metadata, and local asset/navigation targets.`);
 
 if (production) {
   const fingerprint = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -22,5 +22,5 @@ if (production) {
     const local = await readFile(check.file);
     if (fingerprint(remote) !== fingerprint(local)) throw new Error(`${check.url}: published content differs from the checked revision`);
   }
-  console.log(`Production verified: the original homepage plus all ${names.length} Afterglow files match the repository byte-for-byte over HTTPS.`);
+  console.log(`Production verified: the original homepage plus all ${names.length} ${base} files match the repository byte-for-byte over HTTPS.`);
 }

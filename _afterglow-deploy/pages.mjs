@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { root } from './files.mjs';
+import { root, variants } from './files.mjs';
 
 const repository = process.env.GITHUB_REPOSITORY;
 const token = process.env.GH_TOKEN;
@@ -36,7 +36,13 @@ if (process.argv.includes('--request')) {
   // Deployment/CDN propagation can lag the build status briefly.
   for (let attempt = 0; attempt < 12; attempt++) {
     try {
-      execFileSync(process.execPath, ['_afterglow-deploy/verify.mjs', '--production'], { cwd: root, stdio: 'inherit' });
+      for (const variant of Object.keys(variants)) {
+        execFileSync(process.execPath, ['_afterglow-deploy/verify.mjs', '--production'], {
+          cwd: root,
+          stdio: 'inherit',
+          env: { ...process.env, AFTERGLOW_VARIANT: variant },
+        });
+      }
       console.log('Deployment and production verification complete.');
       process.exit(0);
     } catch (error) {

@@ -2,6 +2,8 @@
 
 Production: <https://corbincombs.com/afterglowvintage/>
 
+Original design: <https://corbincombs.com/afterglowvintage-original/>
+
 The custom domain has one GitHub Pages deployment. Its existing repository is
 `corbincombs1991/corbincombs1991.github.io`, published from `main` at `/` using
 GitHub's branch-based Pages build. `CNAME` remains `corbincombs.com`, and HTTPS
@@ -10,35 +12,51 @@ existing content configuration is changed by this integration.
 
 ## Layout
 
-- `_afterglow/` contains the Astro source and locked dependencies. Jekyll excludes
-  this underscore-prefixed directory from the published domain.
+- `_afterglow/` contains the current Astro source and locked dependencies.
+  `_afterglow-original/` independently preserves the original design. Jekyll
+  excludes both underscore-prefixed directories from the published domain.
 - `_afterglow-deploy/` contains deployment tooling and this document and is also
   excluded from publication.
 - `afterglowvintage/` contains only compiled static output. It is committed to the
   same branch as the existing domain and published alongside every existing page.
+- `afterglowvintage-original/` contains the original design's compiled static output.
 - Astro uses `site: 'https://corbincombs.com'`, `base: '/afterglowvintage'`, static
   output, directory routes with trailing slashes, and an `assets` output folder.
   The non-underscore asset name is required by the existing Jekyll publishing path.
+  The original design uses the same settings with `base: '/afterglowvintage-original'`.
 
 ## Build and publish
 
 Use Node.js 24:
 
 ```sh
+node --test _afterglow-deploy/sync.test.mjs
 npm ci --prefix _afterglow
 npm run build --prefix _afterglow
 node _afterglow-deploy/verify.mjs
 node _afterglow-deploy/sync.mjs
+
+npm ci --prefix _afterglow-original
+npm run build --prefix _afterglow-original
+AFTERGLOW_VARIANT=original node _afterglow-deploy/verify.mjs
+AFTERGLOW_VARIANT=original node _afterglow-deploy/sync.mjs
 ```
 
-Commit the source changes and generated `afterglowvintage/` output for the initial
-deployment. Future pushes affecting source or deployment tooling automatically
+The tooling defaults to `AFTERGLOW_VARIANT=current`. `original` is the only other
+accepted value; source and output paths are fixed in an allowlist. Each sync
+protects all tracked files outside its selected published directory, including
+the other Afterglow design.
+
+Commit source changes and both generated output directories. Future pushes
+affecting either source directory or deployment tooling automatically
 run `.github/workflows/afterglow-publish.yml`. Pull requests build and validate
 without publishing. The workflow can also be run manually on `main`.
 
-The publish job starts from current `main`, ignores stale source builds, confirms
-the existing Pages settings, replaces only `afterglowvintage/`, and compares all
-other tracked files byte-for-byte. It stages only the generated directory and
+The workflow builds and validates both designs in parallel, then uses one publish
+job for the shared domain. That job starts from current `main`, ignores builds
+superseded by changes to either source, confirms the existing Pages settings,
+replaces only the two Afterglow output directories, and compares all other tracked
+files byte-for-byte. It stages only the two generated directories and
 uses a normal fast-forward push; it never force-pushes. A simultaneous push to
 `main` can safely reject that push; rerun the workflow against current `main`.
 
@@ -52,6 +70,7 @@ create a second Pages deployment or change the existing publishing mechanism.
 
 ```sh
 node _afterglow-deploy/verify.mjs --production
+AFTERGLOW_VARIANT=original node _afterglow-deploy/verify.mjs --production
 ```
 
 Verification checks every generated page's canonical URL, title, description,
@@ -59,6 +78,8 @@ internal navigation, and local assets. The production check directly requests
 every generated route and asset, compares their response bytes with the compiled
 files, and compares `/` with the unchanged root `index.html`. Static directory
 routes support direct links and refreshes without a client-router fallback.
+The shared Pages publisher runs both production checks after the exact deployed
+revision finishes building.
 
 If a new release fails, revert only the relevant Afterglow source and generated
 directory changes, then rerun the workflow. Existing site files and Pages settings

@@ -2,7 +2,7 @@ import { cp, mkdtemp, readFile, rename, rm } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
-import { root, source, destination, validate } from './files.mjs';
+import { root, source, destination, publishedDirectory, validate } from './files.mjs';
 
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8' });
 if ((await readFile(path.join(root, 'CNAME'), 'utf8')).trim() !== 'corbincombs.com') {
@@ -11,12 +11,23 @@ if ((await readFile(path.join(root, 'CNAME'), 'utf8')).trim() !== 'corbincombs.c
 if (path.resolve(git('rev-parse', '--show-toplevel').trim()) !== path.resolve(root)) {
   throw new Error('Repository root mismatch.');
 }
-const tracked = git('ls-files', '-z').split('\0').filter(name => name && !name.startsWith('afterglowvintage/'));
+const tracked = git('ls-files', '-z').split('\0').filter(name => name && !name.startsWith(`${publishedDirectory}/`));
 const snapshot = async () => {
   const hash = createHash('sha256');
   for (const name of tracked) {
     hash.update(name);
-    hash.update(await readFile(path.join(root, name)));
+    hash.update('\0');
+    try {
+      const bytes = await readFile(path.join(root, name));
+      hash.update('file\0');
+      hash.update(bytes);
+    } catch (error) {
+      // A preceding variant sync can remove an obsolete tracked asset before
+      // either output is staged. Preserve that missing state in both snapshots.
+      if (error.code !== 'ENOENT') throw error;
+      hash.update('missing\0');
+    }
+    hash.update('\0');
   }
   return hash.digest('hex');
 };
@@ -32,8 +43,8 @@ try {
     await rename(path.join(temporary, 'previous'), destination).catch(() => {});
     throw error;
   }
-  if (await snapshot() !== before) throw new Error('Existing content outside afterglowvintage changed.');
-  console.log(`Synced ${names.length} files and ${pages.length} static pages. All ${tracked.length} existing tracked files remain byte-for-byte unchanged.`);
+  if (await snapshot() !== before) throw new Error(`Existing content outside ${publishedDirectory} changed.`);
+  console.log(`Synced ${publishedDirectory}: ${names.length} files and ${pages.length} static pages. All ${tracked.length} other tracked files remain byte-for-byte unchanged.`);
 } finally {
   await rm(temporary, { recursive: true, force: true });
 }
