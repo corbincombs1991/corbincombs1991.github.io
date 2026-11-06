@@ -1,0 +1,8 @@
+---
+import { products } from '../data/shop';
+import { url } from '../lib/urls';
+interface Props { limit?: number; }
+const { limit }=Astro.props;
+const items=limit ? products.slice(0,limit) : products;
+---
+<div class="catalog-grid">{items.map((product,index)=><article class="catalog-card" data-category={product.category}><a href={product.url} target="_blank" rel="noopener noreferrer" class="catalog-image"><img src={url(product.image)} alt={product.name} width="800" height="800" loading="lazy"/><span class="item-label">ITEM #{String(index+1).padStart(3,'0')}</span></a><div class="catalog-copy"><h3><a href={product.url} target="_blank" rel="noopener noreferrer">{product.name}</a></h3><p class="product-facts">Size {product.size}<span>{product.price}</span></p><a href={product.url} target="_blank" rel="noopener noreferrer" class="retro-button product-buy">View on Depop ↗</a></div></article>)}</div>

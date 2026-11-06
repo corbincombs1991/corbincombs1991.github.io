@@ -5,6 +5,7 @@ on:
     paths:
       - '_afterglow/**'
       - '_afterglow-original/**'
+      - '_afterglow-90s/**'
       - '_afterglow-deploy/**'
       - '.github/workflows/afterglow-publish.yml'
   push:
@@ -12,6 +13,7 @@ on:
     paths:
       - '_afterglow/**'
       - '_afterglow-original/**'
+      - '_afterglow-90s/**'
       - '_afterglow-deploy/**'
       - '.github/workflows/afterglow-publish.yml'
   workflow_dispatch:
@@ -38,6 +40,8 @@ jobs:
             source: _afterglow
           - variant: original
             source: _afterglow-original
+          - variant: retro
+            source: _afterglow-90s
     env:
       AFTERGLOW_VARIANT: ${{ matrix.variant }}
     steps:
@@ -47,7 +51,7 @@ jobs:
           node-version: 24
           cache: npm
           cache-dependency-path: ${{ matrix.source }}/package-lock.json
-      - name: Verify publishing preserves the other site
+      - name: Verify publishing preserves the other sites
         run: node --test _afterglow-deploy/sync.test.mjs
       - name: Install locked dependencies
         run: npm ci --prefix '${{ matrix.source }}'
@@ -84,7 +88,7 @@ jobs:
         env:
           BUILT_COMMIT: ${{ github.sha }}
         run: |
-          if git diff --quiet "$BUILT_COMMIT" HEAD -- _afterglow _afterglow-original _afterglow-deploy .github/workflows/afterglow-publish.yml; then
+          if git diff --quiet "$BUILT_COMMIT" HEAD -- _afterglow _afterglow-original _afterglow-90s _afterglow-deploy .github/workflows/afterglow-publish.yml; then
             echo 'current=true' >> "$GITHUB_OUTPUT"
           else
             echo 'current=false' >> "$GITHUB_OUTPUT"
@@ -100,18 +104,24 @@ jobs:
         with:
           name: afterglow-static-original
           path: _afterglow-original/dist/
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        if: steps.freshness.outputs.current == 'true'
+        with:
+          name: afterglow-static-retro
+          path: _afterglow-90s/dist/
       - name: Confirm existing Pages settings
         if: steps.freshness.outputs.current == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: node _afterglow-deploy/pages.mjs
-      - name: Update only the two Afterglow published directories
+      - name: Update only the three Afterglow published directories
         if: steps.freshness.outputs.current == 'true'
         run: |
           node _afterglow-deploy/sync.mjs
           AFTERGLOW_VARIANT=original node _afterglow-deploy/sync.mjs
-          git diff --exit-code -- . ':!afterglowvintage' ':!afterglowvintage-original'
-          git add --all -- afterglowvintage afterglowvintage-original
+          AFTERGLOW_VARIANT=retro node _afterglow-deploy/sync.mjs
+          git diff --exit-code -- . ':!afterglowvintage' ':!afterglowvintage-original' ':!afterglowvintage-90s'
+          git add --all -- afterglowvintage afterglowvintage-original afterglowvintage-90s
           if ! git diff --cached --quiet; then
             git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'build: publish Afterglow Vintage static sites'
             git push origin HEAD:main

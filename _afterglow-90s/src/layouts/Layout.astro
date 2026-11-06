@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import { url } from '../lib/urls';
+import { shop } from '../data/shop';
+import PixelIcon from '../components/PixelIcon.astro';
+interface Props { title: string; description: string; current?: string; }
+const {title,description,current=''}=Astro.props;
+const canonical=new URL(Astro.url.pathname,Astro.site).href;
+const nav=[['Home','','globe'],['The shop','shop/','shirt'],['Lookbook','lookbook/','folder'],['Our story','about/','star'],['Guestbook','guestbook/','book']];
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{title} | Afterglow Online</title><meta name="description" content={description}/>
+<meta name="theme-color" content="#21114a"/><link rel="canonical" href={canonical}/>
+<meta property="og:type" content="website"/><meta property="og:site_name" content="Afterglow Vintage — 90s edition"/><meta property="og:title" content={`${title} | Afterglow Online`}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:image" content={new URL(url('images/editorial/grunge-collage.webp'),Astro.site).href}/><meta property="og:image:alt" content="Afterglow grunge fashion editorial"/><meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" href={url('favicon.svg')} type="image/svg+xml"/><link rel="sitemap" href={url('sitemap.xml')} type="application/xml"/>
+</head>
+<body data-wallpaper="galaxy">
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="online-strip"><span><i class="connected-light" aria-hidden="true"></i> AFTERGLOW IS ONLINE</span><span>INDIANAPOLIS, IN · PLANET EARTH</span></div>
+<div class="site-shell">
+<header class="brand-header">
+<div class="header-orbit" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span></div>
+<a class="wordart" href={url()} aria-label="Afterglow Online home">afterglow<span class="vintage-stamp">VINTAGE!</span></a>
+<p class="brand-tagline">~ your favorite clothes are older than your browser ~</p>
+<div class="header-badges"><span class="web-badge badge-black">100%<b>GOOD FINDS</b></span><span class="web-badge badge-pink">1996 ATTITUDE<b>2026 EXECUTION</b></span><span class="web-badge badge-blue">WORLD WIDE<b>WARDROBE</b></span></div>
+</header>
+<div class="browser-window">
+<div class="window-title"><span><PixelIcon kind="globe"/> Afterglow Navigator <span class="title-suffix">— a very vintage place on the web</span></span><span class="window-dots" aria-hidden="true">▁ ▣ ×</span></div>
+<div class="menu-bar"><a href={url()}>Home</a><a href={url('shop/')}>Shop</a><a href={url('faq/')}>Help</a><span>♥ handpicked / previously loved</span></div>
+<nav class="icon-nav" aria-label="Main navigation">{nav.map(([label,path,icon])=><a href={url(path)} aria-current={current===path?'page':undefined}><PixelIcon kind={icon}/><span>{label}</span></a>)}<a class="depop-shortcut" href={shop.depopUrl} target="_blank" rel="noopener noreferrer"><span class="depop-pixel" aria-hidden="true">d.</span><span>Depop ↗</span></a></nav>
+<div class="location-bar"><span>You are here:</span><span class="location-path">AFTERGLOW / {current ? current.replace('/','').toUpperCase() : 'HOME SWEET HOMEPAGE'}</span><span class="world-icon" aria-hidden="true">✳</span></div>
+<main id="content"><slot/></main>
+<div class="browser-status"><span>✓ Done. Looking good.</span><span>Made for humans <span aria-hidden="true">▥</span></span></div>
+</div>
+<footer class="site-footer">
+<div class="footer-links"><a href={url('shop/')}>shop the collection</a><span>•</span><a href={url('about/')}>about afterglow</a><span>•</span><a href="https://linktr.ee/afterglowvintageindy" target="_blank" rel="noopener noreferrer">all our links ↗</a></div>
+<p>This little corner of the internet belongs to Afterglow Vintage.</p>
+<div class="footer-controls"><span>Wallpaper:</span><button type="button" class="wallpaper-button" data-theme="galaxy" aria-pressed="true">✦ Galaxy</button><button type="button" class="wallpaper-button" data-theme="teal" aria-pressed="false">▦ Desktop</button><button type="button" id="motion-toggle" aria-pressed="false">Pause animations</button></div>
+<p class="footer-fine">© 2026 Afterglow Vintage · Best viewed with an open mind. <a href="#content">[ back to top ]</a></p>
+</footer>
+</div>
+<script>
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const motion=document.querySelector<HTMLButtonElement>('#motion-toggle');
+let paused=reduced;
+const applyMotion=()=>{document.body.classList.toggle('motion-paused',paused);motion?.setAttribute('aria-pressed',String(paused));if(motion){motion.textContent=reduced?'Reduced motion on':paused?'Resume animations':'Pause animations';motion.disabled=reduced;}};
+applyMotion();motion?.addEventListener('click',()=>{paused=!paused;applyMotion();});
+const buttons=document.querySelectorAll<HTMLButtonElement>('[data-theme]');
+function setTheme(value:string){const theme=value==='teal'?'teal':'galaxy';document.body.dataset.wallpaper=theme;buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.theme===theme)));}
+try {setTheme(localStorage.getItem('afterglow90s-wallpaper')||'galaxy');}catch{}
+buttons.forEach(button=>button.addEventListener('click',()=>{const theme=button.dataset.theme||'galaxy';setTheme(theme);try{localStorage.setItem('afterglow90s-wallpaper',theme);}catch{}}));
+</script>
+</body></html>

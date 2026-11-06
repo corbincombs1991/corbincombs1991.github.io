@@ -1,0 +1,14 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductGrid from '../../components/ProductGrid.astro';
+import PixelIcon from '../../components/PixelIcon.astro';
+import {shop,products,checkedDate} from '../../data/shop';
+---
+<Layout title="The clothing rack" description="Browse real vintage finds from Afterglow Vintage's Depop shop. Graphic tees, florals, and a little 90s nostalgia. Prices and availability are confirmed on Depop." current="shop/">
+<section class="page-heading"><span>AFTERGLOW ONLINE / THE CLOTHING RACK</span><h1>SHOP ’TIL YOU<br/><em>DISCONNECT.</em></h1><p>One-of-a-kind energy. Very good secondhand clothes.</p><PixelIcon kind="shirt"/></section>
+<section class="inner-content"><div class="catalog-toolbar"><div class="filters" role="group" aria-label="Filter featured pieces"><button data-filter="All" aria-pressed="true">All pieces</button>{['Floral','Graphic','Travel'].map(category=><button data-filter={category} aria-pressed="false">{category}</button>)}</div><p id="product-count" aria-live="polite">{products.length} featured pieces</p></div><p class="catalog-note">Listings checked {checkedDate}. Prices in USD. Depop has the latest availability, details, and checkout.</p><ProductGrid/><div class="shop-bottom"><h2>THERE’S MORE WHERE THAT CAME FROM.</h2><p>The entire rack lives on Depop. Go take a look around.</p><a href={shop.depopUrl} target="_blank" rel="noopener noreferrer" class="retro-button">Visit @afterglowvintageindy ↗</a></div></section>
+<script>
+const filters=document.querySelectorAll<HTMLButtonElement>('[data-filter]');const cards=document.querySelectorAll<HTMLElement>('[data-category]');
+filters.forEach(filter=>filter.addEventListener('click',()=>{let count=0;filters.forEach(button=>button.setAttribute('aria-pressed',String(button===filter)));cards.forEach(card=>{card.hidden=filter.dataset.filter!=='All'&&filter.dataset.filter!==card.dataset.category;if(!card.hidden)count++;});const label=document.querySelector('#product-count');if(label)label.textContent=`${count} featured ${count===1?'piece':'pieces'}`;}));
+</script>
+</Layout>

@@ -1,0 +1,159 @@
+<section class="guestbook-window" aria-labelledby="guestbook-title" data-afterglow-guestbook>
+  <div class="guestbook-titlebar"><h2 id="guestbook-title">SIGN MY GUESTBOOK</h2><span aria-hidden="true">✎</span></div>
+  <div class="guestbook-body">
+    <p class="guestbook-intro">You were here. Make it official.</p>
+    <p class="guestbook-privacy" id="guestbook-privacy">Saved only in this browser. These notes stay on your device; they are not posted online or sent to the shop.</p>
+    <form class="guestbook-form" aria-describedby="guestbook-privacy">
+      <fieldset disabled data-guestbook-fields>
+        <label for="guestbook-nickname">Your screen name <span>(30 max)</span></label>
+        <input id="guestbook-nickname" name="nickname" type="text" maxlength="30" required autocomplete="off" placeholder="e.g. velvet_angel96" />
+        <label for="guestbook-message">Leave a little love <span>(180 max)</span></label>
+        <textarea id="guestbook-message" name="message" maxlength="180" required rows="3" placeholder="Your excellent taste brought you here..."></textarea>
+        <button type="submit">✎ SIGN THE GUESTBOOK</button>
+      </fieldset>
+    </form>
+    <p class="guestbook-status" role="status" aria-atomic="true" data-guestbook-status></p>
+    <div class="guestbook-entries">
+      <h3>YOUR LOCAL GUESTBOOK</h3>
+      <p class="guestbook-empty" data-guestbook-empty>No signatures in this browser yet. Yours can be the first.</p>
+      <ol data-guestbook-entries></ol>
+      <p class="guestbook-limit">The latest 10 notes live here.</p>
+    </div>
+    <noscript><p class="guestbook-privacy">JavaScript is needed to save notes in this browser.</p></noscript>
+  </div>
+</section>
+
+<style>
+  .guestbook-window { color: #15152a; background: #c4c4c4; border: 2px solid; border-color: #fff #45454d #45454d #fff; padding: 3px; box-shadow: 3px 3px 0 #0006; font-family: Verdana, Arial, sans-serif; min-width: 0; }
+  .guestbook-titlebar { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: linear-gradient(90deg, #17075b, #5844ac); padding: 6px 8px; color: #fff; }
+  .guestbook-titlebar h2 { margin: 0; color: inherit; font: bold 12px/1.3 Verdana, Arial, sans-serif; letter-spacing: .04em; }
+  .guestbook-titlebar > span { color: #d6ff3f; font-size: 18px; line-height: 1; }
+  .guestbook-body { padding: 12px; }
+  .guestbook-intro { margin: 0 0 8px; font: bold 13px/1.5 'Courier New', monospace; }
+  .guestbook-privacy { margin: 0 0 14px; padding: 8px; border: 1px solid #8f8b9f; background: #e4e0eb; font: 10px/1.6 Verdana, Arial, sans-serif; }
+  .guestbook-form fieldset { display: grid; gap: 6px; min-width: 0; margin: 0; padding: 0; border: 0; }
+  .guestbook-form label { margin-top: 4px; font: bold 11px/1.5 Verdana, Arial, sans-serif; }
+  .guestbook-form label span { font-weight: normal; color: #484153; font-size: 9px; }
+  .guestbook-form input, .guestbook-form textarea { box-sizing: border-box; width: 100%; min-width: 0; color: #15152a; background: #fffdf4; border: 2px solid; border-color: #55515f #fff #fff #55515f; border-radius: 0; padding: 8px; font: 16px/1.5 'Courier New', monospace; }
+  .guestbook-form textarea { resize: vertical; min-height: 96px; max-height: 320px; }
+  .guestbook-form input::placeholder, .guestbook-form textarea::placeholder { color: #6b6376; font-size: 12px; opacity: 1; }
+  .guestbook-form button { margin-top: 6px; min-height: 38px; padding: 8px; background: #c4c4c4; border: 2px solid; border-color: #fff #45454d #45454d #fff; color: #15152a; font: bold 11px/1.4 Verdana, Arial, sans-serif; cursor: pointer; }
+  .guestbook-form button:hover { background: #d6ff65; }
+  .guestbook-form button:active { border-color: #45454d #fff #fff #45454d; }
+  .guestbook-form button:disabled { cursor: not-allowed; color: #62596d; background: #c4c4c4; }
+  .guestbook-form :is(button, input, textarea):focus-visible { outline: 2px dashed #17075b; outline-offset: 3px; }
+  .guestbook-status { margin: 9px 0; font: bold 11px/1.5 'Courier New', monospace; overflow-wrap: anywhere; }
+  .guestbook-status:empty { margin: 0; }
+  .guestbook-entries { margin-top: 14px; border-top: 1px solid #8b8796; padding-top: 12px; }
+  .guestbook-entries h3 { margin: 0 0 8px; font: bold 10px/1.5 Verdana, Arial, sans-serif; letter-spacing: .04em; }
+  .guestbook-empty, .guestbook-limit { margin: 0; font: 10px/1.6 'Courier New', monospace; }
+  .guestbook-entries ol { margin: 0; padding: 0; list-style: none; max-height: 360px; overflow: auto; }
+  .guestbook-entries :global(li) { margin: 0 0 8px; background: #fffdf4; border: 1px solid #8f8b9f; padding: 9px; }
+  .guestbook-entries :global(.guestbook-entry-header) { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 3px 8px; }
+  .guestbook-entries :global(strong) { color: #4f1485; font: bold 12px/1.5 'Courier New', monospace; overflow-wrap: anywhere; }
+  .guestbook-entries :global(time) { color: #62596d; font: 9px/1.5 Verdana, Arial, sans-serif; }
+  .guestbook-entries :global(.guestbook-entry-message) { margin: 5px 0 0; font: 12px/1.6 'Courier New', monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .guestbook-entries :global(.guestbook-remove) { margin-top: 8px; min-height: 30px; padding: 4px 7px; border: 2px solid; border-color: #fff #45454d #45454d #fff; background: #c4c4c4; color: #15152a; font: 10px/1.4 Verdana, Arial, sans-serif; cursor: pointer; }
+  .guestbook-entries :global(.guestbook-remove:hover) { background: #e4e0eb; }
+  .guestbook-entries :global(.guestbook-remove:active) { border-color: #45454d #fff #fff #45454d; }
+  .guestbook-entries :global(.guestbook-remove:focus-visible) { outline: 2px dashed #17075b; outline-offset: 3px; }
+  .guestbook-limit { margin-top: 8px; color: #484153; }
+  [hidden] { display: none !important; }
+  @media (prefers-reduced-motion: reduce) { .guestbook-window *, .guestbook-window *::before, .guestbook-window *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<script>
+  type GuestbookEntry = { nickname: string; message: string; createdAt: string };
+  const guestbook = document.querySelector<HTMLElement>('[data-afterglow-guestbook]');
+  const guestbookForm = guestbook?.querySelector<HTMLFormElement>('form');
+  const guestbookFields = guestbook?.querySelector<HTMLFieldSetElement>('[data-guestbook-fields]');
+  const guestbookList = guestbook?.querySelector<HTMLOListElement>('[data-guestbook-entries]');
+  const guestbookStatus = guestbook?.querySelector<HTMLElement>('[data-guestbook-status]');
+  const guestbookEmpty = guestbook?.querySelector<HTMLElement>('[data-guestbook-empty]');
+  const storageKey = 'afterglow90s.guestbook.v1';
+  let entries: GuestbookEntry[] = [];
+
+  function validEntry(entry: unknown): entry is GuestbookEntry {
+    if (!entry || typeof entry !== 'object') return false;
+    const item = entry as Partial<GuestbookEntry>;
+    return typeof item.nickname === 'string' && item.nickname.trim().length > 0 && item.nickname.length <= 30
+      && typeof item.message === 'string' && item.message.trim().length > 0 && item.message.length <= 180
+      && typeof item.createdAt === 'string' && Number.isFinite(new Date(item.createdAt).getTime());
+  }
+
+  function renderGuestbook() {
+    if (!guestbookList || !guestbookEmpty) return;
+    guestbookList.replaceChildren();
+    guestbookEmpty.hidden = entries.length > 0;
+    for (const entry of entries) {
+      const item = document.createElement('li');
+      const heading = document.createElement('div');
+      heading.className = 'guestbook-entry-header';
+      const author = document.createElement('strong');
+      author.textContent = entry.nickname;
+      const date = document.createElement('time');
+      date.dateTime = entry.createdAt;
+      date.textContent = new Date(entry.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+      const message = document.createElement('p');
+      message.className = 'guestbook-entry-message';
+      message.textContent = entry.message;
+      const remove = document.createElement('button');
+      remove.type = 'button';
+      remove.className = 'guestbook-remove';
+      remove.textContent = 'Remove note';
+      remove.setAttribute('aria-label', `Remove note by ${entry.nickname}`);
+      remove.addEventListener('click', () => {
+        const next = entries.filter((existing) => existing !== entry);
+        try {
+          localStorage.setItem(storageKey, JSON.stringify(next));
+          entries = next;
+          renderGuestbook();
+          if (guestbookStatus) guestbookStatus.textContent = 'Note removed from this browser.';
+          const nextFocus = guestbookList?.querySelector<HTMLButtonElement>('.guestbook-remove')
+            || guestbookForm?.querySelector<HTMLInputElement>('#guestbook-nickname');
+          nextFocus?.focus();
+        } catch {
+          if (guestbookStatus) guestbookStatus.textContent = 'This browser could not remove the saved note. Please try again.';
+        }
+      });
+      heading.append(author, date);
+      item.append(heading, message, remove);
+      guestbookList.append(item);
+    }
+  }
+
+  if (guestbookForm && guestbookFields && guestbookList && guestbookStatus) {
+    try {
+      const saved: unknown = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      entries = Array.isArray(saved) ? saved.filter(validEntry).slice(0, 10) : [];
+    } catch {
+      guestbookStatus.textContent = 'This browser could not read saved notes. Nothing has been sent online.';
+    }
+    renderGuestbook();
+    guestbookForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!guestbookForm.reportValidity()) return;
+      const nicknameInput = guestbookForm.elements.namedItem('nickname') as HTMLInputElement;
+      const messageInput = guestbookForm.elements.namedItem('message') as HTMLTextAreaElement;
+      const nickname = nicknameInput.value.trim().slice(0, 30);
+      const message = messageInput.value.trim().slice(0, 180);
+      if (!nickname || !message) {
+        guestbookStatus.textContent = 'Add a screen name and a note before you sign.';
+        (!nickname ? nicknameInput : messageInput).focus();
+        return;
+      }
+      const next = [{ nickname, message, createdAt: new Date().toISOString() }, ...entries].slice(0, 10);
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(next));
+        entries = next;
+        renderGuestbook();
+        guestbookForm.reset();
+        guestbookStatus.textContent = 'You signed it! Saved only in this browser — nothing was posted online.';
+      } catch {
+        guestbookStatus.textContent = 'Your browser could not save this note. Nothing was posted. Your text is still here to copy.';
+      }
+    });
+    // Keep every field disabled until the local-only submit handler is installed.
+    guestbookFields.disabled = false;
+  }
+</script>

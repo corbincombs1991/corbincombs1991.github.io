@@ -1,0 +1,7 @@
+---
+interface Props { kind?: string; }
+const { kind = 'folder' } = Astro.props;
+---
+<svg class="pixel-icon" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" shape-rendering="crispEdges">
+{kind === 'shirt' ? <><path d="M10 3h12v3l8 4-4 9-5-2v12H11V17l-5 2-4-9 8-4z" fill="#161327"/><path d="M11 5h10v3l6 3-3 5-5-2v13h-6V14l-5 2-3-5 6-3z" fill="#c8fb44"/><path d="M13 5v4h6V5M13 18h6v3h-6" fill="#762bc5"/></> : kind === 'book' ? <><path d="M5 3h22v26H5z" fill="#111"/><path d="M7 5h17v22H7z" fill="#ff6dab"/><path d="M7 5h4v22H7M14 9h8v2h-8M14 13h8v2h-8M14 17h6v2h-6" fill="#fff8d9"/><path d="M24 5h2v22h-2" fill="#9b2759"/></> : kind === 'globe' ? <><path d="M10 2h12v3h5v5h3v12h-3v5h-5v3H10v-3H5v-5H2V10h3V5h5z" fill="#171c56"/><path d="M11 4h10v3h5v5h2v8h-3v5h-5v3h-8v-3H7v-5H4v-8h3V7h4z" fill="#36cfe5"/><path d="M9 7h10v4h-6v5H7v-6h2M17 17h9v5h-6v5h-5v-7h2" fill="#6cdb54"/><path d="M11 4h5v3h-5M7 7h4v3H7" fill="#fff"/></> : kind === 'star' ? <><path d="M14 1h4v8h4v3h9v5h-7v4h-3v9h-5v-6h-4v6H7v-9H4v-4H0v-5h10V9h4z" fill="#342067"/><path d="M14 5h4v7h10v3h-7v5h-3v7h-2v-7h-5v7H9v-7H6v-5H3v-2h10z" fill="#ffe54a"/></> : <><path d="M2 7h12v3h16v19H2z" fill="#17152a"/><path d="M4 9h9v3h15v15H4z" fill="#ffe254"/><path d="M4 14h24v3H4" fill="#fff6a0"/><path d="M4 25h24v2H4" fill="#bb7c19"/></>}
+</svg>

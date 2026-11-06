@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PixelIcon from '../components/PixelIcon.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import WebToys from '../components/WebToys.astro';
+import {url} from '../lib/urls';
+import {shop,checkedDate} from '../data/shop';
+---
+<Layout title="Welcome to the World Wide Wardrobe" description="Enter Afterglow Online: a little corner of the internet for vintage clothes, 90s style, and very good finds. Explore real pieces from our Indianapolis Depop shop.">
+<div class="homepage-grid">
+<aside class="homepage-sidebar">
+<section class="inset-panel nav-box"><h2>✦ SITE DIRECTORY ✦</h2><p class="directory-welcome">Make yourself at home!</p><ul class="directory-list"><li><a href={url('shop/')}>The clothing rack</a><span class="new-label">NEW!</span></li><li><a href={url('lookbook/')}>Style inspiration</a></li><li><a href={url('about/')}>Who’s behind this?</a></li><li><a href={url('guestbook/')}>Sign the guestbook</a></li><li><a href={url('faq/')}>Shopping & care</a></li></ul><div class="tiny-divider"></div><p class="sidebar-caption">GOOD CLOTHES<br/>SECOND CHANCES<br/><span>ZERO BORING OUTFITS</span></p></section>
+<WebToys/>
+<a class="guestbook-banner" href={url('guestbook/')}><PixelIcon kind="book"/><span>Before you go…<strong>sign my guestbook!</strong></span><b aria-hidden="true">↗</b></a>
+<div class="sidebar-stickers" aria-label="Afterglow badges"><span class="web-badge badge-pink">PROUD TO BE<b>SECONDHAND</b></span><span class="web-badge badge-black">THIS SITE IS<b>Y2K READY*</b></span><p>*your wardrobe should be, too.</p></div>
+</aside>
+<div class="homepage-main">
+<div class="welcome-ticker"><span aria-hidden="true">✧ ✦ ✧</span><p>WELCOME TO YOUR NEXT FAVORITE WEBSITE</p><span aria-hidden="true">✧ ✦ ✧</span></div>
+<section class="welcome-card">
+<div class="welcome-topline"><span>YOU’VE FOUND THE GOOD STUFF.</span><span class="edition-label">EST. IN A 90s STATE OF MIND</span></div>
+<div class="welcome-hero"><div class="welcome-copy"><p class="small-intro">Hello, world. Hello, wardrobe.</p><h1>OLD CLOTHES.<br/><span>NEW CRUSH.</span></h1><p class="hero-deck">For the thrift-store romantics.<br/>The mall rats. The mixtape makers.<br/>And you, obviously.</p><a class="retro-button hero-button" href={url('shop/')}><PixelIcon kind="shirt"/> ENTER THE SHOP <span aria-hidden="true">»</span></a><p class="under-button">No dial-up required. Just good taste.</p></div><div class="hero-art" aria-hidden="true"><div class="orbit-label">PREVIOUSLY LOVED.<br/>FOREVER COOL.</div><div class="compact-disc"><div class="disc-label">AFTERGLOW<br/><b>VOL. 96</b></div><span class="disc-hole"></span></div><span class="disc-star star-one">✦</span><span class="disc-star star-two">✧</span><span class="disc-star star-three">✦</span><div class="disc-caption">the good stuff never gets old.</div></div></div>
+<div class="checker-ribbon"><span>✶ 1996 ATTITUDE. 2026 EXECUTION. ✶</span></div>
+</section>
+<section class="bulletin-panel"><div class="new-burst" aria-hidden="true">HOT<br/>STUFF!</div><div><h2>A LITTLE FADED. A LITTLE LOUD.</h2><p>Vintage tees, character for days, and absolutely no dress code. Everything here has a story. You get to write the next part.</p></div><a href={url('about/')}>meet afterglow »</a></section>
+<section class="featured-section"><div class="section-heading"><h2><PixelIcon kind="shirt"/> FRESH FROM THE RACK</h2><a href={url('shop/')}>see everything »</a></div><ProductGrid limit={3}/><p class="catalog-note">Real Depop listings · Checked {checkedDate}. Confirm current price and availability on Depop.</p></section>
+<section class="lookbook-banner"><div class="lookbook-thumbnail"><img src={url('images/editorial/grunge-collage.webp')} alt="Grunge outfit inspiration with plaid, denim, and leather" width="1024" height="1536" loading="lazy"/></div><div><span class="file-caption">inspiration / good_outfits.html</span><h2>YOUR STYLE.<br/>YOUR HOMEPAGE.</h2><p>Borrow the attitude. Make it your own.</p><a class="retro-button" href={url('lookbook/')}>Open the lookbook »</a></div><span class="lookbook-spark" aria-hidden="true">✳</span></section>
+</div>
+</div>
+<section class="bottom-webring"><div class="webring-title"><PixelIcon kind="globe"/><strong>THE AFTERGLOW WEBRING</strong><span>A few good places to get lost.</span></div><div><a href={shop.depopUrl} target="_blank" rel="noopener noreferrer">[ Depop shop ↗ ]</a><a href="https://www.instagram.com/afterglowvintageindy/" target="_blank" rel="noopener noreferrer">[ Instagram ↗ ]</a><a href="https://linktr.ee/afterglowvintageindy" target="_blank" rel="noopener noreferrer">[ All our links ↗ ]</a></div></section>
+</Layout>

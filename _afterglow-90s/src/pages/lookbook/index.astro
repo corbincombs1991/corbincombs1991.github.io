@@ -1,0 +1,9 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {url} from '../../lib/urls';
+---
+<Layout title="Good outfits dot com" description="The Afterglow style files: baggy denim, grunge layers, and 90s inspiration for your own way of getting dressed." current="lookbook/">
+<section class="page-heading"><span>AFTERGLOW ONLINE / STYLE FILES</span><h1>GOOD OUTFITS.<br/><em>NO RULES.</em></h1><p>Save the inspiration. Make it your own.</p></section>
+<div class="inner-content lookbook-grid"><article class="style-file"><div class="mini-titlebar">📁 off_duty.html</div><img src={url('images/editorial/skate-editorial.webp')} alt="Skate editorial with an oversized yellow tee and baggy jeans" width="1536" height="1024"/><div class="style-copy"><p class="file-caption">STYLE FILE #001</p><h2>GO BIG. GET OUTSIDE.</h2><p>Big denim. An oversized tee. Shoes that have actually been somewhere. Borrow the ease of a skate-mag spread and go your own way.</p><p class="style-formula">BAGGY DENIM + GRAPHIC TEE + GOOD INSTINCTS</p></div></article><article class="style-file"><div class="mini-titlebar">📁 beautiful_mess.html</div><img src={url('images/editorial/grunge-collage.webp')} alt="Fashion collage with plaid, leather jackets, denim, and combat boots" width="1024" height="1536"/><div class="style-copy"><p class="file-caption">STYLE FILE #002</p><h2>LET IT CLASH.</h2><p>Florals with plaid. Soft with scuffed. Something sweet and something a little loud. The combination is the whole point.</p><p class="style-formula">ONE SOFT THING + ONE LOUD THING + YOU</p></div></article></div>
+<div class="lookbook-end"><p>Editorial images are for inspiration, not product listings.</p><a class="retro-button" href={url('shop/')}>Find your version on the rack »</a></div>
+</Layout>
