@@ -1,0 +1,35 @@
+[Unit]
+Description=Collect and publish Corbin's daily news archive
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=2h
+StartLimitBurst=4
+
+[Service]
+Type=oneshot
+User=news-digest
+Group=news-digest
+WorkingDirectory=/var/lib/news-digest
+Environment=HOME=/var/lib/news-digest
+Environment=GIT_TERMINAL_PROMPT=0
+Environment="GIT_SSH_COMMAND=/usr/bin/ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20"
+ExecStart=/usr/bin/python3 /opt/news-digest/publish.py
+TimeoutStartSec=10min
+Restart=on-failure
+RestartSec=15min
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/news-digest
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+LockPersonality=yes
+MemoryMax=192M
+CPUQuota=50%
+Nice=10

@@ -1,0 +1,15 @@
+{
+  "max_items_per_source_per_day": 8,
+  "latest_limit": 80,
+  "schedule": "Daily at 7:00 AM Eastern",
+  "sources": [
+    {"id": "ars", "name": "Ars Technica", "category": "Tech", "url": "https://arstechnica.com/", "feed_url": "https://feeds.arstechnica.com/arstechnica/index"},
+    {"id": "verge", "name": "The Verge", "category": "Tech", "url": "https://www.theverge.com/", "feed_url": "https://www.theverge.com/rss/index.xml"},
+    {"id": "hacker-news", "name": "Hacker News", "category": "Tech", "url": "https://news.ycombinator.com/", "feed_url": "https://news.ycombinator.com/rss"},
+    {"id": "hugging-face", "name": "Hugging Face", "category": "AI", "url": "https://huggingface.co/blog", "feed_url": "https://huggingface.co/blog/feed.xml"},
+    {"id": "google-ai", "name": "Google AI", "category": "AI", "url": "https://blog.google/innovation-and-ai/technology/ai/", "feed_url": "https://blog.google/innovation-and-ai/technology/ai/rss/"},
+    {"id": "selfhost", "name": "selfh.st", "category": "Homelab", "url": "https://selfh.st/", "feed_url": "https://selfh.st/rss/"},
+    {"id": "bbc", "name": "BBC World", "category": "Headlines", "url": "https://www.bbc.com/news/world", "feed_url": "https://feeds.bbci.co.uk/news/world/rss.xml"},
+    {"id": "npr", "name": "NPR", "category": "Headlines", "url": "https://www.npr.org/", "feed_url": "https://feeds.npr.org/1001/rss.xml"}
+  ]
+}

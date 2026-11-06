@@ -17,6 +17,7 @@ For Market Notes, open `http://localhost:8000/ciovacco.html` locally. GitHub
 Pages also serves it at the extensionless `/ciovacco` URL used in navigation.
 Market Insights is at `http://localhost:8000/market-insights/`.
 The photography gallery is at `http://localhost:8000/photography/`.
+The Daily news archive is at `http://localhost:8000/news/`.
 
 ## Editing content
 
@@ -30,6 +31,11 @@ Market Notes uses `ciovacco.html` and `ciovacco-summaries.json`. The summary
 feed is produced separately; editing the viewer does not change the feed or
 the automation that publishes it. Market Insights uses the manifest and
 frozen reports in `market-insights/`; its current data is explicitly synthetic.
+
+The Daily (`news/`) collects eight public RSS/Atom feeds each morning on
+Proxmox and publishes short source excerpts plus a searchable monthly archive.
+Collector configuration and tests live in `tools/news/`; see
+[`deploy/news/README.md`](deploy/news/README.md) for scheduling and operations.
 
 The DIY section was removed from the live page but is preserved in `archive/diy-section.html` — paste it back in if you want it again.
 

@@ -1,0 +1,11 @@
+[Unit]
+Description=Publish the daily news at 7 AM Indianapolis time
+
+[Timer]
+OnCalendar=*-*-* 07:00:00 America/Indiana/Indianapolis
+Persistent=true
+RandomizedDelaySec=120
+Unit=news-digest.service
+
+[Install]
+WantedBy=timers.target

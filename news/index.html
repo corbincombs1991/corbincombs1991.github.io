@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Daily — Corbin’s reading room</title>
+  <meta name="description" content="A daily reading room for technology, AI, homelab projects, and headlines. Browse short feed summaries, follow original sources, and search the growing archive.">
+  <meta name="theme-color" content="#060a08">
+  <link rel="canonical" href="https://corbincombs.com/news/">
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="news.css">
+  <script src="news.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#reading-room">Skip to stories</a>
+  <div class="page-wrap">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Corbin Combs home">CC<span>.</span></a>
+      <span class="header-label">Corbin’s reading room</span>
+      <nav aria-label="Page navigation">
+        <a href="/">Home <span aria-hidden="true">↗</span></a>
+        <a href="#about">About &amp; sources <span aria-hidden="true">↓</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="masthead" aria-labelledby="page-title">
+        <div class="masthead-copy">
+          <p class="eyebrow"><span class="small-rule" aria-hidden="true"></span> A little perspective, every day</p>
+          <h1 id="page-title">The Daily<span>.</span></h1>
+          <p class="intro">Technology, AI, things worth building, and the world outside.<br class="desktop-break"> A daily collection of links, with a little context.</p>
+        </div>
+        <aside class="edition" aria-label="Collection overview">
+          <p class="eyebrow">An expanding collection</p>
+          <p class="edition-count"><span id="article-count">—</span><span class="edition-unit">stories <br>in the archive</span></p>
+          <p class="edition-foot"><span id="source-count">—</span> sources <span aria-hidden="true">/</span> new links daily</p>
+        </aside>
+      </section>
+
+      <div class="update-strip" id="update-strip">
+        <p><span class="status-dot" aria-hidden="true"></span><span id="freshness">Opening the reading room…</span></p>
+        <p id="schedule">Daily at 7:00 AM Eastern</p>
+      </div>
+
+      <section id="reading-room" class="reading-room" aria-labelledby="stories-title">
+        <div class="section-top">
+          <div class="view-switch" role="group" aria-label="Story collection">
+            <button type="button" class="view-button active" id="latest-view" aria-pressed="true">Latest</button>
+            <button type="button" class="view-button" id="archive-view" aria-pressed="false">The archive <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="reading-note">A starting point for your reading.</p>
+        </div>
+
+        <div class="filter-bar" id="filters">
+          <div class="search-wrap">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg>
+            <label class="sr-only" for="search">Search titles and summaries across the archive</label>
+            <input type="search" id="search" placeholder="Search the whole collection…" autocomplete="off" maxlength="200">
+          </div>
+          <label class="select-wrap"><span class="sr-only">Filter by source</span><select id="source-filter"><option value="">All sources</option></select></label>
+          <label class="select-wrap"><span class="sr-only">Filter by archive month</span><select id="month-filter"><option value="">All months</option></select></label>
+        </div>
+        <div class="category-row">
+          <div class="categories" role="group" aria-label="Filter by topic">
+            <button type="button" data-category="" class="category active" aria-pressed="true">Everything</button>
+            <button type="button" data-category="Tech" class="category" aria-pressed="false">Tech</button>
+            <button type="button" data-category="AI" class="category" aria-pressed="false">AI</button>
+            <button type="button" data-category="Homelab" class="category" aria-pressed="false">Homelab</button>
+            <button type="button" data-category="Headlines" class="category" aria-pressed="false">Headlines</button>
+          </div>
+          <button type="button" id="clear-filters" class="text-button" hidden>Clear filters <span aria-hidden="true">×</span></button>
+        </div>
+
+        <div class="results-heading">
+          <h2 id="stories-title">Fresh off the feeds</h2>
+          <p id="results-count" aria-live="polite"></p>
+        </div>
+        <div id="notice" class="notice" role="status" hidden></div>
+        <div id="loading-state" class="empty-state" role="status">
+          <span class="loading-mark" aria-hidden="true"></span>
+          <h3>Gathering the reading list</h3>
+          <p>The latest links will be here in a moment.</p>
+        </div>
+        <div id="error-state" class="empty-state" role="alert" hidden>
+          <span class="state-symbol" aria-hidden="true">↻</span>
+          <h3>The reading list couldn’t load</h3>
+          <p id="error-message">Please try again in a moment.</p>
+          <button class="outline-button" id="retry" type="button">Try again <span aria-hidden="true">↻</span></button>
+        </div>
+        <div id="empty-state" class="empty-state" hidden>
+          <span class="state-symbol" aria-hidden="true">∅</span>
+          <h3 id="empty-title">No stories found</h3>
+          <p id="empty-message">Try another search or clear a filter to widen the collection.</p>
+          <button class="outline-button" id="empty-clear" type="button">Clear filters</button>
+        </div>
+        <div id="articles" class="articles" aria-busy="true"></div>
+        <div class="more-row" id="more-row" hidden>
+          <p id="visible-count"></p>
+          <button type="button" id="load-more" class="outline-button">More to read <span aria-hidden="true">↓</span></button>
+        </div>
+        <noscript><p class="notice">JavaScript is needed to browse and search this collection. You can also <a href="data/index.json">read the latest published data</a>.</p></noscript>
+      </section>
+
+      <section id="about" class="about-section" aria-labelledby="about-title">
+        <div class="about-copy">
+          <p class="eyebrow">Behind the reading room</p>
+          <h2 id="about-title">Collected daily.<br>Kept for later.</h2>
+          <p>Interesting links shouldn’t disappear at the end of the day. New stories join the collection each morning; older links stay in a searchable monthly archive.</p>
+          <p id="summary-method">Summaries use text supplied by each source’s feed. These are brief extracts, not independently verified reporting or AI analysis. Some feeds only provide a headline.</p>
+          <p>Follow a story to read the original. Full articles aren’t copied here, and a link’s inclusion isn’t an endorsement. Community discussions, when supplied by a feed, are linked separately.</p>
+        </div>
+        <div class="sources-panel">
+          <details id="source-details">
+            <summary><span><span class="eyebrow">The inputs</span><span class="sources-title">Sources &amp; feed health</span></span><span class="details-icon" aria-hidden="true">+</span></summary>
+            <p class="sources-explanation">A source can be temporarily unavailable while its previously collected stories remain readable.</p>
+            <ul id="source-list" class="source-list"><li class="source-placeholder">Source information loads with the collection.</li></ul>
+          </details>
+          <div class="archive-note"><span aria-hidden="true">↗</span><p>Looking for something older?<br><button type="button" id="browse-archive" class="text-button">Browse the full archive</button></p></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="/">Corbin Combs<span>.</span></a>
+      <p id="footer-update">The Daily / A personal reading room</p>
+      <a href="#page-title">Back to top <span aria-hidden="true">↑</span></a>
+    </footer>
+  </div>
+</body>
+</html>
