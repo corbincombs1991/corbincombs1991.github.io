@@ -22,6 +22,25 @@ contains the verified Depop destination. Checkout and seller messaging stay on
 Depop. The website collects no payment details and sets no separate shipping or
 return policy.
 
+`src/data/products.json` is a manually maintained selection, not a live feed or
+complete inventory. Adding, selling, or removing a listing on Depop does **not**
+automatically change this website. The shop page labels that limit and links to
+the full Depop shop above the searchable featured edit. Do not claim stock sync
+until an authorized integration is implemented and verified.
+
+Search, category/size filters, and price sorting operate only on this saved
+selection in the browser. Product cards and the full-shop link remain available
+without JavaScript. Search uses case-insensitive word prefixes across product
+name, category, tagged size, and common size names (for example, `medium`).
+Multiple search terms and active filters all need to match. Price sorts retain
+curated order for ties. Run `node --test tests/catalog.test.mjs` from this source
+directory to check those behaviors.
+
+To refresh the selection, verify current public listings, update the real product
+data and photographs, and set `checkedDate` in `src/data/shop.ts` to the date of
+that manual check. The existing deployment then rebuilds the saved selection.
+See `PRODUCT-SOURCES.md` for current provenance.
+
 Only real Depop listings should be added to the product catalog. Editorial
 images are original AI-generated style inspiration and are never product
 inventory. Generation details are recorded in `IMAGE-PROVENANCE.md`.

@@ -2,24 +2,151 @@
 import Layout from '../../layouts/Layout.astro';
 import { url } from '../../lib/urls';
 import { shop, products, checkedDate } from '../../data/shop';
+
+const categories = [...new Set(products.map(product => product.category))];
+const sizeOrder = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
+const sizes = [...new Set(products.map(product => product.size))].sort((a, b) => {
+  const aIndex = sizeOrder.indexOf(a);
+  const bIndex = sizeOrder.indexOf(b);
+  return aIndex < 0 || bIndex < 0 ? a.localeCompare(b, undefined, { numeric: true }) : aIndex - bIndex;
+});
 ---
-<Layout title="Shop vintage" description="Find your next favorite at Afterglow Vintage. Browse available pieces and shop securely on Depop." current="shop/">
-  <section class="page-intro section"><p class="eyebrow">THE RACK / GOOD FINDS ONLY</p><h1>FINDERS<br /><em>KEEPERS.</em></h1><p class="lead">A little faded. A little loud. Yours for the taking.</p></section>
-  <div class="shop-controls"><div class="product-filters" role="group" aria-label="Filter featured pieces"><button type="button" data-filter="All" aria-pressed="true">All pieces</button>{['Floral', 'Graphic', 'Travel'].map(category => <button type="button" data-filter={category} aria-pressed="false">{category}</button>)}</div><p id="product-count" aria-live="polite">{products.length} featured pieces</p></div>
-  <p class="catalog-note">From our Depop shop · Checked {checkedDate}. Prices in USD; confirm current price and availability on Depop.</p>
-  {products.length > 0 && <section class="section product-grid" aria-label="Featured Depop pieces">{products.map(product => <a class="product-card" data-category={product.category} href={product.url} target="_blank" rel="noopener noreferrer"><div class="product-photo"><img src={product.image.startsWith('https:') ? product.image : url(product.image)} alt={product.name} width="800" height="800" loading="lazy" /><span class="product-price">{product.price}</span></div><span class="eyebrow">{product.category} / {product.size}</span><h2>{product.name}</h2><p>{product.price} <span>Check on Depop ↗</span></p></a>)}</section>}
-  <section class="section depop-panel"><div class="depop-mark" aria-hidden="true">d.</div><div><p class="eyebrow">THE AFTERGLOW SHOP ON DEPOP</p><h2>{shop.depopUrl ? 'The latest finds.' : 'Good things are coming.'}<br /><em>{shop.depopUrl ? 'All in one place.' : 'Stay in the glow.'}</em></h2><p>{shop.depopUrl ? 'Browse our current collection on Depop for availability, prices, measurements, and detailed photos. Found your piece? Message us and check out there.' : 'The Afterglow collection is being connected. In the meantime, explore the edit for a little outfit inspiration.'}</p>{shop.depopUrl ? <a class="button" href={shop.depopUrl} target="_blank" rel="noopener noreferrer">Shop {shop.handle || 'Afterglow'} on Depop ↗</a> : <a class="button" href={url('lookbook/')}>Explore the edit ↗</a>}<p class="small-copy">{shop.depopUrl ? 'Opens Depop in a new tab. Prices, stock, shipping, and checkout are managed on Depop.' : 'Product availability and checkout will be handled through Depop.'}</p></div></section>
+<Layout title="Shop vintage" description="Search a handpicked selection of Afterglow Vintage finds, or browse the full shop on Depop for current listings, prices, and availability." current="shop/">
+  <section class="page-intro section">
+    <p class="eyebrow">THE RACK / GOOD FINDS ONLY</p>
+    <h1>FINDERS<br /><em>KEEPERS.</em></h1>
+    <p class="lead">A little faded. A little loud. Your next favorite is out there.</p>
+    <div class="shop-destinations">
+      <a class="button" href={shop.depopUrl} target="_blank" rel="noopener noreferrer">Browse every listing on Depop ↗</a>
+      <a class="text-link" href="#catalog">Search the featured edit ↓</a>
+    </div>
+    <p class="destination-note">The full shop, latest arrivals, and current availability live on Depop.</p>
+  </section>
+
+  <section class="catalog-section" id="catalog" aria-labelledby="catalog-heading">
+    <div class="catalog-heading">
+      <div><p class="eyebrow">A FEW FINDS FROM THE RACK</p><h2 id="catalog-heading">THE FEATURED <em>EDIT.</em></h2></div>
+      <span class="catalog-stamp" aria-hidden="true">HAND<br />PICKED</span>
+    </div>
+    <p class="selection-note" id="catalog-note">This is a selection updated by hand, last checked {checkedDate}. Sold pieces may still appear here. <a href={shop.depopUrl} target="_blank" rel="noopener noreferrer">See the full shop on Depop ↗</a> for current stock and prices.</p>
+    <form class="catalog-form" id="catalog-form" role="search" aria-label="Search featured pieces" aria-describedby="catalog-note" hidden>
+      <div class="catalog-fields">
+        <div class="catalog-field catalog-search">
+          <label for="catalog-query">Search the featured edit</label>
+          <div class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6.5" /><path d="m15 15 6 6" /></svg><input id="catalog-query" name="q" type="search" placeholder="Harley, floral, medium…" autocomplete="off" aria-controls="catalog-grid" /></div>
+        </div>
+        <div class="catalog-field">
+          <label for="catalog-size">Tagged size</label>
+          <select id="catalog-size" name="size" aria-controls="catalog-grid"><option value="All">All sizes</option>{sizes.map(size => <option value={size}>{size}</option>)}</select>
+        </div>
+        <div class="catalog-field">
+          <label for="catalog-sort">Sort the edit</label>
+          <select id="catalog-sort" name="sort" aria-controls="catalog-grid"><option value="featured">Curated order</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option></select>
+        </div>
+      </div>
+      <fieldset class="catalog-categories"><legend>Style</legend><div class="product-filters"><button type="button" data-catalog-category="All" aria-pressed="true" aria-controls="catalog-grid">All styles</button>{categories.map(category => <button type="button" data-catalog-category={category} aria-pressed="false" aria-controls="catalog-grid">{category}</button>)}</div></fieldset>
+      <div class="catalog-result-line"><p id="product-count" role="status" aria-live="polite" aria-atomic="true">{products.length} of {products.length} featured pieces</p><button class="catalog-reset" type="button" data-catalog-reset hidden>Clear search & filters ↺</button></div>
+    </form>
+    <noscript><p class="catalog-no-script">All {products.length} featured pieces are shown below. Enable JavaScript to search, filter, and sort this selection.</p></noscript>
+    <div class="catalog-empty" id="catalog-empty" hidden>
+      <span class="eyebrow">KEEP DIGGING</span><h3>No matches in this edit.</h3>
+      <p>Try a different name or style, or check the full Depop shop for more finds.</p>
+      <div><button class="button" type="button" data-catalog-reset>Reset the edit ↺</button><a class="text-link" href={shop.depopUrl} target="_blank" rel="noopener noreferrer">Browse every listing on Depop ↗</a></div>
+    </div>
+    <div class="product-grid catalog-grid" id="catalog-grid" aria-label="Featured Depop pieces">
+      {products.map(product => <a class="product-card" data-catalog-item data-name={product.name} data-category={product.category} data-size={product.size} data-price={product.price} href={product.url} target="_blank" rel="noopener noreferrer"><div class="product-photo"><img src={product.image.startsWith('https:') ? product.image : url(product.image)} alt={product.name} width="800" height="800" loading="lazy" /><span class="product-price">{product.price}</span></div><span class="eyebrow">{product.category} / {product.size}</span><h3>{product.name}</h3><p>{product.price} <span>Check on Depop ↗</span></p></a>)}
+    </div>
+    <p class="catalog-price-note">Prices shown in USD at the last check. Confirm availability, measurements, and current price on the listing before buying.</p>
+  </section>
+
+  <section class="section depop-panel"><div class="depop-mark" aria-hidden="true">d.</div><div><p class="eyebrow">THE AFTERGLOW SHOP ON DEPOP</p><h2>The latest finds.<br /><em>All in one place.</em></h2><p>Browse the full collection on Depop for availability, prices, measurements, and detailed photos. Found your piece? Message us and check out there.</p><a class="button" href={shop.depopUrl} target="_blank" rel="noopener noreferrer">Shop {shop.handle} on Depop ↗</a><p class="small-copy">Opens Depop in a new tab. Prices, stock, shipping, and checkout are managed on Depop.</p></div></section>
   <section class="section principles"><div><span class="eyebrow">01 / FIND IT</span><h3>Meet your next favorite.</h3><p>Browse the latest listings on Depop. Availability can change as pieces find new homes.</p></div><div><span class="eyebrow">02 / CHECK THE DETAILS</span><h3>Fit comes first.</h3><p>Read the listing, review the measurements and condition, and ask the seller if you need more information.</p></div><div><span class="eyebrow">03 / MAKE IT YOURS</span><h3>Keep it on Depop.</h3><p>Message the seller and complete your purchase through the Depop listing.</p></div></section>
 </Layout>
 
 <script>
-  const filters = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
-  const cards = document.querySelectorAll<HTMLElement>('[data-category]');
-  const count = document.querySelector('#product-count');
-  for (const filter of filters) filter.addEventListener('click', () => {
-    let visible = 0;
-    filters.forEach(button => button.setAttribute('aria-pressed', String(button === filter)));
-    cards.forEach(card => { card.hidden = filter.dataset.filter !== 'All' && filter.dataset.filter !== card.dataset.category; if (!card.hidden) visible++; });
-    if (count) count.textContent = `${visible} featured ${visible === 1 ? 'piece' : 'pieces'}`;
-  });
+  import { selectCatalogItems } from '../../lib/catalog';
+
+  const form = document.querySelector<HTMLFormElement>('#catalog-form');
+  const query = document.querySelector<HTMLInputElement>('#catalog-query');
+  const size = document.querySelector<HTMLSelectElement>('#catalog-size');
+  const sort = document.querySelector<HTMLSelectElement>('#catalog-sort');
+  const grid = document.querySelector<HTMLElement>('#catalog-grid');
+  const count = document.querySelector<HTMLElement>('#product-count');
+  const empty = document.querySelector<HTMLElement>('#catalog-empty');
+  const categories = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-catalog-category]'));
+  const resetButtons = document.querySelectorAll<HTMLButtonElement>('[data-catalog-reset]');
+  const inventory = Array.from(document.querySelectorAll<HTMLElement>('[data-catalog-item]')).map(element => ({
+    element, name: element.dataset.name || '', category: element.dataset.category || '',
+    size: element.dataset.size || '', price: element.dataset.price || '',
+  }));
+  let category = 'All';
+
+  function updateCatalog() {
+    if (!query || !size || !sort || !grid || !count || !empty) return;
+    const matches = selectCatalogItems(inventory, { query: query.value, category, size: size.value, sort: sort.value });
+    const visible = new Set(matches);
+    inventory.forEach(item => { item.element.hidden = !visible.has(item); });
+    matches.forEach(item => grid.append(item.element));
+    categories.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.catalogCategory === category)));
+    count.textContent = `${matches.length} of ${inventory.length} featured ${inventory.length === 1 ? 'piece' : 'pieces'}`;
+    empty.hidden = matches.length > 0;
+    const active = Boolean(query.value || category !== 'All' || size.value !== 'All' || sort.value !== 'featured');
+    const inlineReset = form?.querySelector<HTMLButtonElement>('[data-catalog-reset]');
+    if (inlineReset) inlineReset.hidden = !active;
+  }
+
+  if (form && query && size && sort && grid && count && empty) {
+    form.addEventListener('submit', event => event.preventDefault());
+    query.addEventListener('input', updateCatalog);
+    size.addEventListener('change', updateCatalog);
+    sort.addEventListener('change', updateCatalog);
+    categories.forEach(button => button.addEventListener('click', () => {
+      category = button.dataset.catalogCategory || 'All';
+      updateCatalog();
+    }));
+    resetButtons.forEach(button => button.addEventListener('click', () => {
+      form.reset();
+      category = 'All';
+      updateCatalog();
+      query.focus({ preventScroll: true });
+    }));
+    updateCatalog();
+    form.hidden = false;
+  }
 </script>
+
+<style>
+  .shop-destinations{display:flex;align-items:center;flex-wrap:wrap;gap:24px 32px;margin-top:30px}
+  .destination-note{font:11px/1.6 var(--typewriter);margin-top:20px;max-width:650px}
+  .catalog-section{padding:0 var(--gutter) 75px;scroll-margin-top:25px}
+  .catalog-heading{display:flex;align-items:center;justify-content:space-between;gap:25px;margin-bottom:24px}
+  .catalog-heading h2{font-size:clamp(43px,5.7vw,80px);margin-top:12px}
+  .catalog-stamp{flex-shrink:0;font:24px/.95 var(--display);border:3px double var(--red);color:var(--red);padding:10px 15px;transform:rotate(9deg);text-align:center}
+  .selection-note{font:12px/1.7 var(--typewriter);max-width:850px;margin:0 0 30px;border-left:4px solid var(--red);padding-left:15px}
+  .selection-note a{text-decoration:underline;text-underline-offset:3px;font-weight:700}
+  .catalog-form{margin-bottom:38px;padding:26px 28px 21px;border:2px solid var(--ink);background:var(--yellow);box-shadow:5px 5px 0 var(--ink)}
+  .catalog-fields{display:grid;grid-template-columns:minmax(0,2fr) minmax(125px,.7fr) minmax(190px,1fr);gap:20px}
+  .catalog-field{min-width:0}
+  .catalog-field label,.catalog-categories legend{display:block;font:700 10px/1.4 var(--typewriter);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+  .catalog-field input,.catalog-field select{width:100%;min-width:0;height:49px;border:2px solid var(--ink);border-radius:0;background:var(--paper);font:13px/1.2 var(--typewriter);color:var(--ink);padding:11px 12px}
+  .catalog-field input::placeholder{opacity:1;color:#55554d}
+  .catalog-field input:focus-visible,.catalog-field select:focus-visible{outline:3px dashed var(--red);outline-offset:4px}
+  .search-box{position:relative}
+  .search-box input{padding-left:42px}
+  .search-box svg{position:absolute;left:13px;top:15px;width:20px;height:20px;pointer-events:none}
+  .catalog-categories{padding:0;border:0;margin:24px 0 0;min-width:0}
+  .catalog-categories .product-filters button{min-height:42px}
+  .catalog-result-line{display:flex;align-items:center;justify-content:space-between;gap:15px;min-height:28px;margin-top:22px;padding-top:17px;border-top:1px dashed var(--ink)}
+  .catalog-result-line p{font:700 11px/1.5 var(--typewriter)}
+  .catalog-reset{padding:6px 0;border:0;border-bottom:1px solid var(--ink);background:transparent;font:700 10px/1.4 var(--typewriter)}
+  .catalog-grid{padding:12px 0 0}
+  .catalog-empty{border:2px dashed var(--ink);text-align:center;padding:45px 25px;margin:40px 0;background:var(--paper)}
+  .catalog-empty h3{font:clamp(32px,4vw,50px)/1.1 var(--display);text-transform:uppercase;margin-top:12px}
+  .catalog-empty p{font:13px/1.7 var(--typewriter);margin:17px auto 28px;max-width:490px}
+  .catalog-empty>div{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:25px}
+  .catalog-price-note,.catalog-no-script{font:10px/1.7 var(--typewriter);max-width:700px;margin-top:35px}
+  .catalog-no-script{margin:0 0 28px}
+  [hidden]{display:none!important}
+  @media(max-width:800px){.catalog-fields{grid-template-columns:1fr 1.4fr;gap:18px}.catalog-search{grid-column:1/-1}.catalog-form{padding:23px}.catalog-section{padding-bottom:60px}}
+  @media(max-width:560px){.shop-destinations{gap:23px;margin-top:25px}.shop-destinations .button{font-size:10px;padding:16px 17px;gap:10px}.destination-note{font-size:10px}.catalog-heading{gap:15px;align-items:flex-end}.catalog-heading h2{font-size:44px;max-width:250px}.catalog-heading .eyebrow{font-size:9px}.catalog-stamp{font-size:18px;padding:9px}.selection-note{font-size:10px;padding-left:12px;margin-bottom:25px}.catalog-form{padding:19px 15px 16px;box-shadow:3px 3px 0 var(--ink);margin-bottom:31px}.catalog-fields{grid-template-columns:1fr;gap:17px 12px}.catalog-field label{font-size:9px}.catalog-field input{font-size:16px}.catalog-field select{font-size:16px;padding:10px 7px}.catalog-field input,.catalog-field select{height:48px}.catalog-categories{margin-top:20px}.catalog-categories .product-filters{gap:8px}.catalog-categories .product-filters button{min-height:42px;padding:10px;font-size:9px}.catalog-result-line{align-items:flex-start;flex-direction:column;gap:10px;margin-top:20px;padding-top:15px}.catalog-result-line p{font-size:10px}.catalog-reset{font-size:9px}.catalog-grid{padding-top:10px}.catalog-price-note{font-size:9px;margin-top:28px}.catalog-empty{padding:35px 18px}.catalog-empty p{font-size:12px}.catalog-empty .button{font-size:10px;padding:15px}.catalog-section{padding-bottom:50px}}
+</style>
