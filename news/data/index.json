@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-06T04:13:32Z",
-  "last_successful_run": "2026-11-06T04:13:32Z",
+  "generated_at": "2026-11-06T04:17:49Z",
+  "last_successful_run": "2026-11-06T04:17:49Z",
   "timezone": "America/Indiana/Indianapolis",
   "schedule": "Daily at 7:00 AM Eastern",
   "article_count": 64,
@@ -797,15 +797,15 @@
       "category": "Tech",
       "url": "https://arstechnica.com/",
       "status": "ok",
-      "last_success_at": "2026-11-06T04:13:32Z"
+      "last_success_at": "2026-11-06T04:17:49Z"
     },
     {
       "id": "verge",
       "name": "The Verge",
       "category": "Tech",
       "url": "https://www.theverge.com/",
-      "status": "ok",
-      "last_success_at": "2026-11-06T04:13:32Z"
+      "status": "unchanged",
+      "last_success_at": "2026-11-06T04:17:49Z"
     },
     {
       "id": "hacker-news",
@@ -813,15 +813,15 @@
       "category": "Tech",
       "url": "https://news.ycombinator.com/",
       "status": "ok",
-      "last_success_at": "2026-11-06T04:13:32Z"
+      "last_success_at": "2026-11-06T04:17:49Z"
     },
     {
       "id": "hugging-face",
       "name": "Hugging Face",
       "category": "AI",
       "url": "https://huggingface.co/blog",
-      "status": "ok",
-      "last_success_at": "2026-11-06T04:13:32Z"
+      "status": "unchanged",
+      "last_success_at": "2026-11-06T04:17:49Z"
     },
     {
       "id": "google-ai",
@@ -829,7 +829,7 @@
       "category": "AI",
       "url": "https://blog.google/innovation-and-ai/technology/ai/",
       "status": "ok",
-      "last_success_at": "2026-11-06T04:13:32Z"
+      "last_success_at": "2026-11-06T04:17:49Z"
     },
     {
       "id": "selfhost",
@@ -837,7 +837,7 @@
       "category": "Homelab",
       "url": "https://selfh.st/",
       "status": "ok",
-      "last_success_at": "2026-11-06T04:13:32Z"
+      "last_success_at": "2026-11-06T04:17:49Z"
     },
     {
       "id": "bbc",
@@ -845,7 +845,7 @@
       "category": "Headlines",
       "url": "https://www.bbc.com/news/world",
       "status": "ok",
-      "last_success_at": "2026-11-06T04:13:32Z"
+      "last_success_at": "2026-11-06T04:17:49Z"
     },
     {
       "id": "npr",
@@ -853,7 +853,7 @@
       "category": "Headlines",
       "url": "https://www.npr.org/",
       "status": "ok",
-      "last_success_at": "2026-11-06T04:13:32Z"
+      "last_success_at": "2026-11-06T04:17:49Z"
     }
   ],
   "summary_method": "Short extracts from publisher feeds, up to 65 words. These are not AI-written summaries or independently verified reporting. Some feeds provide headlines only."
