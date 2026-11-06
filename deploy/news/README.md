@@ -18,6 +18,9 @@ No public web server or inbound port is required on the worker.
 - Timer: `news-digest.timer`, daily **07:00 America/Indiana/Indianapolis**,
   with up to two minutes of jitter and missed-run catch-up after boot.
 - Transient failed runs retry after 15 minutes, up to four starts in two hours.
+- Guest 119 is included in the existing Saturday 03:00 `apps-weekly` snapshot
+  backup to `backup`, retaining two copies. An initial backup completed on
+  November 5, 2026. A full restore has not been tested.
 
 The worker's private SSH key stays inside its home directory, mode 0600.
 Its GitHub deploy key is restricted to the website repository and needs write
