@@ -1,0 +1,142 @@
+[
+  {
+    "path": "assets/greenhouse-entrance.jpg",
+    "width": 1536,
+    "height": 2048,
+    "bytes": 753868,
+    "alt": "Sunny Gary Greenhouse entrance with hanging baskets, mums and mixed planters",
+    "recommended_use": "preferred-hero-portrait",
+    "modified": false,
+    "source_url": "https://freshchalk.com/storage/p/y4/IrFE0UlFI",
+    "source_pages": [
+      "https://freshchalk.com/sullivan-hardware-garden-indianapolis"
+    ],
+    "provenance": "Public Fresh Chalk photograph attached to the Gary Greenhouse related-business card, with alt=Gary Greenhouse and href=/gary-greenhouse-indianapolis. Visually verified entrance sign names Gary Greenhouse and structure matches company images. Photographer not identified."
+  },
+  {
+    "path": "assets/greenhouse-overview.jpg",
+    "width": 1000,
+    "height": 750,
+    "bytes": 113091,
+    "alt": "Outdoor greenhouse structures with spring flowering plants and hanging baskets",
+    "recommended_use": "feature-landscape",
+    "modified": false,
+    "source_url": "https://s3-media0.fl.yelpcdn.com/bphoto/f0G02ytqvwOXFkHWTElwRw/o.jpg",
+    "source_pages": [
+      "https://www.mapquest.com/us/indiana/gary-greenhouse-6062394"
+    ],
+    "provenance": "Public MapQuest Gary Greenhouse business listing photo served from Yelp CDN. Visually verified sign and buildings match company originals. Photographer not identified."
+  },
+  {
+    "path": "assets/facebook-greenhouse.jpg",
+    "width": 720,
+    "height": 720,
+    "bytes": 107544,
+    "alt": "Mums and pumpkins in front of the greenhouse",
+    "recommended_use": "feature-square",
+    "modified": false,
+    "source_url": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.30808-1/308990555_558485552747598_4986420665814783795_n.jpg?stp=dst-jpg_tt6&cstp=mx1000x1000&ctp=s720x720&_nc_cat=107&ccb=1-7&_nc_sid=3ab345&_nc_ohc=GxCIyj91qgIQ7kNvwGStpaW&_nc_oc=Adqk-7vCk957jjath6ayquJwSo9VIDhtjd-zAcWZdUCQ_FbojOXVsOabPhMkp8VgUws&_nc_zt=24&_nc_ht=scontent-ord5-2.xx&_nc_gid=dLmEGjkDVEbFCNxTSYQsBw&_nc_ss=7020f&oh=00_AQRP6ybWAQBx-FO6NgmhJrsyVAsjgfxTGElG5saTFL-xCw&oe=6AF2FF95",
+    "source_pages": [
+      "https://www.facebook.com/p/Gary-Greenhouse-Inc-100057584733687/"
+    ],
+    "provenance": "Public company Facebook page og:image. Image is 720px square; direct signed URL is temporary, local copy retained."
+  },
+  {
+    "path": "assets/hanging-baskets.jpg",
+    "width": 264,
+    "height": 198,
+    "bytes": 48715,
+    "alt": "Rows of flowering hanging baskets inside the greenhouse",
+    "recommended_use": "gallery-small",
+    "modified": false,
+    "source_url": "https://www.garygreenhouse.com/wpimages/wpc59e150c_05_06.jpg",
+    "source_pages": [
+      "https://www.garygreenhouse.com/page20.html"
+    ],
+    "provenance": "Downloaded unmodified from the original company website."
+  },
+  {
+    "path": "assets/combo-planters.jpg",
+    "width": 191,
+    "height": 144,
+    "bytes": 26735,
+    "alt": "Purple and yellow combination planter closeup",
+    "recommended_use": "product-small",
+    "modified": false,
+    "source_url": "https://www.garygreenhouse.com/wpimages/wp62dd484b_05_06.jpg",
+    "source_pages": [
+      "https://www.garygreenhouse.com/page20.html"
+    ],
+    "provenance": "Downloaded unmodified from the original company website."
+  },
+  {
+    "path": "assets/petunias.jpg",
+    "width": 175,
+    "height": 131,
+    "bytes": 23975,
+    "alt": "Rows of Wave petunia starter plants in pink baskets",
+    "recommended_use": "gallery-small",
+    "modified": false,
+    "source_url": "https://www.garygreenhouse.com/wpimages/wpb3dee63b_05_06.jpg",
+    "source_pages": [
+      "https://www.garygreenhouse.com/page17.html"
+    ],
+    "provenance": "Downloaded unmodified from the original company website."
+  },
+  {
+    "path": "assets/pansies.jpg",
+    "width": 189,
+    "height": 142,
+    "bytes": 23532,
+    "alt": "Long beds of pansies inside a growing greenhouse",
+    "recommended_use": "gallery-small",
+    "modified": false,
+    "source_url": "https://www.garygreenhouse.com/wpimages/wp638ea01d_05_06.jpg",
+    "source_pages": [
+      "https://www.garygreenhouse.com/page18.html"
+    ],
+    "provenance": "Downloaded unmodified from the original company website."
+  },
+  {
+    "path": "assets/garden-mums.jpg",
+    "width": 346,
+    "height": 260,
+    "bytes": 59241,
+    "alt": "Fall mums outside the Gary Greenhouse entrance",
+    "recommended_use": "gallery-small",
+    "modified": false,
+    "source_url": "https://www.garygreenhouse.com/wpimages/wp03ce3bbc_05_06.jpg",
+    "source_pages": [
+      "https://www.garygreenhouse.com/page21.html"
+    ],
+    "provenance": "Downloaded unmodified from the original company website."
+  },
+  {
+    "path": "assets/greenhouse-baskets.jpg",
+    "width": 267,
+    "height": 200,
+    "bytes": 49188,
+    "alt": "Red geraniums and flowers along a greenhouse aisle",
+    "recommended_use": "gallery-small",
+    "modified": false,
+    "source_url": "https://www.garygreenhouse.com/wpimages/wp5f377cfb_05_06.jpg",
+    "source_pages": [
+      "https://www.garygreenhouse.com/page20.html"
+    ],
+    "provenance": "Downloaded unmodified from the original company website."
+  },
+  {
+    "path": "assets/moss-basket.jpg",
+    "width": 191,
+    "height": 143,
+    "bytes": 24757,
+    "alt": "Pink and white mixed flowering hanging basket",
+    "recommended_use": "product-small",
+    "modified": false,
+    "source_url": "https://www.garygreenhouse.com/wpimages/wp15c95392_05_06.jpg",
+    "source_pages": [
+      "https://www.garygreenhouse.com/page20.html"
+    ],
+    "provenance": "Downloaded unmodified from the original company website."
+  }
+]
