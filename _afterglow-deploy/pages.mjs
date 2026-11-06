@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import { root, variants } from './files.mjs';
+import { requestPagesBuild } from './pages-build.mjs';
 
 const repository = process.env.GITHUB_REPOSITORY;
 const token = process.env.GH_TOKEN;
@@ -22,17 +23,7 @@ if (settings.cname !== 'corbincombs.com' || settings.build_type !== 'legacy' || 
 console.log('Existing GitHub Pages source, custom domain, and HTTPS configuration verified.');
 if (process.argv.includes('--request')) {
   const revision = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
-  await api('/builds', 'POST');
-  console.log(`Requested existing Pages pipeline for ${revision}.`);
-  const deadline = Date.now() + 12 * 60 * 1000;
-  let built = false;
-  while (Date.now() < deadline) {
-    const latest = await api('/builds/latest');
-    if (latest.commit === revision && latest.status === 'built') { built = true; break; }
-    if (latest.commit === revision && latest.status === 'errored') throw new Error(`Pages build failed: ${latest.error?.message || 'see Pages build logs'}`);
-    await new Promise(resolve => setTimeout(resolve, 10000));
-  }
-  if (!built) throw new Error(`Timed out waiting for Pages revision ${revision}.`);
+  await requestPagesBuild(api, revision);
   // Deployment/CDN propagation can lag the build status briefly.
   for (let attempt = 0; attempt < 12; attempt++) {
     try {

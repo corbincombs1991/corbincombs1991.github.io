@@ -52,7 +52,7 @@ jobs:
           cache: npm
           cache-dependency-path: ${{ matrix.source }}/package-lock.json
       - name: Verify publishing preserves the other sites
-        run: node --test _afterglow-deploy/sync.test.mjs
+        run: node --test _afterglow-deploy/sync.test.mjs _afterglow-deploy/pages-build.test.mjs
       - name: Install locked dependencies
         run: npm ci --prefix '${{ matrix.source }}'
       - name: Build static subdirectory site
