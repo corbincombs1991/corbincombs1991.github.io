@@ -34,7 +34,7 @@ const brandSchema = { '@context': 'https://schema.org', '@type': 'Organization',
     <a class="skip" href="#main">Skip to content</a>
     <div class="announcement"><span>GOOD CLOTHES. SECOND CHANCES.</span><span class="announcement-right">1996 ATTITUDE. 2026 EXECUTION.</span></div>
     <header class="site-header">
-      <a class="logo" href={url()} aria-label="Afterglow Vintage home">afterglow<span>VINTAGE</span><span class="logo-star" aria-hidden="true">✳</span></a>
+      <a class="logo" href={url()} aria-label="Afterglow Vintage home">afterglow<span>VINTAGE</span></a>
       <nav class="desktop-nav" aria-label="Main navigation">
         {nav.map(([label, path]) => <a href={url(path)} aria-current={current === path ? 'page' : undefined}>{label}</a>)}
       </nav>
@@ -48,7 +48,7 @@ const brandSchema = { '@context': 'https://schema.org', '@type': 'Organization',
     <main id="main"><slot /></main>
     <footer class="site-footer">
       <div class="footer-top"><p>Old soul.<br /><em>New stories.</em></p><div class="footer-links"><a href={url('shop/')}>Shop the collection ↗</a><a href={url('about/')}>Our story</a><a href={url('faq/')}>Shopping & care</a><a href="https://www.instagram.com/afterglowvintageindy/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://linktr.ee/afterglowvintageindy" target="_blank" rel="noopener noreferrer">All our links ↗</a>{shop.depopUrl && <a href={shop.depopUrl} target="_blank" rel="noopener noreferrer">Depop ↗</a>}</div></div>
-      <a class="footer-wordmark" href={url()}>afterglow<span aria-hidden="true">✳</span></a>
+      <a class="footer-wordmark" href={url()}>afterglow</a>
       <div class="footer-bottom"><span>© {new Date().getFullYear()} AFTERGLOW VINTAGE</span><span>A LITTLE NOSTALGIA. A LOT OF CHARACTER.</span><a href="#main">BACK TO TOP ↑</a></div>
     </footer>
     <script>

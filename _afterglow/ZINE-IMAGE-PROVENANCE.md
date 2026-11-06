@@ -2,7 +2,7 @@
 
 ## Instagram images in the current zine
 
-Retrieved November 6, 2026 from the public `@afterglowvintageindy` Instagram profile. The images were visually inspected and downloaded through the browser from the observed public profile grid. Both files retain their downloaded JPEG bytes; display cropping is applied with CSS. These images were not generated. Source attribution identifies the sharing account, not the photographer or copyright owner. No band member identities are inferred.
+Retrieved November 6, 2026 from the public `@afterglowvintageindy` Instagram profile. The images were visually inspected and downloaded through the browser from the observed public profile or post carousel. Files retain their downloaded JPEG bytes; display cropping is applied with CSS. These images were not generated. Source attribution identifies the sharing account, not the photographer or copyright owner. No band member identities are inferred.
 
 ### Live music at the vintage market
 
@@ -13,7 +13,7 @@ Retrieved November 6, 2026 from the public `@afterglowvintageindy` Instagram pro
 - Post date shown by Instagram: October 11, 2026
 - Observed content: musicians playing beside clothing racks and colorful outdoor market tents.
 - Display attribution: “From @afterglowvintageindy,” linked to the exact source post.
-- Used in the homepage cover and the first lookbook story. This replaces the generated skate image in this edition.
+- Used in the first lookbook story. Originally also used on the cover; the cover now uses the store interior below. The October 11 post credits @pipergrace_photography for the event photography.
 
 ### Novella music collage
 
@@ -24,7 +24,27 @@ Retrieved November 6, 2026 from the public `@afterglowvintageindy` Instagram pro
 - Post date shown by Instagram: September 30, 2026
 - Observed content: a guitarist above a crowd, with a visible “Novella” wordmark. The wordmark is described as visible text, without identifying the guitarist or crowd.
 - Display attribution: “From @afterglowvintageindy,” linked to the exact source post.
-- Used in the homepage polaroid and the second lookbook story. The original grunge collage remains in other editorial placements.
+- Superseded in the homepage Polaroid and second lookbook story by the live-performance photo below. Retained as historical provenance; no active page uses this asset.
+
+### Store interior
+
+- Public asset: `public/images/zine/afterglow-store.jpg`
+- Dimensions: 3072 × 4096; JPEG size: 1,186,742 bytes.
+- Source post: https://www.instagram.com/afterglowvintageindy/p/Ddo3JvWqDpo/
+- Post date: September 23, 2026. Retrieved November 6, 2026.
+- Full-resolution image downloaded from the visible public post; original JPEG bytes retained.
+- Shows clothing racks, vintage wall displays, a teal jacket, and the store cat. No photographer identity was supplied in the post caption.
+- Used on the homepage cover with responsive CSS cropping and a link to its source post.
+
+### Live performance close-up
+
+- Public asset: `public/images/zine/afterglow-live-performance.jpg`
+- Dimensions: 1365 × 914; JPEG size: 151,741 bytes.
+- Source post: https://www.instagram.com/afterglowvintageindy/p/DeXkN_xkion/ — carousel image 2.
+- Post date: October 11, 2026. Retrieved November 6, 2026.
+- Matches the user's screenshot; downloaded directly from the visible public carousel without Instagram interface overlays. Original JPEG bytes retained.
+- Shows a vocalist at a microphone and a bassist. The post credits @pipergrace_photography for the event photos; the lookbook includes this credit and source link.
+- Used in the homepage Polaroid (CSS portrait crop) and second lookbook story (full image proportions).
 
 ## Historical generated artwork
 
