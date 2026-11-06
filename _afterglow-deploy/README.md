@@ -35,7 +35,7 @@ existing content configuration is changed by this integration.
 Use Node.js 24:
 
 ```sh
-node --test _afterglow-deploy/sync.test.mjs
+node --test _afterglow-deploy/sync.test.mjs _afterglow-deploy/pages-build.test.mjs
 npm ci --prefix _afterglow
 npm run build --prefix _afterglow
 node _afterglow-deploy/verify.mjs
@@ -72,8 +72,11 @@ uses a normal fast-forward push; it never force-pushes. A simultaneous push to
 
 GitHub documents that commits made with `GITHUB_TOKEN` do not automatically
 trigger branch-based Pages builds. The workflow therefore explicitly calls
-`POST /repos/{owner}/{repo}/pages/builds` with `pages: write`, waits for the exact
-committed revision to build, and verifies production over HTTPS. It does not
+`POST /repos/{owner}/{repo}/pages/builds` with `pages: write`, waits for the native
+Pages Actions workflow for that exact committed revision with `actions: read`,
+and verifies production over HTTPS. The native workflow is authoritative because
+the legacy build API can report an error even after successful deployment.
+It does not
 create a second Pages deployment or change the existing publishing mechanism.
 
 ## Verification and rollback

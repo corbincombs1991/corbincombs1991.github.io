@@ -8,15 +8,15 @@ if (repository !== 'corbincombs1991/corbincombs1991.github.io' || !token) {
   throw new Error('Run only in the existing domain repository with GH_TOKEN set.');
 }
 async function api(endpoint, method = 'GET') {
-  const response = await fetch(`https://api.github.com/repos/${repository}/pages${endpoint}`, {
+  const response = await fetch(`https://api.github.com/repos/${repository}${endpoint}`, {
     method,
     headers: { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}`, 'X-GitHub-Api-Version': '2022-11-28' },
     signal: AbortSignal.timeout(30000),
   });
-  if (!response.ok) throw new Error(`Pages ${method} ${endpoint}: HTTP ${response.status}: ${await response.text()}`);
+  if (!response.ok) throw new Error(`GitHub ${method} ${endpoint}: HTTP ${response.status}: ${await response.text()}`);
   return response.json();
 }
-const settings = await api('');
+const settings = await api('/pages');
 if (settings.cname !== 'corbincombs.com' || settings.build_type !== 'legacy' || settings.source?.branch !== 'main' || settings.source?.path !== '/' || !settings.https_enforced) {
   throw new Error('Pages settings changed. Refusing to alter or replace the existing publishing configuration.');
 }

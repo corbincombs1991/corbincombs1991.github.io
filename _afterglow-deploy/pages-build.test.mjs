@@ -3,21 +3,29 @@ import test from 'node:test';
 import { requestPagesBuild } from './pages-build.mjs';
 
 const revision = 'target-revision';
-const build = (id, status, commit = revision) => ({
-  url: `https://api.github.com/repos/owner/repository/pages/builds/${id}`,
+const endpoint = `/actions/runs?head_sha=${revision}&per_page=100`;
+const run = (id, status, conclusion = null, overrides = {}) => ({
+  id,
+  path: 'dynamic/pages/pages-build-deployment',
+  html_url: `https://github.com/owner/repository/actions/runs/${id}`,
   status,
-  commit,
-  error: { message: status === 'errored' ? 'Build failed' : null },
+  conclusion,
+  head_sha: revision,
+  ...overrides,
 });
 
-function fixture(builds) {
+function fixture(polls) {
   let time = 0;
   const calls = [];
-  const api = async (endpoint, method = 'GET') => {
-    calls.push([endpoint, method]);
-    if (method === 'POST') return { url: '/builds/latest', status: 'queued' };
-    assert.ok(builds.length, 'Unexpected extra build poll');
-    return builds.shift();
+  const api = async (path, method = 'GET') => {
+    calls.push([path, method]);
+    if (method === 'POST') {
+      assert.equal(path, '/pages/builds');
+      return { url: '/pages/builds/latest', status: 'queued' };
+    }
+    assert.equal(path, endpoint);
+    assert.ok(polls.length, 'Unexpected extra workflow poll');
+    return { workflow_runs: polls.shift() };
   };
   return {
     api,
@@ -31,34 +39,49 @@ function fixture(builds) {
   };
 }
 
-test('waits through a superseded same-revision error for the requested build', async () => {
+test('waits through a newly observed cancelled Pages run for its successful replacement', async () => {
+  const cancelled = run(2, 'completed', 'cancelled');
   const { api, calls, options } = fixture([
-    build(1, 'building'),
-    build(1, 'errored'),
-    build(2, 'building'),
-    build(2, 'built'),
+    [run(1, 'completed', 'success', { head_sha: 'older-revision' })],
+    [cancelled],
+    [cancelled, run(3, 'queued')],
+    [cancelled, run(3, 'completed', 'success')],
   ]);
   await requestPagesBuild(api, revision, options);
   assert.deepEqual(calls, [
-    ['/builds/latest', 'GET'],
-    ['/builds', 'POST'],
-    ['/builds/latest', 'GET'],
-    ['/builds/latest', 'GET'],
-    ['/builds/latest', 'GET'],
+    [endpoint, 'GET'],
+    ['/pages/builds', 'POST'],
+    [endpoint, 'GET'],
+    [endpoint, 'GET'],
+    [endpoint, 'GET'],
   ]);
 });
 
-test('reports a terminal failure from the replacement build', async () => {
-  const { api, options } = fixture([build(1, 'errored'), build(2, 'errored')]);
-  await assert.rejects(requestPagesBuild(api, revision, options), /Pages build failed: Build failed/);
+test('does not accept a previous success of the same SHA or an unrelated workflow', async () => {
+  const previous = run(1, 'completed', 'success');
+  const unrelated = run(2, 'completed', 'success', { path: '.github/workflows/afterglow-publish.yml' });
+  const { api, calls, options } = fixture([
+    [previous],
+    [previous, unrelated],
+    [run(3, 'in_progress'), previous, unrelated],
+    [run(3, 'completed', 'success'), previous, unrelated],
+  ]);
+  await requestPagesBuild(api, revision, options);
+  assert.equal(calls.length, 5);
 });
 
-test('times out when the requested revision never gets a new successful build', async () => {
+test('reports a genuine terminal failure from the new Pages workflow', async () => {
+  const { api, options } = fixture([[], [run(2, 'completed', 'failure')]]);
+  await assert.rejects(requestPagesBuild(api, revision, options), /Pages workflow failed: failure.*actions\/runs\/2/);
+});
+
+test('times out with diagnostics if cancellation never gets a successful replacement', async () => {
+  const cancelled = run(2, 'completed', 'cancelled');
   const { api, options } = fixture([
-    build(1, 'built'),
-    build(1, 'built'),
-    build(2, 'built', 'other-revision'),
-    build(3, 'building'),
+    [],
+    [run(1, 'completed', 'success', { head_sha: 'other-revision' })],
+    [cancelled],
+    [cancelled],
   ]);
-  await assert.rejects(requestPagesBuild(api, revision, options), /Timed out waiting for Pages revision target-revision.*\(building\)/);
+  await assert.rejects(requestPagesBuild(api, revision, options), /Timed out waiting for Pages revision target-revision.*completed\/cancelled/);
 });
