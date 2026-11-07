@@ -1,11 +1,20 @@
 {
-  "generated": "2026-10-31T09:00:49-04:00",
-  "count": 62,
+  "generated": "2026-11-07T09:00:50-05:00",
+  "count": 63,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
+    {
+      "date": "2026-11-07",
+      "video_id": "qED7Ds9Y7Ic",
+      "title": "Did Voters Just Pull the Plug on the Data Center Boom?",
+      "url": "https://www.youtube.com/watch?v=qED7Ds9Y7Ic",
+      "sentiment": "BULLISH",
+      "reason": "Despite meaningful deterioration in tech leadership and several near-term warning signs, the presenter says the broad market uptrend remains intact and historical oversold data favor positive six- to twelve-month returns. The stance is cautiously bullish: act incrementally, watch key support levels, and remain open to leadership rotation or further downside.",
+      "summary": "• The election-driven selloff raised fears that data-center expansion could slow, but the presenter sees both legitimate concerns and political hype, with no clear evidence yet of widespread community harm.\n• SPY is down less than 6% from its high, a routine correction historically; the broad S&P remains above rising long-term support, and the current uptrend is intact unless key levels fail.\n• Anchored VWAP bands, moving averages, Fibonacci retracements, prior resistance, and trend lines identify support zones across SPY, SPYG, and QQQ; sustained time below them would raise reversal risks.\n• QQQ has suffered more, but a rare oversold QQQ/LQD reading historically preceded strong longer-term returns: 91% positive at six months and 100% at nine and twelve months, with nearly 30% average gain at a year.\n• Breadth and leadership charts show deterioration and potential rotation away from mega-cap growth; value or equal-weight exposure could benefit if these shifts persist. Credit and recession-sensitive comparisons have not yet confirmed a major earnings or economic breakdown.\n• Semiconductors and AI-related stocks look vulnerable, prompting incremental profit-taking; the speaker cautions that a 2000-style top is possible but not established by current evidence.\n• Bottom line: avoid panic or complacency, take measured defensive steps, and let price action at support and leadership inflection points determine whether this is a correction or the start of a deeper bear market."
+    },
     {
       "date": "2026-10-31",
       "video_id": "1o8Lih-mBQA",
@@ -464,15 +473,6 @@
       "sentiment": "BULLISH",
       "reason": "The 2000-bubble comparison is rejected with hard numbers — tech outperformance is ~1.3x vs ~4.7x, and trend profiles are strong. Constructive, but the video explicitly flags yellow flags and inflation risk, so it stops short of all-signals-green.",
       "summary": "• Rejects the 2000-bubble comparison with numbers: from Oct 1994 to Mar 2000 the NASDAQ 100 gained 1,042% vs the S&P's 221% (~4.7x); the same ~5.5-year window today shows only ~1.3x — neck and neck.\n• In the 658-day blowoff into 2000, NDX outperformed the S&P by ~8x; over the last 658 days it is just 1.13x — a bubble vs. five-plus years of consolidation.\n• Today's NDX/SPX ratio is consolidating above an upward-sloping 200-week MA after being below it in early 2023 — a healthy fractal, not a vertical blowoff.\n• Weight-of-evidence scores remain strong as of Nov 14: nothing particularly concerning in the S&P trend; the market rallied hard off intraday lows (S&P +87 pts, NASDAQ +463 pts).\n• Tech vs energy (XLK/XLE) has risen since April's 'less bad tariff news' — the opposite of the pre-2022 inflation rollover.\n• Inflation watch: BSV short-term bonds show a full-bore bullish look vs the indecisive 2021 and bearish January 2022 profiles; a surprise inflation spike is the main risk.\n• The 2000 deflationary tell (bonds outperforming stocks) is absent — that ratio made a new 52-week low in October.\n• XLK sits above rising 50/100/200-day MAs; even an 11% pullback to support would be '100% normal' — comparable windows averaged ~12% drawdowns followed by higher highs.\n• NASDAQ 100 weekly/monthly cloud profiles are much stronger than January 2022, favoring pullbacks being followed by new highs.\n• Caveat: several yellow flags (internal deterioration, CRB commodities, 2-year yield) — a normal pullback would not be shocking, so stay flexible."
-    },
-    {
-      "date": "2025-11-08",
-      "video_id": "dt-7GJRnwhM",
-      "title": "Stock Market Bubble: Is It Time To Get Out?",
-      "url": "https://www.youtube.com/watch?v=dt-7GJRnwhM",
-      "sentiment": "VERY BULLISH",
-      "reason": "Dual-100 trend-strength model scores, an 'extremely strong trend' on the charts, no data suggesting the secular trend is on the ropes, and demographics plus AI pointing to a secular bull through 2034-35 — the video is confident bubble talk won't be a useful timing tool, though it flags normal short-term volatility.",
-      "summary": "Bubble question after a volatile Friday (S&P down 88 points intraday, finished up 8): the video argues bubble talk is not a useful timing tool.\n• History: 21 public bubble warnings from 1985-1998 (Business Week, NYT, Fed testimony, etc.); the S&P gained 282% on average and rallied 7.2 more years after each warning.\n• Examples: +735% after the 1985 'casino' cover and +571% after October 1987; the Nasdaq averaged ~750% gains across the 21 instances.\n• AI cycle: the data-center buildout is just the start — 10-15 years of innovation ahead across energy, robotics, factories, biotech and education.\n• Demographics plus AI suggest the secular bull market could extend into 2034-2035.\n• Model scores: trend-strength model still posts dual 100s, far from the concerning 24%/15%/20%/10% levels; the secular volatility model is also strong.\n• The S&P held its upward-sloping 50-day MA intraday Friday and reversed higher; nothing concerning was violated on the daily chart.\n• The weekly chart looks like 'an extremely strong trend' — not the 2000 or 2007-08 rollovers; the current pullback hasn't exceeded the ~7% median drawdown of strong-trend windows.\n• After strong Nasdaq runs, givebacks are normal but the trend was higher a year later in every case (+26.84% avg); ~70% odds of a December Fed cut are a tailwind for tech and cyclicals.\n• Conclusion: 'big picture, things still look good' — no data says the secular trend is on the ropes, though the market still has short-term work to do."
     }
   ]
 }
