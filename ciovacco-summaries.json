@@ -1,11 +1,20 @@
 {
-  "generated": "2026-11-07T09:00:50-05:00",
-  "count": 63,
+  "generated": "2026-11-14T09:01:01-05:00",
+  "count": 64,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
+    {
+      "date": "2026-11-14",
+      "video_id": "E8nRKxB4uzM",
+      "title": "Did NVIDIA Just Break The AI Trade?",
+      "url": "https://www.youtube.com/watch?v=E8nRKxB4uzM",
+      "sentiment": "NEUTRAL",
+      "reason": "The video sees meaningful technical deterioration and raises cash incrementally, but argues that key support, longer-term trends, and breadth have not yet confirmed a major bear-market break. The stance is patient and conditional, with clear risks in tech, rates, and bonds.",
+      "summary": "• The market’s sharp prior-week sell-off eased: major indexes rebounded, and the S&P 500 and futures held last week’s lows. The presenter treats this as a short-term range, not proof that the danger has passed.\n• The Nasdaq’s relative performance and semiconductor gains do not resemble the extreme 1998–2000 bubble run in the comparisons shown, though tech weakness remains a concern.\n• NVIDIA is near several anchored VWAP support bands and common 38.2%/61.8% retracement levels. Holding them supports patience; losing them would justify taking more incremental profits.\n• Anchored VWAPs, retracements, rising 200-day averages, and prior highs/lows are key reference points across the S&P 500, XLK, AIQ, and growth-stock charts. Several have bounced, but overhead resistance remains.\n• The firm has trimmed small portions of SMH, VUG, and GLD to raise cash. It would want the S&P 500 to clear resistance and enter “white space” before considering redeployment.\n• Higher yields, possible further Fed hikes, and ugly bond charts are risks; improving inflation data could ease pressure. Some cyclical and breadth measures remain healthier than in 2000, 2008, or 2022.\n• Overall, the message is neither “all clear” nor confirmed collapse: stay flexible, manage risk incrementally, and let breaks of support or resistance update the outlook."
+    },
     {
       "date": "2026-11-07",
       "video_id": "qED7Ds9Y7Ic",
@@ -464,15 +473,6 @@
       "sentiment": "BULLISH",
       "reason": "The ~5% pullback is classified as routine (5% corrections occur 3+ times a year) with trend-strength scores, credit markets, and inflation ratios all still bullish; the video keeps the door open to reassessment if 6,300 breaks.",
       "summary": "• The ~5% drawdown on a closing basis is routine — 5% corrections have occurred 3+ times per year since 1928 and 3% pullbacks about 7 times a year.\n• Backtracking to the Feb 2025 high would be ~10-11%, matching the average (11.5%) and median (9.6%) drawdowns of prior secular bull runs.\n• Trend-strength scores remain high (97, 100); at the 2000 and 2007 peaks these scores were far lower, and the weekly chart doesn't resemble those rollovers.\n• AI capex worries echo historical 'bubble' narratives (railways, telephones, radio, electrification, PCs, internet) that ultimately produced massive productivity gains.\n• Inflation is not the market's problem — inflation-ratio charts don't look like Jan 2022; no imminent recession signals; the Fed may still cut in Dec/Jan.\n• Seasonals flip from unfavorable to favorable; SMH/XLK/tech ratios show normal givebacks with support at rising 200-day MAs and anchored VWAP bands.\n• Credit markets (IEF at 3-year highs, JNK near all-time highs) confirm the inflation scare is in the rearview mirror.\n• Conclusion: this is normal stock market behavior within a secular bull; give the long-term uptrend the benefit of the doubt."
-    },
-    {
-      "date": "2025-11-15",
-      "video_id": "PvV831tRPq8",
-      "title": "Is It Fair To Say 2025 Looks Just Like The Stock Bubble In 2000?",
-      "url": "https://www.youtube.com/watch?v=PvV831tRPq8",
-      "sentiment": "BULLISH",
-      "reason": "The 2000-bubble comparison is rejected with hard numbers — tech outperformance is ~1.3x vs ~4.7x, and trend profiles are strong. Constructive, but the video explicitly flags yellow flags and inflation risk, so it stops short of all-signals-green.",
-      "summary": "• Rejects the 2000-bubble comparison with numbers: from Oct 1994 to Mar 2000 the NASDAQ 100 gained 1,042% vs the S&P's 221% (~4.7x); the same ~5.5-year window today shows only ~1.3x — neck and neck.\n• In the 658-day blowoff into 2000, NDX outperformed the S&P by ~8x; over the last 658 days it is just 1.13x — a bubble vs. five-plus years of consolidation.\n• Today's NDX/SPX ratio is consolidating above an upward-sloping 200-week MA after being below it in early 2023 — a healthy fractal, not a vertical blowoff.\n• Weight-of-evidence scores remain strong as of Nov 14: nothing particularly concerning in the S&P trend; the market rallied hard off intraday lows (S&P +87 pts, NASDAQ +463 pts).\n• Tech vs energy (XLK/XLE) has risen since April's 'less bad tariff news' — the opposite of the pre-2022 inflation rollover.\n• Inflation watch: BSV short-term bonds show a full-bore bullish look vs the indecisive 2021 and bearish January 2022 profiles; a surprise inflation spike is the main risk.\n• The 2000 deflationary tell (bonds outperforming stocks) is absent — that ratio made a new 52-week low in October.\n• XLK sits above rising 50/100/200-day MAs; even an 11% pullback to support would be '100% normal' — comparable windows averaged ~12% drawdowns followed by higher highs.\n• NASDAQ 100 weekly/monthly cloud profiles are much stronger than January 2022, favoring pullbacks being followed by new highs.\n• Caveat: several yellow flags (internal deterioration, CRB commodities, 2-year yield) — a normal pullback would not be shocking, so stay flexible."
     }
   ]
 }
