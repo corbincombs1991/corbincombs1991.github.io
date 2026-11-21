@@ -1,11 +1,20 @@
 {
-  "generated": "2026-11-14T09:01:01-05:00",
-  "count": 64,
+  "generated": "2026-11-21T09:00:43-05:00",
+  "count": 65,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
+    {
+      "date": "2026-11-21",
+      "video_id": "MK7DxsZ1mzc",
+      "title": "Stocks: Correction, Bear Market, Or Something Much Worse?",
+      "url": "https://www.youtube.com/watch?v=MK7DxsZ1mzc",
+      "sentiment": "NEUTRAL",
+      "reason": "The near-term evidence has deteriorated enough to justify raising cash and preparing for further downside, but oversold conditions and the channel’s secular-bull framework leave room for a sharp rebound and higher highs. The video does not yet conclude that a major secular bear market has begun.",
+      "summary": "• The S&P 500’s 11.62% drawdown is within the historical range of ordinary pullbacks in secular bull markets; a move toward 15% would not by itself settle whether this is a bear market.\n• The short-term technical picture has weakened: the index closed below its 200-day average and cloud, several support/reference levels failed, breadth worsened, and volatility surged above 35.\n• Earnings revisions are still rising rather than showing the broad downward trend seen in 2001–02, while risky-credit indicators remain healthier than in early 2022—evidence against assuming the worst-case scenario.\n• Extreme fear, oversold readings, DeMark 9/13 counts, RSI divergences, and nearby gaps or retracement zones raise the probability of a sharp countertrend bounce, but none is confirmation until price improves.\n• The firm has incrementally taken profits and raised cash as growth and technology leadership weakened; limited starter-position sizing has contained the impact of losses.\n• Relative-strength charts show growing risk of a rotation from large-cap growth and technology toward value or other sectors, though a lasting leadership change is not established.\n• The key test is whether the market holds important trend bands or deteriorates into the prolonged weakness characteristic of secular stagnation; the current chart still looks more like a strong trend than the 2000 peak.\n• Overall, the video’s base case is a possible cyclical bear within a secular bull, while emphasizing flexible risk management and waiting for market confirmation."
+    },
     {
       "date": "2026-11-14",
       "video_id": "E8nRKxB4uzM",
@@ -464,15 +473,6 @@
       "sentiment": "BULLISH",
       "reason": "The weight of the evidence remains constructive — long-term trend intact, breadth near another thrust, contrarian sentiment extremes (3x-short ETF bets, 3-year-low Bitcoin sentiment), and strong historical forward returns — but Ciovacco repeatedly hedges: 'not predicting anything,' a possible gap-fill head fake, and earlier yellow flags. Generally constructive but cautious.",
       "summary": "• Bubble talk in early November was not a reason to liquidate; the present-day S&P chart did not look like the 2000 or 2007-08 peaking processes.\n• After the S&P fell 5.11% on a closing basis by Nov 20, the long-term trend still looked good — 5% drawdowns historically occur 3-4 times a year and were followed by higher prices.\n• Huge bets in the 3x-short S&P ETF on Nov 21 mirrored spikes at the COVID bottom, the 2022 bottoms, and April 2025 — in all four cases the S&P was higher a month later (avg +11%).\n• The S&P recovered +3.73% in the week to Nov 28 and is back above its anchored VWAP cluster, trying to hold a downward-sloping trendline; a gap-fill dip would be constructive.\n• Bitcoin sentiment hit a 3-year low near support — a contrarian bullish tell — and the secular-bull thesis (demographics + earnings) could take the S&P to 9000-11000 by decade's end per Yardeni.\n• Ending the Nasdaq 100's 7-month win streak is historically positive (higher a year later every time, avg +23.5%); Fed odds of a December cut jumped to ~87-88%.\n• The market is very close to triggering another breadth thrust; the last similar setup (Oct 18, 2013) was followed by +8% (1yr), +40% (4yr), and +70% (6yr) gains.\n• Conclusion: charts and models remain constructive with no red flags; the disciplined stance is to stay patient and avoid reacting to either the drop or the bounce."
-    },
-    {
-      "date": "2025-11-22",
-      "video_id": "2VHAGGmCxAU",
-      "title": "Is This Normal Stock Market Behavior Or Something To Be Concerned About?",
-      "url": "https://www.youtube.com/watch?v=2VHAGGmCxAU",
-      "sentiment": "BULLISH",
-      "reason": "The ~5% pullback is classified as routine (5% corrections occur 3+ times a year) with trend-strength scores, credit markets, and inflation ratios all still bullish; the video keeps the door open to reassessment if 6,300 breaks.",
-      "summary": "• The ~5% drawdown on a closing basis is routine — 5% corrections have occurred 3+ times per year since 1928 and 3% pullbacks about 7 times a year.\n• Backtracking to the Feb 2025 high would be ~10-11%, matching the average (11.5%) and median (9.6%) drawdowns of prior secular bull runs.\n• Trend-strength scores remain high (97, 100); at the 2000 and 2007 peaks these scores were far lower, and the weekly chart doesn't resemble those rollovers.\n• AI capex worries echo historical 'bubble' narratives (railways, telephones, radio, electrification, PCs, internet) that ultimately produced massive productivity gains.\n• Inflation is not the market's problem — inflation-ratio charts don't look like Jan 2022; no imminent recession signals; the Fed may still cut in Dec/Jan.\n• Seasonals flip from unfavorable to favorable; SMH/XLK/tech ratios show normal givebacks with support at rising 200-day MAs and anchored VWAP bands.\n• Credit markets (IEF at 3-year highs, JNK near all-time highs) confirm the inflation scare is in the rearview mirror.\n• Conclusion: this is normal stock market behavior within a secular bull; give the long-term uptrend the benefit of the doubt."
     }
   ]
 }
