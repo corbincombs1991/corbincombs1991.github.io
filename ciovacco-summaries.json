@@ -1,11 +1,20 @@
 {
-  "generated": "2026-11-21T09:00:43-05:00",
-  "count": 65,
+  "generated": "2026-11-28T09:01:18-05:00",
+  "count": 66,
   "published": 52,
   "limit": 52,
   "channel": "Ciovacco Capital",
   "channel_url": "https://www.youtube.com/@ciovaccocapital",
   "summaries": [
+    {
+      "date": "2026-11-28",
+      "video_id": "cb875ccG42I",
+      "title": "Stocks: Short-Term Bounce Or The Start Of Something Big?",
+      "url": "https://www.youtube.com/watch?v=cb875ccG42I",
+      "sentiment": "BULLISH",
+      "reason": "The speaker sees a broad, technically constructive bounce from logical support and an intact long-term uptrend, but emphasizes unresolved resistance, mixed credit/relative-strength evidence, and downside risk if support fails.",
+      "summary": "• Stocks staged a broad rebound: the S&P 500 rose 5.61%, with tech and Nasdaq-linked ETFs up over 6%, bouncing from historically meaningful support areas.\n• The recovery remains provisional. SPY is range-bound between roughly 702 and 756; a sustained move above 756 (with the S&P near 7,615) would improve bullish odds, while rejection or a breakdown would warn of renewed weakness.\n• Breadth is mixed but not yet like early 2022: Nasdaq new lows are muted and tech breadth looks healthier, though short-term downtrends and growth/value divergences need repair.\n• Relative-strength charts show tech’s long-term leadership trend largely intact, but growth versus value and financials versus tech have not confirmed a decisive bullish turn.\n• Credit signals are cautious: high-yield JNK remains below its 200-day average, while senior loans look sturdier than during 2022; a daily exhaustion signal could precede reversal but is not confirmation.\n• Major indexes reclaimed key retracement, moving-average, and cloud levels; holding above them would reinforce support. Nvidia and QQQ also bounced near rising long-term averages.\n• Conclusion: a logical, broad-based bounce and intact long-term uptrend make the setup ‘so far, so good,’ not an all-clear. The market is back in a range, so the speaker favors patience as price tests key levels."
+    },
     {
       "date": "2026-11-21",
       "video_id": "MK7DxsZ1mzc",
@@ -464,15 +473,6 @@
       "sentiment": "BULLISH",
       "reason": "The stocks-vs-bonds ratio and CCM volatility model scores show no resemblance to the 2000 or 2008 topping processes, and historical studies favor strong forward returns. Constructive, with a monitoring discipline around recession/inflation data rather than unhedged confidence.",
       "summary": "• Asks whether a 2026 recession could derail the bull market, using the S&P 500 vs 30-year Treasury ratio and CCM's secular volatility model scores.\n• In 1999-2001 and 2006-2008 the ratio made discernible lower highs as the S&P peaked; by July 2001 and June 2008 the long-term trend was 'on the ropes' and the S&P lost another ~36% and ~48% respectively.\n• Those vulnerable looks were recognizable and actionable in real time — incremental defensive shifts matter because 'buy and hold works until it doesn't.'\n• The present-day chart (Dec 4, 2025) shows none of those topping characteristics; price and moving averages align with, not contradict, the base case.\n• Base case: a transformational productivity boom (AI, robotics, life sciences) inside a demographics-driven secular bull; a 2026 recession is a risk to monitor, not the forecast.\n• CCM model scores on Dec 5 are the polar opposite of July 2001 and June 2008 — no vulnerability readings in either direction.\n• XLK rose nine straight trading days; historically that has led to an average +16.99% next-year gain, higher 93% of the time.\n• In cases since the early 1970s where the S&P fell 10%+ intra-year yet finished positive, the next year averaged almost +19% (median +18.35%) with muted volatility.\n• The 2025 tariff drawdowns fit that pattern, so forward probabilities favor much better-than-expected outcomes.\n• Discipline: distinguish volatility to ignore from volatility to respect; if 2026 data drifts from the story, allocations get adjusted with an open mind."
-    },
-    {
-      "date": "2025-11-29",
-      "video_id": "-jeUGoQ6L38",
-      "title": "What Could This Week's Sharp Reversal Mean For Stocks?",
-      "url": "https://www.youtube.com/watch?v=-jeUGoQ6L38",
-      "sentiment": "BULLISH",
-      "reason": "The weight of the evidence remains constructive — long-term trend intact, breadth near another thrust, contrarian sentiment extremes (3x-short ETF bets, 3-year-low Bitcoin sentiment), and strong historical forward returns — but Ciovacco repeatedly hedges: 'not predicting anything,' a possible gap-fill head fake, and earlier yellow flags. Generally constructive but cautious.",
-      "summary": "• Bubble talk in early November was not a reason to liquidate; the present-day S&P chart did not look like the 2000 or 2007-08 peaking processes.\n• After the S&P fell 5.11% on a closing basis by Nov 20, the long-term trend still looked good — 5% drawdowns historically occur 3-4 times a year and were followed by higher prices.\n• Huge bets in the 3x-short S&P ETF on Nov 21 mirrored spikes at the COVID bottom, the 2022 bottoms, and April 2025 — in all four cases the S&P was higher a month later (avg +11%).\n• The S&P recovered +3.73% in the week to Nov 28 and is back above its anchored VWAP cluster, trying to hold a downward-sloping trendline; a gap-fill dip would be constructive.\n• Bitcoin sentiment hit a 3-year low near support — a contrarian bullish tell — and the secular-bull thesis (demographics + earnings) could take the S&P to 9000-11000 by decade's end per Yardeni.\n• Ending the Nasdaq 100's 7-month win streak is historically positive (higher a year later every time, avg +23.5%); Fed odds of a December cut jumped to ~87-88%.\n• The market is very close to triggering another breadth thrust; the last similar setup (Oct 18, 2013) was followed by +8% (1yr), +40% (4yr), and +70% (6yr) gains.\n• Conclusion: charts and models remain constructive with no red flags; the disciplined stance is to stay patient and avoid reacting to either the drop or the bounce."
     }
   ]
 }
